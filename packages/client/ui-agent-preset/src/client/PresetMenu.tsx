@@ -11,7 +11,7 @@
 
 import { IconChevronDownOutline14, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { AgentPresetOption } from './settings-store.ts'
-import { presetDisplayText, type AgentPresetSettingsKey } from './locales.ts'
+import { presetDisplayText, pickerPresetOptions, type AgentPresetSettingsKey } from './locales.ts'
 
 /** What one surface passes to the shared picker. */
 export interface PresetMenuProps {
@@ -50,7 +50,7 @@ export function PresetMenu({
     <Menu
       open={open}
       onClose={() => { onOpenChange(false) }}
-      items={options.map((option) => {
+      items={pickerPresetOptions(options).map((option) => {
         const name = presetDisplayText(option, t).name
         return {
           id: option.id,

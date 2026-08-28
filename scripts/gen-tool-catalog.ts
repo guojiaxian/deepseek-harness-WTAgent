@@ -63,6 +63,10 @@ import * as ToolTeam from '@deepseek-ai/dsh-experimental-tool-agent-team'
 import * as ToolTodo from '@deepseek-ai/dsh-tool-todo'
 import * as ToolSubagent from '@deepseek-ai/dsh-tool-subagent'
 import * as ToolWeb from '@deepseek-ai/dsh-tool-web'
+import * as ToolExploration from '@deepseek-ai/dsh-tool-exploration'
+import * as ToolConsistency from '@deepseek-ai/dsh-tool-consistency'
+import * as ToolCode from '@deepseek-ai/dsh-tool-code'
+import * as ToolPaper from '@deepseek-ai/dsh-tool-paper'
 import VmWorkflowEngine from '@deepseek-ai/dsh-workflow-worker-thread'
 import * as ToolRalph from '@deepseek-ai/dsh-tool-ralph'
 import * as ToolWorkflow from '@deepseek-ai/dsh-tool-workflow'
@@ -605,6 +609,66 @@ const TOOL_PACKAGES: ToolPackage[] = [
     },
     note:
       'web_search and web_fetch keep provider selection behind ctx.web so model-visible schemas stay stable across backend swaps.',
+  },
+  {
+    pkg: '@deepseek-ai/dsh-tool-exploration',
+    dir: 'tool-exploration',
+    source: 'packages/exploration/tool-exploration/src/index.ts',
+    requires: ['ctx.tools'],
+    writes: ['tool/call', 'tool/result'],
+    async mount(ctx) {
+      // The tools call the engine's pure processors directly and need no
+      // engine service, so mounting the tool plugin alone harvests all six.
+      await ctx.plugin(ToolExploration)
+    },
+    note:
+      'The six exploration_* tools call the @deepseek-ai/dsh-exploration engine\'s pure processors directly. '
+      + 'Transform tools round-trip the full dataset JSON through their arguments; `segy` inputs arrive base64-encoded.',
+  },
+  {
+    pkg: '@deepseek-ai/dsh-tool-consistency',
+    dir: 'tool-consistency',
+    source: 'packages/consistency/tool-consistency/src/index.ts',
+    requires: ['ctx.tools'],
+    writes: ['tool/call', 'tool/result'],
+    async mount(ctx) {
+      // The tools call the engine's pure processors directly and need no
+      // engine service, so mounting the tool plugin alone harvests all seven.
+      await ctx.plugin(ToolConsistency)
+    },
+    note:
+      'The seven consistency_* tools call the @deepseek-ai/dsh-consistency engine\'s pure processors directly. '
+      + 'Transform tools round-trip the workflow JSON through their arguments; the exclude tool drops large-offset stations after plotting; the run tool returns the full traceability record.',
+  },
+  {
+    pkg: '@deepseek-ai/dsh-tool-code',
+    dir: 'tool-code',
+    source: 'packages/code/tool-code/src/index.ts',
+    requires: ['ctx.tools'],
+    writes: ['tool/call', 'tool/result'],
+    async mount(ctx) {
+      // The tools call the engine's pure analyzers directly and need no engine
+      // service, so mounting the tool plugin alone harvests both.
+      await ctx.plugin(ToolCode)
+    },
+    note:
+      'The code_analyze and code_check tools call the @deepseek-ai/dsh-code engine\'s pure analyzers directly '
+      + '(language detection, metrics, cyclomatic complexity, quality score, and static quality/security findings).',
+  },
+  {
+    pkg: '@deepseek-ai/dsh-tool-paper',
+    dir: 'tool-paper',
+    source: 'packages/paper/tool-paper/src/index.ts',
+    requires: ['ctx.tools'],
+    writes: ['tool/call', 'tool/result'],
+    async mount(ctx) {
+      // The tools call the engine's pure processors directly and need no engine
+      // service, so mounting the tool plugin alone harvests all five.
+      await ctx.plugin(ToolPaper)
+    },
+    note:
+      'The five paper_* tools (ingest/revise/format/cite/run) call the @deepseek-ai/dsh-paper engine\'s pure '
+      + 'processors directly; ingest/revise/format/cite round-trip a paper JSON, run returns the traceability record.',
   },
 ]
 

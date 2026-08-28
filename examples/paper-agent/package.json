@@ -1,0 +1,7 @@
+{
+  "name": "paper-agent-example",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Runnable demo: professional academic paper-writing agent (revise, format, cite)"
+}

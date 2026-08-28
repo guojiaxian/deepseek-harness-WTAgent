@@ -41,6 +41,10 @@ This table connects model-visible tool names to the plugin package and service s
 | `@deepseek-ai/dsh-tool-todo` | `todo_write` | `ctx.tools`, `owning Agent session` | `tool/call`, `todo/write`, `tool/result` | - | todo_write is session-owned state; UIs render the latest todo/write event as a checklist. `allowParallelInProgress` is required with no default, so the catalog states its choice: `true`, whose description invites several `in_progress` items. A deployment choosing `false` receives the same tool with a description asking for exactly one active task. |
 | `@deepseek-ai/dsh-tool-workflow` | `workflow` | `ctx.tools`, `ctx.workflowEngine`, `ctx.systemPrompt`, `a calling Agent (exec.agent parents the script children)` | `tool/call`, `tool/result` | - | - |
 | `@deepseek-ai/dsh-tool-web` | `web_fetch`, `web_search` | `ctx.tools`, `ctx.web`, `ctx.systemPrompt` | `tool/call`, `tool/result` | - | web_search and web_fetch keep provider selection behind ctx.web so model-visible schemas stay stable across backend swaps. |
+| `@deepseek-ai/dsh-tool-exploration` | `exploration_clean`, `exploration_convert`, `exploration_detect`, `exploration_extract`, `exploration_ingest`, `exploration_profile`, `exploration_run` | `ctx.tools` | `tool/call`, `tool/result` | - | The six exploration_* tools call the @deepseek-ai/dsh-exploration engine's pure processors directly. Transform tools round-trip the full dataset JSON through their arguments; `segy` inputs arrive base64-encoded. |
+| `@deepseek-ai/dsh-tool-consistency` | `consistency_convert`, `consistency_cut`, `consistency_exclude`, `consistency_ingest`, `consistency_plot`, `consistency_rename`, `consistency_run` | `ctx.tools` | `tool/call`, `tool/result` | - | The seven consistency_* tools call the @deepseek-ai/dsh-consistency engine's pure processors directly. Transform tools round-trip the workflow JSON through their arguments; the exclude tool drops large-offset stations after plotting; the run tool returns the full traceability record. |
+| `@deepseek-ai/dsh-tool-code` | `code_analyze`, `code_check` | `ctx.tools` | `tool/call`, `tool/result` | - | The code_analyze and code_check tools call the @deepseek-ai/dsh-code engine's pure analyzers directly (language detection, metrics, cyclomatic complexity, quality score, and static quality/security findings). |
+| `@deepseek-ai/dsh-tool-paper` | `paper_cite`, `paper_export`, `paper_format`, `paper_ingest`, `paper_revise`, `paper_run` | `ctx.tools` | `tool/call`, `tool/result` | - | The five paper_* tools (ingest/revise/format/cite/run) call the @deepseek-ai/dsh-paper engine's pure processors directly; ingest/revise/format/cite round-trip a paper JSON, run returns the traceability record. |
 
 <a id="deepseek-aidsh-tool-ask-user"></a>
 
@@ -2219,3 +2223,639 @@ Search the web for current information. Provide 1–4 queries in the required qu
 Source: [`packages/web/tool-web/src/index.ts`](../packages/web/tool-web/src/index.ts)
 
 web_search and web_fetch keep provider selection behind ctx.web so model-visible schemas stay stable across backend swaps.
+
+<a id="deepseek-aidsh-tool-exploration"></a>
+
+## `@deepseek-ai/dsh-tool-exploration`
+
+### `exploration_clean`
+
+Clean an exploration dataset: missing-value policy, numeric ranges, dedupe, drops, renames, and type coercion.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Clean options (missing, ranges, dedupe, dropColumns, renameColumns, trimStrings, columnTypes)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_convert`
+
+Convert an exploration dataset: unit conversions, depth↔time, and column selection.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Convert options (units, depthTime, selectColumns)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_detect`
+
+Detect exploration anomalies: z-score, IQR, hard thresholds, spikes, dead traces, and nulls.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Detect options (zscore, iqr, threshold, spike, deadTrace, nulls)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_extract`
+
+Extract exploration statistics: descriptive statistics, rolling windows, and RMS amplitude.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Extract options (statistics, rolling, rms)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_ingest`
+
+Parse raw exploration input (CSV, JSON, or base64-encoded SEG-Y) into a tabular dataset.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input format; csv and json take text, segy takes base64-encoded bytes.",
+      "enum": [
+        "csv",
+        "json",
+        "segy"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw input: CSV/JSON text or base64 SEG-Y."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the dataset meta."
+    },
+    "config": {
+      "description": "Ingest options (delimiter, hasHeader, trim, inferTypes, longFormat, sampleLimit)."
+    }
+  },
+  "required": [
+    "format",
+    "data"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_profile`
+
+Render a seismic section profile (PNG and/or SVG) from an exploration dataset and return the render under the profile key; use after parsing and validating SEG-Y.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Profile options (formats, width, height, colorMap, title)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_run`
+
+Run a full exploration pipeline (ingest first, then clean/convert/extract/detect/profile steps) and return the traceability record; a profile step renders a seismic section into the output meta.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input format; csv and json take text, segy takes base64-encoded bytes.",
+      "enum": [
+        "csv",
+        "json",
+        "segy"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw input: CSV/JSON text or base64 SEG-Y."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the ingested dataset meta."
+    },
+    "pipeline": {
+      "description": "Named pipeline whose first step is ingest."
+    }
+  },
+  "required": [
+    "format",
+    "data",
+    "pipeline"
+  ]
+}
+```
+
+Source: [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+The six exploration_* tools call the @deepseek-ai/dsh-exploration engine's pure processors directly. Transform tools round-trip the full dataset JSON through their arguments; `segy` inputs arrive base64-encoded.
+
+<a id="deepseek-aidsh-tool-consistency"></a>
+
+## `@deepseek-ai/dsh-tool-consistency`
+
+### `consistency_convert`
+
+Validate the mseed2sac/e-mseed2sac converters and build the seed conversion plan by C/E kind.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Convert options (converterC, converterE overrides)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_cut`
+
+Turn the raw datetime.dat arrival lines (Beijing time) into UTC arrival windows and cut file naming. Default span mode also derives one merged window (meta.span): first arrival −cutBefore s → last arrival +cutAfter s, the single continuous range to slice on working copies.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Cut options (mode \"span\"|\"per-arrival\", cutBefore, cutAfter, timezoneOffsetHours, outputCutRoot)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_exclude`
+
+Analyze measured per-station data offsets (DC baseline shift / static displacement computed with obspy after plotting) against a threshold and report which stations need to be excluded. Returns the report only — plot batches and data are left unchanged; the actual device removal is a manual operator action.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "offsets": {
+      "type": "array",
+      "description": "Measured per-station offset magnitudes, e.g. [{\"station\":\"0756_260818\",\"value\":12.5,\"source\":\"obspy dc shift\"}].",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "config": {
+      "description": "Exclude options (threshold required; metric in samples/dc-offset/amplitude; optional arrivalLabel to scope one arrival slice)."
+    }
+  },
+  "required": [
+    "workflow",
+    "offsets"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_ingest`
+
+Build the consistency-test workflow from an interchange JSON payload (project, station directories with seed file names, and raw datetime.dat arrival lines).
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string",
+      "description": "JSON text payload of the interchange document."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the workflow meta."
+    },
+    "config": {
+      "description": "Ingest options (baseDir, inputRoot, outputSacRoot, outputCutRoot, outputFigRoot, converterC, converterE, channel, cutBefore, cutAfter, timezoneOffsetHours, batchSize)."
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_plot`
+
+Partition stations into fixed-height plot batches per arrival (sorted numerically, offsets (batchSize-1-i)*1.5, Y labels WT.<sta[:4]>).
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Plot options (outputFigRoot, channel, batchSize)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_rename`
+
+Compute uniform station directory names (C-prefix stripped, else first 4 glyphs) with collision guarding.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Rename options (none tunable; the rule is fixed)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_run`
+
+Run a full consistency-test pipeline (ingest first, then rename/convert/cut/plot/exclude steps) over the interchange JSON and return the traceability record.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string",
+      "description": "JSON text payload of the interchange document."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the ingested workflow meta."
+    },
+    "pipeline": {
+      "description": "Named pipeline whose first step is ingest."
+    }
+  },
+  "required": [
+    "data",
+    "pipeline"
+  ]
+}
+```
+
+Source: [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+The seven consistency_* tools call the @deepseek-ai/dsh-consistency engine's pure processors directly. Transform tools round-trip the workflow JSON through their arguments; the exclude tool drops large-offset stations after plotting; the run tool returns the full traceability record.
+
+<a id="deepseek-aidsh-tool-code"></a>
+
+## `@deepseek-ai/dsh-tool-code`
+
+### `code_analyze`
+
+Analyze a source code snippet: detect language, compute line metrics, functions, classes, cyclomatic complexity, static findings, and a 0–100 quality score.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source code text to analyze."
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Optional file name; a known extension wins over content heuristics for language detection."
+    },
+    "checks": {
+      "description": "Optional rule toggles: dangerous, secrets, todos, debugResidue, emptyCatch, broadCatch."
+    }
+  },
+  "required": [
+    "source"
+  ]
+}
+```
+
+Source: [`packages/code/tool-code/src/index.ts`](../packages/code/tool-code/src/index.ts)
+
+### `code_check`
+
+Run static quality and security checks on a source snippet: dynamic execution, raw SQL concatenation, hardcoded secrets, TODO markers, debugger residue, and empty/bare exception handlers.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source code text to scan."
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Optional file name for language detection."
+    },
+    "checks": {
+      "description": "Optional rule toggles: dangerous, secrets, todos, debugResidue, emptyCatch, broadCatch."
+    }
+  },
+  "required": [
+    "source"
+  ]
+}
+```
+
+Source: [`packages/code/tool-code/src/index.ts`](../packages/code/tool-code/src/index.ts)
+
+The code_analyze and code_check tools call the @deepseek-ai/dsh-code engine's pure analyzers directly (language detection, metrics, cyclomatic complexity, quality score, and static quality/security findings).
+
+<a id="deepseek-aidsh-tool-paper"></a>
+
+## `@deepseek-ai/dsh-tool-paper`
+
+### `paper_cite`
+
+Format a paper's references in a target style (GB/T 7714, APA, or MLA), optionally sorting entries.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "config": {
+      "description": "Cite options (style: gb7714|apa|mla, sort, maxCitations)."
+    }
+  },
+  "required": [
+    "paper",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_export`
+
+Generate a .docx or .doc document from a paper with structured layout (headers, footers, page numbers, fonts, spacing, margins).
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "format": {
+      "type": "string",
+      "description": "Output document format.",
+      "enum": [
+        "doc",
+        "docx"
+      ]
+    },
+    "config": {
+      "description": "Document layout (headerText, footerText, pageNumbers, fontFamily, fontSizePt, lineSpacing, paragraphSpacingPt, marginsMm)."
+    }
+  },
+  "required": [
+    "paper",
+    "format"
+  ]
+}
+```
+
+Source: [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_format`
+
+Standardize a paper: number headings, normalize spacing, curve ambiguous quotes, and complete citation marks.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "config": {
+      "description": "Format options (numberedHeadings, spacing, typographicQuotes, citationMarks, maxFindings)."
+    }
+  },
+  "required": [
+    "paper"
+  ]
+}
+```
+
+Source: [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_ingest`
+
+Parse raw manuscript text (plain text or Markdown) into a structured paper with sections and references.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input manuscript format.",
+      "enum": [
+        "text",
+        "markdown"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw manuscript text."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the paper meta."
+    },
+    "config": {
+      "description": "Ingest options (markdownHeadings, detectTitle, sectionPattern)."
+    }
+  },
+  "required": [
+    "format",
+    "data"
+  ]
+}
+```
+
+Source: [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_revise`
+
+Analyze a paper for content-revision suggestions: clarity rewrites, passive-voice detection, and cliché flagging.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "config": {
+      "description": "Revise options (clarity, flagPassiveVoice, flagClichés, maxFindings)."
+    }
+  },
+  "required": [
+    "paper",
+    "config"
+  ]
+}
+```
+
+Source: [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_run`
+
+Run a full paper pipeline (ingest first, then revise/format/cite steps) and return the traceability record.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input manuscript format.",
+      "enum": [
+        "text",
+        "markdown"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw manuscript text."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the ingested paper meta."
+    },
+    "pipeline": {
+      "description": "Named pipeline whose first step is ingest."
+    }
+  },
+  "required": [
+    "format",
+    "data",
+    "pipeline"
+  ]
+}
+```
+
+Source: [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+The five paper_* tools (ingest/revise/format/cite/run) call the @deepseek-ai/dsh-paper engine's pure processors directly; ingest/revise/format/cite round-trip a paper JSON, run returns the traceability record.

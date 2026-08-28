@@ -59,11 +59,22 @@ export interface IConversation {
   loadOlder(): Promise<void>
 }
 
+/** Mint a draft attachment id without requiring a secure context (plain-HTTP LAN lacks crypto.randomUUID). */
+function draftAttachmentId(): DraftAttachmentId {
+  if (typeof crypto.randomUUID === 'function') return crypto.randomUUID() as DraftAttachmentId
+  const bytes = crypto.getRandomValues(new Uint8Array(16))
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+  view.setUint8(6, (view.getUint8(6) & 0x0f) | 0x40)
+  view.setUint8(8, (view.getUint8(8) & 0x3f) | 0x80)
+  const hex = Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('')
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}` as DraftAttachmentId
+}
+
 /** Create one browser-only draft descriptor; only its id enters input state. */
 function browserDraftAttachment(file: File): ComposerAttachment {
   return {
     kind: 'image',
-    id: crypto.randomUUID() as DraftAttachmentId,
+    id: draftAttachmentId(),
     previewUrl: URL.createObjectURL(file),
     file,
   }

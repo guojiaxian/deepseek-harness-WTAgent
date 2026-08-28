@@ -1,0 +1,7 @@
+{
+  "name": "exploration-agent-example",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Runnable demo: professional exploration (geology/geophysics/well-log) data processing agent"
+}

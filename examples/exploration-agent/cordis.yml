@@ -1,0 +1,100 @@
+# Professional exploration data processing agent: geology / geophysics /
+# well-log data flows through the dsh-exploration engine and its model-facing
+# exploration_* tools. The engine registers a well-log QC pipeline and a
+# seismic-profile pipeline at load; the model can also pass a one-off pipeline to the
+# exploration_run tool. The app bin loads the gitignored root `.env` into the
+# process environment.
+
+# User-settings document (`$DSH_HOME/settings.yaml`, hot-reloaded).
+- id: settings
+  name: '@deepseek-ai/dsh-settings-file'
+
+# Credential store: live process environment over `$DSH_HOME/.credentials.yaml`.
+- id: credentials
+  name: '@deepseek-ai/dsh-credentials-local'
+
+# The DeepSeek adapter. Shipped default: full thinking at max effort.
+- id: llm-deepseek
+  name: '@deepseek-ai/dsh-llm-deepseek'
+  config:
+    thinking: enabled
+    reasoningEffort: max
+
+# The exploration capability: a configurable pipeline registry plus direct
+# one-off pipeline runs. Pipelines here validate at load; a duplicate name or
+# an invalid step fails the boot loud.
+- id: exploration
+  name: '@deepseek-ai/dsh-exploration'
+  config:
+    pipelines:
+      - name: well-log-qc
+        description: 'QC a gamma-ray well log: trim strings, convert depth to metres, extract statistics, and flag z-score anomalies.'
+        steps:
+          - id: ingest
+            type: ingest
+          - id: clean
+            type: clean
+            config:
+              trimStrings: true
+          - id: convert
+            type: convert
+            config:
+              units:
+                - column: depth_ft
+                  from: ft
+                  to: m
+          - id: extract
+            type: extract
+            config:
+              statistics:
+                columns:
+                  - gamma_api
+          - id: detect
+            type: detect
+            config:
+              zscore:
+                - column: gamma_api
+                  threshold: 2
+      - name: seismic-profile
+        description: 'Render a parsed seismic section: after ingest and validation, a profile step embeds the PNG/SVG render under meta.profile.'
+        steps:
+          - id: ingest
+            type: ingest
+          - id: profile
+            type: profile
+            config:
+              formats:
+                - png
+                - svg
+              colorMap: seismic
+              title: 'Seismic profile'
+
+# The model-facing exploration_* tools over the engine.
+- id: tool-exploration
+  name: '@deepseek-ai/dsh-tool-exploration'
+
+# The shared agent spine composes one `main` agent with the exploration tools.
+- id: agent-spine
+  name: '@deepseek-ai/dsh-agent-spine-demo'
+  config:
+    agents:
+      - id: main
+        provider: deepseek-official
+        model: deepseek-v4-pro
+        cwd: !!js process.cwd()
+    workspaceContext: false
+    persona: |
+      You are an exploration data processing agent. You receive raw exploration
+      data (geology, geophysics, or well-log records) and process it
+      professionally: parse the input, clean it, convert units or depth/time,
+      extract statistics, and detect anomalies. Use the exploration_* tools and
+      report the traceability run record. Keep answers brief and factual.
+
+# Durable session persistence plus checkpoint policy.
+- id: persistence
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: './.sessions'
+
+- id: checkpoint-policy
+  name: '@deepseek-ai/dsh-session-checkpoint-policy'

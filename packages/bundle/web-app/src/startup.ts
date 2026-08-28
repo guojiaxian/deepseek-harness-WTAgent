@@ -72,7 +72,10 @@ export function apply(ctx: Context): void {
   program.action(() => {
     const options = program.opts<WebOptions>()
     if (options.host === '0.0.0.0') {
-      program.error('error: --host 0.0.0.0 is intentionally not supported yet for safety: it would expose remote code execution to the network; use 127.0.0.1 instead')
+      // Deployment override (see README): bind all interfaces so the Web UI is
+      // reachable at a machine IP:port. The /api trust fence auto-derives LAN
+      // literals from the active bind. This exposes the UI to the network.
+      console.warn('[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment')
     }
     if (options.port !== undefined && !/^\d+$/.test(options.port)) {
       program.error(`error: --port must be a number, got ${JSON.stringify(options.port)}`)

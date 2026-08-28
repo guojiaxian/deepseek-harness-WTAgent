@@ -32,6 +32,10 @@
 | [terminal.md](terminal.zh.md) | 持久化终端 ID、后端/会话约定、发送就绪状态、有界读取与 owner 可见快照 |
 | [sandbox.md](sandbox.zh.md) | 每会话策略解析与进程约束 seam：文件效果模式、执行/提供方策略、`ConfinedArgv`、强制执行与故障关闭错误 |
 | [code-runtime.md](code-runtime.zh.md) | 代码执行 seam：`CodeRunRequest`/`Result`、绑定命名空间、捕获日志、`CodeRunFailure` 分类体系 |
+| [code.md](code.zh.md) | 代码分析 seam（`ctx.code`）：语言检测、度量、圈复杂度、质量得分与静态质量/安全发现 |
+| [exploration.md](exploration.zh.md) | 勘探数据处理 seam（`ctx.exploration`）：解析 CSV/JSON/SEG-Y、清洗、单位/深度-时间换算、统计、异常检测与剖面渲染 |
+| [consistency.md](consistency.zh.md) | 密集台阵一致性测试 seam（`ctx.consistency`）：台站重命名、mini-SEED → SAC 转换规划、到达裁波时间窗与绘图批次布局 |
+| [paper.md](paper.zh.md) | 学术论文写作 seam（`ctx.paper`）：手稿解析、修改、格式化、引文渲染（GB/T 7714/APA/MLA）与文档导出 |
 | [extensions.md](extensions.zh.md) | 带版本的动态 Cordis Plugin 与 Package、Host/Client 激活、审批、运行时检查和生命周期撤销 |
 | [filesystem.md](filesystem.zh.md) | 文件系统 seam：`FsTarget`、读/写/编辑结果、观测到的文件状态、`FsErrorCode` |
 | [lsp.md](lsp.zh.md) | LSP 导航 seam：`LspQueryRequest`/`Result`、`LspProvider`/`Service`、四种操作、`LspError` |

@@ -1,0 +1,85 @@
+# Professional academic paper-writing agent: manuscripts flow through the
+# dsh-paper engine and its model-facing paper_* tools. The engine registers one
+# configurable polish pipeline (`academic-polish`) at load: ingest a Markdown
+# manuscript, revise its content, standardize its format, and organize its
+# references; the model can also pass a one-off pipeline to the paper_run tool.
+# The app bin loads the gitignored root `.env` into the process environment.
+
+# User-settings document (`$DSH_HOME/settings.yaml`, hot-reloaded).
+- id: settings
+  name: '@deepseek-ai/dsh-settings-file'
+
+# Credential store: live process environment over `$DSH_HOME/.credentials.yaml`.
+- id: credentials
+  name: '@deepseek-ai/dsh-credentials-local'
+
+# The DeepSeek adapter. Shipped default: full thinking at max effort.
+- id: llm-deepseek
+  name: '@deepseek-ai/dsh-llm-deepseek'
+  config:
+    thinking: enabled
+    reasoningEffort: max
+
+# The paper capability: a configurable pipeline registry plus direct one-off
+# pipeline runs. Pipelines here validate at load; a duplicate name or an invalid
+# step fails the boot loud.
+- id: paper
+  name: '@deepseek-ai/dsh-paper'
+  config:
+    pipelines:
+      - name: academic-polish
+        description: 'Polish an academic manuscript: parse the Markdown source, revise wording, standardize format, and organize references into GB/T 7714.'
+        steps:
+          - id: ingest
+            type: ingest
+            config:
+              markdownHeadings: true
+              detectTitle: true
+          - id: revise
+            type: revise
+            config:
+              clarity: true
+              flagPassiveVoice: true
+              flagClichés: true
+          - id: format
+            type: format
+            config:
+              numberedHeadings: true
+              spacing: true
+              typographicQuotes: true
+              citationMarks: true
+          - id: cite
+            type: cite
+            config:
+              style: gb7714
+              sort: true
+
+# The model-facing paper_* tools over the engine.
+- id: tool-paper
+  name: '@deepseek-ai/dsh-tool-paper'
+
+# The shared agent spine composes one `main` agent with the paper tools.
+- id: agent-spine
+  name: '@deepseek-ai/dsh-agent-spine-demo'
+  config:
+    agents:
+      - id: main
+        provider: deepseek-official
+        model: deepseek-v4-pro
+        cwd: !!js process.cwd()
+    workspaceContext: false
+    persona: |
+      You are an academic paper-writing assistant. You receive manuscripts and
+      help authors professionally: revise the content, standardize the paper
+      format, and organize the references into GB/T 7714, APA, or MLA. Use the
+      paper_* tools and report the traceability run record. Keep answers brief
+      and factual.
+
+# Durable session persistence plus checkpoint policy.
+- id: persistence
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: './.sessions'
+
+- id: checkpoint-policy
+  name: '@deepseek-ai/dsh-session-checkpoint-policy'

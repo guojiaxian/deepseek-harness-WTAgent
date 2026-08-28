@@ -173,6 +173,21 @@ const BUILT_IN_PRESET_KEYS: Readonly<Partial<Record<string, PresetLocaleKeys>>> 
   cordis: { name: 'presetCordisName', description: 'presetCordisDescription' },
 }
 
+/** Shipped presets kept functional but hidden from the picker menus. */
+const PICKER_HIDDEN_BUILT_IN_IDS: ReadonlySet<string> = new Set(['code', 'minimal', 'cordis'])
+
+/**
+ * Pickable options for the preset picker menus: the deployment roster minus
+ * the built-in presets this deployment hides. Hidden presets stay selectable
+ * through the settings section and keep running sessions untouched; only the
+ * choice menus omit them.
+ * @param options - full roster rows to filter.
+ * @returns rows the picker menus render.
+ */
+export function pickerPresetOptions<T extends PresetDisplaySource>(options: readonly T[]): readonly T[] {
+  return options.filter(option => !(option.trust === 'system' && PICKER_HIDDEN_BUILT_IN_IDS.has(option.id)))
+}
+
 /**
  * Resolve preset display copy without making user-authored metadata translatable.
  * @param preset - roster row whose copy is being rendered.

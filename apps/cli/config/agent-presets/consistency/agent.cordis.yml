@@ -1,0 +1,104 @@
+# The `consistency` agent preset: a dense-array device consistency-test agent
+# (密集台阵设备一致性测试). It automates the four phases of
+# `conformance_test/workflow.md`：
+#   1. rename — unify station directory names (`C0756_260818` → `0756_260818`,
+#      else the first 4 glyphs), with collision guarding;
+#   2. convert — classify each seed by C/E prefix and plan the mseed2sac /
+#      e-mseed2sac conversion to `站台编号/*.SAC`;
+#   3. cut + plot — parse `datetime.dat` arrivals (北京时间), shift to UTC (−8 h),
+#      compute the `[cutBefore, cutAfter]` windows and the
+#      `WT.<sta>_<label>_<b>s_<a>s.<chan>.SAC` naming, then partition stations into
+#      plot batches (`wave_z_batchN.png`) whose height matches the batch's station
+#      count, and stitch all figures in excitation-time order into one adaptive-grid
+#      image (columns chosen from image count / aspect ratio to balance width/height);
+#   4. exclude — after plotting, measure each station's DC baseline shift / static
+#      displacement with obspy and report (consistency_exclude) which stations reach
+#      the configured threshold for the operator to remove manually — this step never
+#      mutates plot batches or data.
+# The engine's pure processors are surfaced through the model-facing
+# `consistency_*` tools (`@deepseek-ai/dsh-tool-consistency`), which take an
+# inline pipeline, so no engine service row is needed here. The actual file I/O
+# (renaming directories, running converters, obspy slicing, matplotlib rendering)
+# is executed by the `tool-bash`/`tool-fs` tools guided by the engine's outputs.
+#
+# This file is an AGENT-PLANE composition. It is mounted under one agent's
+# scope context, so every tool and prompt section it registers belongs to that
+# session alone. The host composition (`base.cordis.yml` + `web.cordis.yml`)
+# keeps everything a preset must not own: the registries themselves, the
+# sandbox and approval stack, persistence, and the model route.
+
+# ── identity ────────────────────────────────────────────────────────────────
+
+# The preset's own persona, shadowing the deployment default for this agent.
+# `{{model}}` and `{{cwd}}` resolve from the agent's own route and workspace.
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: >-
+      你是由 {{model}} 模型驱动的稠密台阵设备一致性测试 Agent。你处理一批
+      设备目录并通过一致性测试流程：统一台站目录命名，规划 mini-SEED → SAC
+      转换（按 C/E 前缀选择 mseed2sac / e-mseed2sac），解析 datetime.dat
+      （北京时间）中的激发时刻为 UTC 到达时间窗，并将台站划分为绘图批次。绘图时必须遵守以下输出约定：所有批次
+      图片统一放入同一个输出目录（严禁按激发时间建子文件夹），文件名带激发
+      时间标签（wave_z_<激发时间>_batch<N>.png）；图片高度随该批次实际台站
+      数量自适应；全部图片生成后按激发时间顺序用自适应网格拼接成一张总图
+      combined_wave_all_z.png（列数按图片总数与单图宽高比决定，横纵比例均衡）。
+      绘制完成后，用 obspy 测量各台站的 DC 基线偏移/静位移，调用
+      consistency_exclude 分析哪些台站偏移达到阈值，并把需要剔除的台站清单
+      明确告知用户（实际剔除异常设备是人工操作，你只需生成清单，不修改绘图
+      或数据）。使用 consistency_* 工具计算命名/时间窗/批次/偏移分析决策并报告
+      可追溯的运行记录；使用 shell 和文件系统工具实际重命名文件夹、运行转换器、
+      用 obspy 切片、渲染图件并测量偏移。回答保持简洁客观。始终使用简体中文
+      思考和回答（除非用户使用其他语言）；代码、标识符与技术术语保留原文。
+
+- id: agent-instructions
+  name: '@deepseek-ai/dsh-agent-instructions'
+  config:
+    maxBytes: 65536
+
+# ── shell and filesystem ────────────────────────────────────────────────────
+#
+# The consistency workflow needs real I/O (renames, converters, obspy slicing,
+# matplotlib rendering), so both shell tools are mounted and their executors
+# are host-plane.
+- id: tool-bash
+  name: '@deepseek-ai/dsh-tool-bash'
+  disabled: !!js process.platform === 'win32'
+
+- id: tool-pwsh
+  name: '@deepseek-ai/dsh-tool-pwsh'
+  disabled: !!js process.platform !== 'win32'
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-fs-search
+  name: '@deepseek-ai/dsh-tool-fs-search'
+  config:
+    sampleOverCapGlobResults: false
+
+# ── the consistency engine's model-facing tools ─────────────────────────────
+#
+# The seven `consistency_*` tools (ingest/rename/convert/cut/plot/exclude/run)
+# call the engine's pure processors directly and accept an inline pipeline, so
+# they need no engine service row in this preset.
+- id: tool-consistency
+  name: '@deepseek-ai/dsh-tool-consistency'
+
+# ── remaining model-facing rows ─────────────────────────────────────────────
+
+- id: tool-ask-user
+  name: '@deepseek-ai/dsh-tool-ask-user'
+
+- id: tool-todo
+  name: '@deepseek-ai/dsh-tool-todo'
+  config:
+    allowParallelInProgress: true
+
+# The `web` service and its search provider stay in the host composition; only
+# the model-facing tool is per-session, for fetching references or specs.
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  config:
+    fetch: false
+    searchTimeoutMs: 60000

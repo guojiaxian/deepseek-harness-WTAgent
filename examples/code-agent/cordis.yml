@@ -1,0 +1,63 @@
+# Professional program-development agent: cross-language (Python / JavaScript /
+  # Java) code generation, completion, refactoring, optimization, and static
+  # quality/security analysis. Static analysis runs in-process through the
+  # dsh-code engine's pure analyzers; running and testing edited programs is
+  # delegated to the shell tool the model already has. The app bin loads the
+  # gitignored root `.env` into the process environment. `settings`, `credentials`,
+  # `persistence`, and `checkpoint-policy` rows mirror the shared spine.
+
+# User-settings document (`$DSH_HOME/settings.yaml`, hot-reloaded).
+- id: settings
+  name: '@deepseek-ai/dsh-settings-file'
+
+# Credential store: live process environment over `$DSH_HOME/.credentials.yaml`.
+- id: credentials
+  name: '@deepseek-ai/dsh-credentials-local'
+
+# The DeepSeek adapter. Shipped default: full thinking at max effort.
+- id: llm-deepseek
+  name: '@deepseek-ai/dsh-llm-deepseek'
+  config:
+    thinking: enabled
+    reasoningEffort: max
+
+# The code-analysis capability: a configurable service plus pure analyzers.
+# Resource limits and default static-check toggles are validated config.
+- id: code
+  name: '@deepseek-ai/dsh-code'
+  config:
+    maxCodeBytes: 1048576
+    maxFunctions: 1000
+    maxFindings: 100
+
+# The model-facing code_* tools over the engine.
+- id: tool-code
+  name: '@deepseek-ai/dsh-tool-code'
+
+# The shared agent spine composes one `main` agent with the code tools and the
+# shell tool for running/tests. The `dev` preset (apps/cli/config/agent-presets)
+# mirrors this composition for the web surface with plan mode + todo tracking.
+- id: agent-spine
+  name: '@deepseek-ai/dsh-agent-spine-demo'
+  config:
+    agents:
+      - id: main
+        provider: deepseek-official
+        model: deepseek-v4-pro
+        cwd: !!js process.cwd()
+    workspaceContext: false
+    persona: |
+      You are a program-development agent. You write, complete, refactor, and
+      optimize code across Python, JavaScript, and Java; you run static analysis
+      with the code_analyze and code_check tools before and after changes, and
+      you run and test edited programs in the shell. Keep answers brief and
+      factual.
+
+# Durable session persistence plus checkpoint policy.
+- id: persistence
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: './.sessions'
+
+- id: checkpoint-policy
+  name: '@deepseek-ai/dsh-session-checkpoint-policy'

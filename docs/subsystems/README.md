@@ -32,6 +32,10 @@ One page per subsystem of the DeepSeek Harness: what it is, the data structures 
 | [terminal.md](terminal.md) | persistent terminal ids, backend/session contracts, send readiness, bounded reads, and owner-visible snapshots |
 | [sandbox.md](sandbox.md) | per-session policy resolution and the process-confinement seam: file-effect modes, execution/provider policies, `ConfinedArgv`, enforcement and fail-closed errors |
 | [code-runtime.md](code-runtime.md) | the code-execution seam: `CodeRunRequest`/`Result`, binding namespaces, captured logs, the `CodeRunFailure` taxonomy |
+| [code.md](code.md) | the code analysis seam (`ctx.code`): language detection, metrics, cyclomatic complexity, quality score, and static quality/security findings |
+| [exploration.md](exploration.md) | the exploration data processing seam (`ctx.exploration`): ingest CSV/JSON/SEG-Y, clean, convert units/depth-time, statistics, anomaly detection, and profile rendering |
+| [consistency.md](consistency.md) | the dense-array consistency-test seam (`ctx.consistency`): station rename, mini-SEED → SAC conversion planning, arrival cut windows, and plot-batch layout |
+| [paper.md](paper.md) | the academic paper writing seam (`ctx.paper`): manuscript parsing, revision, formatting, reference rendering (GB/T 7714/APA/MLA), and document export |
 | [extensions.md](extensions.md) | versioned dynamic Cordis Plugins and Packages, Host/Client activation, approval, runtime inspection, and lifecycle teardown |
 | [filesystem.md](filesystem.md) | the filesystem seam: `FsTarget`, read/write/edit outcomes, observed-file state, `FsErrorCode` |
 | [lsp.md](lsp.md) | the LSP navigation seam: `LspQueryRequest`/`Result`, `LspProvider`/`Service`, four operations, `LspError` |

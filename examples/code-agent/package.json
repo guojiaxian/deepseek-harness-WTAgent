@@ -1,0 +1,7 @@
+{
+  "name": "code-agent-example",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Runnable demo: professional cross-language program-development agent"
+}

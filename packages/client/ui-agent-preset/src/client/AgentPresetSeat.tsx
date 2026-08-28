@@ -19,7 +19,7 @@ import { IconAgentPresetOutline16, IconChevronDownOutline14, Menu } from '@deeps
 // Type-only: pulls the ui-conversation SlotMap merge (the hero seat).
 import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
 import type { AgentPresetSeatState } from './seat-store.ts'
-import { presetDisplayText } from './locales.ts'
+import { presetDisplayText, pickerPresetOptions } from './locales.ts'
 import css from './AgentPresetSeat.module.css'
 
 /** Registration-side business face for the hero chip. */
@@ -129,7 +129,7 @@ export function AgentPresetSeat({ load, select, introduced, useAgentPresetSeat, 
     <Menu
       open={open}
       onClose={() => { setOpen(false) }}
-      items={state.options.map((option) => {
+      items={pickerPresetOptions(state.options).map((option) => {
         const text = presetDisplayText(option, t)
         return {
           id: option.id,
