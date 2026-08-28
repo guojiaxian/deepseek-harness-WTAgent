@@ -1,6 +1,13 @@
+---
+description: "科研论文写作引擎：面向纯文本或 Markdown 手稿的 parse、revise、format、cite 处理器与文档导出，通过可配置、可追溯的流水线运行。"
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-paper
 
 [English](README.md) | 中文
+
+## 概述
 
 **科研论文写作引擎**：以 Cordis 服务加纯函数（框架无关）两种形态进行专业的手稿处理。它将纯文本或 Markdown 手稿解析为结构化论文，优化内容清晰度、规范化格式，并通过可配置、可追溯的流水线将参考文献整理为 GB/T 7714、APA 或 MLA 格式。面向模型的 `paper_*` 工具位于 [`@deepseek-ai/dsh-tool-paper`](../tool-paper)。
 
@@ -22,6 +29,17 @@ const result = runPipeline(
 )
 ```
 
+## 目录
+
+- [概述](#summary)
+- [行为](#behavior)
+- [模型体验](#model-experience)
+- [已知局限与待办事项](#known-limitations-and-deferred-work)
+- [开发备注](#dev-note)
+
+-----
+
+<a id="behavior"></a>
 ## 行为
 
 - **流水线形态** — 流水线是具名、有序的步骤列表，首步必须为 `ingest`；空流水线、重复步骤 id 与非法步骤配置会在 `validatePipeline` 时快速失败。作为插件（`name: paper`），`Config.pipelines` 在挂载时通过 `PaperService` 注册各流水线。
@@ -35,6 +53,7 @@ const result = runPipeline(
 - **文档导出** — `renderDocument` 将 `Paper` 与解析后的 `DocumentConfig` 生成为 `.docx`（ZIP 归档中的真实 OOXML）或 `.doc`（经典 RTF）文件，包含运行页眉／页脚、页码字段、正文字体与字号、行距、段距与统一页边距——全部零依赖，由两个渲染器共享的同一份配置驱动。`validateDocumentConfig` 对未知键或越界值快速失败；结果超出大小时抛出 `LIMIT_EXCEEDED`，携带实测字节数、上限与解决建议。
 - **资源限制** — `Limits`（`maxInputBytes`、`maxSections`、`maxParagraphs`、`maxCitations`、`maxFindings`、`maxOutputBytes`）是经过校验的 Config 字段，在每一步之后强制执行；处理器内部无硬编码。
 
+<a id="model-experience"></a>
 ## 模型体验
 
 ### 工具输出与错误
@@ -57,3 +76,13 @@ const result = runPipeline(
 - **引文解析基于启发式** — 参考文献从带括号标签的条目（`[1] …`、`[Smith, 2020] …`）与标注源标记解析；自由格式或模板损坏的文献列表可能误判，需模型自行修正字段。
 - **格式与样式规则固定** — 清晰度检查、排版规则及 GB/T 7714／APA／MLA 渲染器编码了固定样式表；期刊或会议专属定制需要修改代码而非配置项。
 - **以英语为先的启发式** — 被动语态、陈词滥调与句级改写启发式假设学术英语；其他语言的质检不在范围内。
+
+<a id="dev-note"></a>
+### 开发备注
+
+<details>
+<summary>维护者的工作上下文——点击展开</summary>
+
+无。
+
+</details>

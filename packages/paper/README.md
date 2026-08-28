@@ -1,3 +1,8 @@
+---
+description: "A plugin family that turns raw manuscripts into polished academic papers: structured sections and references, clarity revision, GB/T 7714/APA/MLA formatting, and document export with a traceability run record."
+kind: "package-group"
+---
+
 # paper/ — academic paper writing
 
 English | [中文](README.zh.md)

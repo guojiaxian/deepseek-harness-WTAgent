@@ -1,6 +1,13 @@
+---
+description: "The code analysis engine: language detection, line metrics, cyclomatic complexity, static quality/security checks, and a deterministic quality score for Python, JavaScript, and Java source."
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-code
 
 English | [中文](README.zh.md)
+
+## Summary
 
 The **code analysis engine**: static analysis of source across Python, JavaScript, and Java as a Cordis service (`ctx.code`) plus pure, framework-free functions. It detects the language, counts line metrics, functions, and classes, computes cyclomatic complexity, runs static quality/security checks, and derives a deterministic 0–100 quality score. Static analysis is pure and in-process; running, testing, and type-checking edited programs is delegated to the shell tool the model already has. The model-facing `code_*` tools live in [`@deepseek-ai/dsh-tool-code`](../tool-code).
 
@@ -14,6 +21,17 @@ const result = analyze(
 console.log(result.language, result.qualityScore, result.metrics.functions)
 ```
 
+## Table of Contents
+
+- [Summary](#summary)
+- [Behavior](#behavior)
+- [Model Experience](#model-experience)
+- [Known Limitations and Deferred Work](#known-limitations-and-deferred-work)
+- [Dev Note](#dev-note)
+
+-----
+
+<a id="behavior"></a>
 ## Behavior
 
 - **Input** — `analyze(fileName, source, options?)` runs language detection (a known `fileName` extension wins over content heuristics), then metrics (`lines`, `code`, `comment`, `blank`, `functions`, `classes`), cyclomatic complexity (overall, average, max, per-function), static checks, and the quality score. Throws `CodeError` (`code: 'LIMIT_EXCEEDED'`) when the source exceeds `maxCodeBytes`.
@@ -24,6 +42,7 @@ console.log(result.language, result.qualityScore, result.metrics.functions)
 - **Notes** — `analyze` summarizes non-obvious conditions (undetected language, no functions, capped records/findings, complexity-guideline breaches) so the model can reason about what the analyzers could and could not do.
 - **Service** — as a plugin (`name: code`), the engine mounts `CodeService` on `ctx.code`; `code.analyze(...)` applies the service's configured limits and default check toggles unless the caller overrides them per call.
 
+<a id="model-experience"></a>
 ## Model Experience
 
 ### Tool outputs and errors
@@ -40,9 +59,20 @@ Zero engine tokens before a call; every finding and metric is passed through unc
 
 The engine contributes no prompt text and no prefix, so it never affects KV-cache reuse; only the tools' own schemas and result rendering participate in request-prefix stability.
 
+<a id="known-limitations-and-deferred-work"></a>
 ## Known Limitations and Deferred Work
 
 - **Static-only analysis** — the engine reports complexity, metrics, and finds code smells but does not execute or type-check programs; running and testing edited code is the model's job through the shell and LSP tools.
 - **Three languages plus generic** — detection and the complexity/metrics analyzers are tuned for Python, JavaScript/TypeScript, and Java; other languages fall back to the generic analyzer with best-effort metrics.
 - **Cyclomatic complexity is a structural heuristic** — it counts decision points per function but does not model data-flow or interprocedural paths, so it is a guideline, not a proof of maintainability.
 - **Fixed check rule set** — checks are a curated static directory; project-specific lint rules need a code addition or an external linter rather than a Config entry.
+
+<a id="dev-note"></a>
+### Dev Note
+
+<details>
+<summary>Working context for maintainers — click to expand</summary>
+
+None.
+
+</details>

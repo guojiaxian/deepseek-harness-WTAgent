@@ -1,3 +1,8 @@
+---
+description: "科研论文写作插件系列：将原始手稿转化为润色后的学术论文，包括结构化章节与参考文献、清晰度优化、GB/T 7714／APA／MLA 格式化与文档导出，附带可追溯的运行记录。"
+kind: "package-group"
+---
+
 # paper/ — 科研论文写作
 
 [English](README.md) | 中文

@@ -1,6 +1,13 @@
+---
+description: "密集台阵一致性测试 Agent 的引擎：ingest、rename、convert、cut、plot 与 exclude 的纯 TypeScript 处理器，以及经验证的具名流水线服务。"
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-consistency
 
 [English](README.md) | 中文
+
+## 概述
 
 **密集台阵一致性测试引擎**：一个零依赖的纯 TypeScript 包，将密集台阵设备清单及其 `datetime.dat`
 激发时刻转成覆盖 `conformance_test/workflow.md` 四个阶段的可执行工作流：
@@ -15,6 +22,16 @@
 
 引擎只计算易错的**领域决策**与可追溯的 [`RunRecord`](src/types.ts)。实际文件 I/O（重命名目录、运行转换器、obspy 裁波、偏移测量、matplotlib 渲染）由 agent preset 的 `tool-bash`／`tool-fs`／`tool-web` 在引擎输出的指引下执行——与勘探 Agent 的架构保持一致。
 
+## 目录
+
+- [概述](#summary)
+- [步骤](#steps)
+- [用法](#usage)
+- [开发备注](#dev-note)
+
+-----
+
+<a id="steps"></a>
 ## 步骤
 
 | 步骤 | 处理器 | 输出 |
@@ -26,6 +43,7 @@
 | `plot` | [`src/processors/plot.ts`](src/processors/plot.ts) | 台站→批次分组、Y 标签与堆叠偏移 |
 | `exclude` | [`src/processors/exclude.ts`](src/processors/exclude.ts) | 报告需要剔除的台站并记录 `Exclusion`（不修改绘图批次） |
 
+<a id="usage"></a>
 ## 用法
 
 ```ts
@@ -47,3 +65,13 @@ console.log(run.output) // { project, stations (renamed), arrivals (UTC), plotBa
 
 面向模型的工具位于 [`../tool-consistency`](../tool-consistency)，agent preset 位于
 `apps/cli/config/agent-presets/consistency`。
+
+<a id="dev-note"></a>
+### 开发备注
+
+<details>
+<summary>维护者的工作上下文——点击展开</summary>
+
+无。
+
+</details>

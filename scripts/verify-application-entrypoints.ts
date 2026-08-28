@@ -31,6 +31,9 @@ const MANIFEST_BIN_ALLOWLIST = new Map<string, ManifestBin>([
 
 /** Every executable in a Node application workspace has one explicit role. */
 const EXECUTABLE_SOURCE_ALLOWLIST = new Map<string, string>([
+  ['apps/cli/config/examples/code-agent/tests/fixtures/code-driver.ts', 'test-only subprocess driver'],
+  ['apps/cli/config/examples/exploration-agent/tests/fixtures/exploration-driver.ts', 'test-only subprocess driver'],
+  ['apps/cli/config/examples/paper-agent/tests/fixtures/paper-driver.ts', 'test-only subprocess driver'],
   ['apps/cli/src/bin.ts', 'supported dsh application launcher'],
   ['packages/context/time-context/tests/fixtures/driver.ts', 'test-only subprocess driver'],
   ['packages/experimental/webworker-packer/bin.js', 'private build-only wrapper'],

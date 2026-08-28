@@ -26,13 +26,15 @@ describe('gen-tool-catalog collectToolCatalog', () => {
     const catalog = await collectToolCatalog()
     const names = catalog.flatMap(entry => entry.schemas.map(s => s.name)).sort()
     expect(names).toEqual([
-      'ask_user_question', 'bash', 'bash', 'code_analyze', 'code_check', 'cordis_define', 'cordis_inspect_list',
+      'ask_user_question', 'bash', 'bash', 'code_analyze', 'code_check',
+      'consistency_convert', 'consistency_cut', 'consistency_exclude', 'consistency_ingest', 'consistency_plot', 'consistency_rename', 'consistency_run',
+      'cordis_define', 'cordis_inspect_list',
       'cordis_inspect_query', 'cordis_inspect_self', 'cordis_run', 'cordis_stop',
       'cordis_undefine', 'create_goal', 'edit', 'exit_plan_mode',
-      'exploration_clean', 'exploration_convert', 'exploration_detect', 'exploration_extract', 'exploration_ingest', 'exploration_run',
+      'exploration_clean', 'exploration_convert', 'exploration_detect', 'exploration_extract', 'exploration_ingest', 'exploration_profile', 'exploration_run',
       'followup_task', 'get_goal', 'glob', 'grep',
       'interrupt_agent', 'interrupt_agent', 'job_kill', 'job_list', 'job_output',
-      'list_agents', 'list_agents', 'list_subagent_models', 'lsp', 'paper_cite', 'paper_format', 'paper_ingest', 'paper_revise', 'paper_run',
+      'list_agents', 'list_agents', 'list_subagent_models', 'lsp', 'paper_cite', 'paper_export', 'paper_format', 'paper_ingest', 'paper_revise', 'paper_run',
       'pwsh', 'pwsh', 'ralph',
       'read', 'read_image', 'report', 'run_code', 'schedule_create', 'schedule_delete',
       'schedule_list', 'send_message', 'send_message', 'session_event_read', 'session_event_search',

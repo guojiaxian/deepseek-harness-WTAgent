@@ -1,3 +1,8 @@
+---
+description: "A plugin family that turns raw exploration records (geology, geophysics, or well-log data) into cleaned, converted, statistics-bearing datasets with detected anomalies and seismic-section profiles, plus a traceability run record."
+kind: "package-group"
+---
+
 # exploration/ — exploration data processing
 
 English | [中文](README.zh.md)

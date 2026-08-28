@@ -1,3 +1,8 @@
+---
+description: "程序开发辅助插件系列：以 Python、JavaScript 与 Java 源码静态分析为程序开发 agent 的改动提供依据，覆盖语言检测、度量、复杂度、质量得分与质量／安全发现。"
+kind: "package-group"
+---
+
 # code/：程序开发辅助
 
 [English](README.md) | 中文

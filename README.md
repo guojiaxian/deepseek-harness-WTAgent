@@ -166,53 +166,98 @@
 
 ### 9. 新增 agent 预设
 
-Web UI 通过 agent preset 内建四个专业 Agent（位于 `apps/cli/config/agent-presets/`），在对应 persona 下挂载上述工具集：
+Web UI 通过 agent preset 内建四个专业 Agent（位于 `packages/preset/agent-presets/presets/`），在对应 persona 下挂载上述工具集：
 
 | 预设目录 | 名称 | 用途 | 挂载工具 |
 | --- | --- | --- | --- |
-| `agent-presets/dev/` | 程序开发 Agent | 跨 Python / JavaScript / Java 的代码生成、补全、重构与优化，通过 `code_analyze` / `code_check` 做质量与安全分析，支持任务规划与进度跟踪 | `@deepseek-ai/dsh-tool-code` |
-| `agent-presets/exploration/` | 勘探数据处理 Agent | 解析 CSV / JSON / SEG-Y，执行清洗、格式转换、特征提取与异常检测，报告可追溯的运行记录 | `@deepseek-ai/dsh-tool-exploration` |
-| `agent-presets/consistency/` | 一致性测试 Agent | 统一台站目录命名、规划 mini-SEED → SAC 转换、解析激发时为 UTC 裁波时间窗并划分绘图批次；绘制后分析台站数据偏移并报告需要剔除的异常台站（人工执行剔除），报告可追溯的运行记录 | `@deepseek-ai/dsh-tool-consistency` |
-| `agent-presets/paper/` | 科研论文写作 Agent | 解析手稿、优化论文内容、规范化格式，将参考文献整理为 GB/T 7714、APA、MLA 等主流引文风格 | `@deepseek-ai/dsh-tool-paper` |
+| `presets/dev/` | 程序开发 Agent | 跨 Python / JavaScript / Java 的代码生成、补全、重构与优化，通过 `code_analyze` / `code_check` 做质量与安全分析，支持任务规划与进度跟踪 | `@deepseek-ai/dsh-tool-code` |
+| `presets/exploration/` | 勘探数据处理 Agent | 解析 CSV / JSON / SEG-Y，执行清洗、格式转换、特征提取与异常检测，报告可追溯的运行记录 | `@deepseek-ai/dsh-tool-exploration` |
+| `presets/consistency/` | 一致性测试 Agent | 统一台站目录命名、规划 mini-SEED → SAC 转换、解析激发时为 UTC 裁波时间窗并划分绘图批次；绘制后分析台站数据偏移并报告需要剔除的异常台站（人工执行剔除），报告可追溯的运行记录 | `@deepseek-ai/dsh-tool-consistency` |
+| `presets/paper/` | 科研论文写作 Agent | 解析手稿、优化论文内容、规范化格式，将参考文献整理为 GB/T 7714、APA、MLA 等主流引文风格 | `@deepseek-ai/dsh-tool-paper` |
 
 使用方式：在浏览器打开 Web UI 后，从 agent-preset 选择器中选中对应 Agent 即可就地使用。
 
 ### 10. 新增示例（examples）
 
-三个可运行的示例 bundle 位于 `examples/`，每个都包含组合 `cordis.yml`、示例数据（`samples/`）、可执行驱动（`tests/fixtures/*-driver.ts`）与无密钥冒烟测试（`tests/keyless-smoke.e2e.ts`）：
+三个可运行的示例 bundle 位于 `apps/cli/config/examples/`，每个都包含组合 `cordis.yml`、示例数据（`samples/`）、可执行驱动（`tests/fixtures/*-driver.ts`）与无密钥冒烟测试（`tests/keyless-smoke.e2e.ts`）：
 
-- [`examples/code-agent/`](examples/code-agent/README.md)：程序开发 agent 组合。配置 `DEEPSEEK_API_KEY` 后运行：
+- [`apps/cli/config/examples/code-agent/`](apps/cli/config/examples/code-agent/README.md)：程序开发 agent 组合。配置 `DEEPSEEK_API_KEY` 后运行：
 
   ```sh
-  pnpm exec tsx examples/code-agent/tests/fixtures/code-driver.ts \
-    examples/code-agent/cordis.yml \
+  pnpm exec tsx apps/cli/config/examples/code-agent/tests/fixtures/code-driver.ts \
+    apps/cli/config/examples/code-agent/cordis.yml \
     "analyze and then improve the python processor in samples/sample_processor.py"
   ```
 
-- [`examples/exploration-agent/`](examples/exploration-agent/README.md)：勘探数据处理 agent 组合。运行：
+- [`apps/cli/config/examples/exploration-agent/`](apps/cli/config/examples/exploration-agent/README.md)：勘探数据处理 agent 组合。运行：
 
   ```sh
-  pnpm exec tsx examples/exploration-agent/tests/fixtures/exploration-driver.ts \
-    examples/exploration-agent/cordis.yml \
+  pnpm exec tsx apps/cli/config/examples/exploration-agent/tests/fixtures/exploration-driver.ts \
+    apps/cli/config/examples/exploration-agent/cordis.yml \
     "process this gamma-ray log: 0,45 5,62 10,58 15,220 20,55"
   ```
 
-- [`examples/paper-agent/`](examples/paper-agent/README.md)：科研论文写作 agent 组合。运行：
+- [`apps/cli/config/examples/paper-agent/`](apps/cli/config/examples/paper-agent/README.md)：科研论文写作 agent 组合。运行：
 
   ```sh
-  pnpm exec tsx examples/paper-agent/tests/fixtures/paper-driver.ts \
-    examples/paper-agent/cordis.yml \
+  pnpm exec tsx apps/cli/config/examples/paper-agent/tests/fixtures/paper-driver.ts \
+    apps/cli/config/examples/paper-agent/cordis.yml \
     "polish this manuscript: scratch document in samples/manuscript-example.md"
   ```
 
-以上驱动以 JSONL 形式输出规范化的会话事件（属测试基础设施，不是受支持的 CLI 输出格式）。无密钥冒烟测试可通过 `npx vitest run --config vitest.e2e.config.ts examples/<agent>/tests/keyless-smoke.e2e.ts` 运行。
+以上驱动以 JSONL 形式输出规范化的会话事件（属测试基础设施，不是受支持的 CLI 输出格式）。无密钥冒烟测试可通过 `npx vitest run --config vitest.e2e.config.ts apps/cli/config/examples/<agent>/tests/keyless-smoke.e2e.ts` 运行。
 
-### 9. 配套集成
+### 11. 配套集成
 
 - **工具目录生成**：`scripts/gen-tool-catalog.ts` 将上述工具纳入生成的 [`docs/tool-catalog.md`](docs/tool-catalog.md) 与 API 目录，模型可直接看到 `code_*` / `exploration_*` / `consistency_*` / `paper_*` schemas。
 - **子系统文档**：`docs/subsystems/code.md`、`docs/subsystems/exploration.md`、`docs/subsystems/consistency.md`、`docs/subsystems/paper.md` 记录各模块架构说明。
 - **Agent Notes**：`.agents/notes/implemented/feature/` 下的勘探数据处理、密集台阵一致性测试与学术论文写作 agent 设计笔记记录了实现与演进决策。
 - **TypeScript 路径与编译器面**：`tsconfig.base.json` 的 `paths` 与 `tsconfig.host.json` 的引用已加入新增包。
+
+## 升级历史与上游差异
+
+<a id="upgrade-history"></a>
+
+本章记录本项目相对上游 [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) 的升级基线、历次升级引入的新功能，以及本项目对上游的本地改动（区别于源码无关的领域模块），供日后快速升级参考。
+
+### 当前基线
+
+- 上游版本：`dsh-v0.1.2-alpha.1`（对应上游 tag [`dsh-v0.1.2-alpha.1`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.1.2-alpha.1)）
+- 本地合并提交：`44cd1f52d2`（`merge: 合并上游 dsh-v0.1.2-alpha.1`）
+- 升级前本地基线：`dsh-v0.1.1-rc.2`；升级前的本地自定义保存点：`19714679cd`
+
+### dsh-v0.1.1-rc.2 → dsh-v0.1.2-alpha.1 上游新功能
+
+本次升级共合并上游约 1000+ 个提交，对 Web UI / 服务端有实质影响的新功能与变更包括：
+
+- **Web 启动 token 认证**：Web 服务启动时生成一次性 token（打印在日志中），未带 token 访问返回 `401`，带 `?token=...` 访问 `303` 重定向到 `/` 并种下 HttpOnly cookie；浏览器 Host API 同样需要认证。远程访问形如 `http://<ip>:3080/?token=<token>`。
+- **API 层重构**：旧 `packages/host/apiproxy` 迁移并拆分到 `packages/api/*`（`gateway` / `remotes` / `session-controller` / `settings-controller` / `workspace-controller` 等），移除了 apiproxy 中已迁移的 unary 路由、settings / credentials / directory-picker 等 RPC。
+- **`code` 模式更名为 `ptc`（PTC 模式）**：`code-mode` → `ptc` 全面更名，涉及工具（`tool-code` → `tool-ptc` 之外的文案 / 会话持久词汇迁移），`dsh-client-ui-agent-preset` 内建预设相应出现「PTC 模式」。
+- **inspector（运行时检视器）**：新增基于 CDP（Chrome DevTools Protocol）的 Host / Client 检视器，可查看 Cordis DOM、事件流、网络请求与执行平面边界。
+- **Agent Teams（实验性）**：新增 `dsh-experimental-agent-team` 及对应的 CLI / Web 两个实验性 profile（`agent-team` / `agent-team-web`），支持多 agent 组队协作。
+- **webhook**：新增 `@deepseek-ai/dsh-webhook` 与 `@deepseek-ai/dsh-webhook-github` 包，支持 GitHub 等 webhook 触发 agent 流程，含真实 e2e 测试。
+- **token-meter 优化**：令牌测量引入 surface fold 计划 / 提交（plan/commit）机制，并显示逐轮精确 token 用量。
+- **subagent 模型选择授权**：subagent 支持可选择的子模型，并按策略授权。
+- **预设 / 示例目录迁移**：随 `code`→`ptc` 重构，agent 预设目录从 `apps/cli/config/agent-presets/` 迁移到 `packages/preset/agent-presets/presets/`；示例从根目录 `examples/` 迁移到 `apps/cli/config/examples/`。
+- **crypto.randomUUID 兼容**：非安全上下文（非 HTTPS）下 `crypto.randomUUID` 不可用，相关代码回退到 `crypto.getRandomValues`。
+
+### 本项目相对上游的本地改动（升级后仍保留）
+
+| 改动 | 说明 |
+| --- | --- |
+| 四个专业 Agent 预设 | `dev`（程序开发）/ `exploration`（勘探数据处理）/ `consistency`（一致性测试）/ `paper`（科研论文写作）位于 `packages/preset/agent-presets/presets/`，连同引擎 `packages/code` / `packages/exploration` / `packages/consistency` / `packages/paper` 与工具插件，见[相对上游新增的模块/插件](#相对上游新增的模块插件)。 |
+| 品牌中文化 | Web UI 品牌文案改为中文（如「物探中心智能业务Agent平台」），见 `packages/client/ui-brand-official` 相关本地文案。 |
+| `start.sh` / `stop.sh` 启停脚本 | 仓库根 `start.sh` / `stop.sh`，强制 `DSH_HOME` 指向仓库内 `.dsh-home`（避免静默回退 `~/.dsh` 导致历史会话"看似丢失"），以 `--host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4` 启动。 |
+| `DSH_HOME` 约定 | 数据目录固定为 `deepseek_harness_WTAgent/.dsh-home`，历史会话、设置、`.credentials.yaml` 均存放于此。 |
+| API Key 配置 | 通过 `.credentials.yaml`（权限 `0600`）配置，而非 Web UI；避免凭据落盘到会话目录。 |
+| 权限方法 loopback 限制 | `settings.*` / `credentials.*` / `llm.discoverModels` 等特权方法仅允许 loopback（`127.0.0.1`）访问；因此远程浏览器中「Agent 预设」设置行保持只读属预期行为。 |
+| 升级修复 | `client-modules` 的 boot graph 含 batches（修复旧代码导致的 `boot manifest batches must be an array`）；`docs/development` 文档标准（doc-standard）补齐本地包 README。 |
+
+### 升级与维护提示
+
+1. 升级后新增 / 变更预设或客户端包时，**必须重启 Web 服务**（`bash stop.sh && bash start.sh`）才会被加载。
+2. 重启 Web 服务时请务必使用 `start.sh`（或在命令前显式 `export DSH_HOME=<repo>/.dsh-home`），裸 `pnpm dsh` 会静默回退到 `~/.dsh`。
+3. 升级合并流程建议：先 `git commit` 本地自定义（保存点）→ 拉取 / 合并上游 tag → 解决冲突 → 重新 `pnpm install && pnpm run build` → 跑 `pnpm test` → 用 `start.sh` 重启服务并做浏览器功能测试（品牌、历史会话、预设选择器、API Key、token 登录）。
 
 ## 运行
 

@@ -1,3 +1,8 @@
+---
+description: "A plugin family that automates the dense-array device consistency test: unified station naming, mini-SEED to SAC conversion, UTC arrival-cut windows, batch waveform plots, and exclusion analysis with a traceability run record."
+kind: "package-group"
+---
+
 # consistency/ — dense-array consistency testing
 
 English | [中文](README.zh.md)

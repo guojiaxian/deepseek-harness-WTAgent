@@ -1,6 +1,13 @@
+---
+description: "勘探数据处理引擎：面向 CSV、JSON 与 SEG-Y 记录的 ingest、clean、convert、extract、detect 与 profile 处理器，通过可配置、可追溯的流水线运行。"
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-exploration
 
 [English](README.md) | 中文
+
+## 概述
 
 **勘探数据处理引擎**：以 Cordis 服务加纯函数（框架无关）两种形态，对原始勘探记录（地质、地球物理、测井数据）进行专业处理。它解析 CSV、JSON 与 SEG-Y，通过可配置、可追溯的流水线完成数据清洗与转换、统计提取和异常检测。面向模型的 `exploration_*` 工具位于 [`@deepseek-ai/dsh-tool-exploration`](../tool-exploration)。
 
@@ -21,6 +28,17 @@ const result = runPipeline(
 )
 ```
 
+## 目录
+
+- [概述](#summary)
+- [行为](#behavior)
+- [模型体验](#model-experience)
+- [已知局限与待办事项](#known-limitations-and-deferred-work)
+- [开发备注](#dev-note)
+
+-----
+
+<a id="behavior"></a>
 ## 行为
 
 - **流水线形态** — 流水线是具名、有序的步骤列表，首步必须为 `ingest`；空流水线、重复步骤 id 与非法步骤配置会在 `validatePipeline` 时快速失败。作为插件（`name: exploration`），`Config.pipelines` 在挂载时通过 `ExplorationService` 注册各流水线。
@@ -34,6 +52,7 @@ const result = runPipeline(
 - **单位与校验和** — `convert` 通过基准单位组合仿射变换，因此线性单位与带偏移单位（温度）共用同一条路径；`checksumBytes`／`checksumDataset` 使用稳定的 FNV-1a，保证记录跨运行可复现。
 - **资源限制** — `Limits`（`maxInputBytes`、`maxRows`、`maxColumns`、`maxAnomalyRecords`）是经过校验的 Config 字段，在每一步之后强制执行；处理器内部无硬编码。
 
+<a id="model-experience"></a>
 ## 模型体验
 
 ### 工具输出与错误
@@ -56,3 +75,13 @@ const result = runPipeline(
 - **SEG-Y 仅支持受限子集** — 解析器处理 3200 字节文本头、400 字节二进制头与可配置道头字宽的固定采样间隔地震道，但不支持 rev／扩展头、非标准格式或变长头。
 - **统计基于简单分布假设** — z-score 检测假定数据近似正态；重尾或双峰分布的测井数据需要显式阈值规则。
 - **单位表固定** — 转换基于静态符号表解析；新增项目专属单位需要修改代码而非配置项。
+
+<a id="dev-note"></a>
+### 开发备注
+
+<details>
+<summary>维护者的工作上下文——点击展开</summary>
+
+无。
+
+</details>

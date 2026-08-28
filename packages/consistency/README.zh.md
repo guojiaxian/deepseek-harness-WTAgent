@@ -1,3 +1,8 @@
+---
+description: "自动化密集台阵设备一致性测试的插件系列：统一台站命名、mini-SEED 到 SAC 转换、UTC 裁波时间窗、批次波形绘图与剔除分析，并附带可追溯的运行记录。"
+kind: "package-group"
+---
+
 # consistency/：密集台阵一致性测试
 
 [English](README.md) | 中文

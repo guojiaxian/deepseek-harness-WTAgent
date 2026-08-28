@@ -1,9 +1,27 @@
+---
+description: "Model-facing paper tools over the dsh-paper engine: six paper_* tools that ingest raw manuscripts, run the engine's pure processors, and export polished documents."
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-tool-paper
 
 English | [中文](README.zh.md)
 
+## Summary
+
 The **model-facing paper tools** over the [`@deepseek-ai/dsh-paper`](../paper) engine: six `paper_*` tools that ingest raw manuscripts, run the engine's pure processors, and export polished documents. Every tool validates its arguments through the engine's own config schemas, runs the matching processor, and returns a compact JSON paper plus section/citation counts and provenance notes; `paper_run` returns the full traceability record.
 
+## Table of Contents
+
+- [Summary](#summary)
+- [Behavior](#behavior)
+- [Model Experience](#model-experience)
+- [Known Limitations and Deferred Work](#known-limitations-and-deferred-work)
+- [Dev Note](#dev-note)
+
+-----
+
+<a id="behavior"></a>
 ## Behavior
 
 - **Registration** — the plugin (`name: tool-paper`, `inject: ['tools']`) registers all six tools on `ctx.tools`; resource `Limits` come from validated Config fields.
@@ -14,6 +32,7 @@ The **model-facing paper tools** over the [`@deepseek-ai/dsh-paper`](../paper) e
 - **`paper_run`** — validates a named pipeline (first step must be `ingest`) and returns the run's `RunRecord` (`runId`, `pipelineName`, `status`, `steps`, `output`, `outputSummary`). A failing step is recorded, not thrown.
 - **`paper_export`** — renders a paper into a `.docx` or `.doc` file with a structured layout config and returns the base64-ed bytes, their sha256 checksum, format, and byte count; an unsupported format or a result that exceeds the deployment's output cap is surfaced as a structured error with recovery guidance.
 
+<a id="model-experience"></a>
 ## Model Experience
 
 ### Tool schemas
@@ -50,3 +69,13 @@ Append-only; newly visible result content follows the reusable request prefix an
 - **Input is text only** — ingest reads plain text or Markdown strings; `.docx`/PDF file extraction is not exposed.
 - **Exports return base64 in JSON, not a file handle** — `paper_export` returns the document as base64-ed bytes inside the tool result; writing that to disk or streaming a file download happens in the host app, not the tool.
 - **Output size is caller-bounded** — the four transform tools return the whole paper as JSON; very large result sets rely on the deployment's `maxSections`/`maxParagraphs`/`maxCitations` limits rather than pagination.
+
+<a id="dev-note"></a>
+### Dev Note
+
+<details>
+<summary>Working context for maintainers — click to expand</summary>
+
+None.
+
+</details>

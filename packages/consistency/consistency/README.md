@@ -1,6 +1,13 @@
+---
+description: "The engine of the dense-array consistency-test Agent: pure TypeScript processors for ingest, rename, convert, cut, plot, and exclude, plus a validated named-pipeline service."
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-consistency
 
 English | [中文](README.zh.md)
+
+## Summary
 
 The engine of the dense-array **consistency-test Agent** (密集台阵设备一致性测试). It is a
 dependency-free pure-TypeScript package that turns a dense-array device inventory and its
@@ -27,6 +34,16 @@ slicing, offset measurement, matplotlib rendering) is executed by the agent pres
 `tool-bash`/`tool-fs`/`tool-web` guided by the engine's outputs — mirroring the exploration Agent
 architecture.
 
+## Table of Contents
+
+- [Summary](#summary)
+- [Steps](#steps)
+- [Usage](#usage)
+- [Dev Note](#dev-note)
+
+-----
+
+<a id="steps"></a>
 ## Steps
 
 | Step | Processor | Output |
@@ -38,6 +55,7 @@ architecture.
 | `plot` | [`src/processors/plot.ts`](src/processors/plot.ts) | station→batch grouping, Y labels and stack offsets |
 | `exclude` | [`src/processors/exclude.ts`](src/processors/exclude.ts) | reports which stations to exclude + records `Exclusion` (no plot mutation) |
 
+<a id="usage"></a>
 ## Usage
 
 ```ts
@@ -59,3 +77,13 @@ console.log(run.output) // { project, stations (renamed), arrivals (UTC), plotBa
 
 The model-facing tools live in [`../tool-consistency`](../tool-consistency), and the agent preset
 in `apps/cli/config/agent-presets/consistency`.
+
+<a id="dev-note"></a>
+### Dev Note
+
+<details>
+<summary>Working context for maintainers — click to expand</summary>
+
+None.
+
+</details>

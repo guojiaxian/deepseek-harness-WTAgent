@@ -8,7 +8,7 @@
 
 import { Command } from 'commander'
 import type { Context } from '@deepseek-ai/cordis'
-import { parseCmdline } from '@deepseek-ai/dsh-cmdline'
+import { internals, parseCmdline } from '@deepseek-ai/dsh-cmdline'
 
 /** Stable Cordis plugin name. */
 export const name = 'web-startup'
@@ -75,7 +75,7 @@ export function apply(ctx: Context): void {
       // Deployment override (see README): bind all interfaces so the Web UI is
       // reachable at a machine IP:port. The /api trust fence auto-derives LAN
       // literals from the active bind. This exposes the UI to the network.
-      console.warn('[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment')
+      internals.stderr.write('[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment\n')
     }
     if (options.port !== undefined && !/^\d+$/.test(options.port)) {
       program.error(`error: --port must be a number, got ${JSON.stringify(options.port)}`)

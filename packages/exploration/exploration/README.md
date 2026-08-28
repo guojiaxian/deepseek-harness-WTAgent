@@ -1,6 +1,13 @@
+---
+description: "The exploration data processing engine: ingest, clean, convert, extract, detect, and profile processors for CSV, JSON, and SEG-Y records through a configurable, traceable pipeline."
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-exploration
 
 English | [中文](README.zh.md)
+
+## Summary
 
 The **exploration data processing engine**: professional processing of raw exploration records (geology, geophysics, and well-log data) as a Cordis service plus pure, framework-free functions. It ingests CSV, JSON, and SEG-Y, cleans and converts the dataset, extracts statistics, detects anomalies, and renders seismic section profiles (PNG/SVG) through a configurable, traceable pipeline. The model-facing `exploration_*` tools live in [`@deepseek-ai/dsh-tool-exploration`](../tool-exploration).
 
@@ -21,6 +28,17 @@ const result = runPipeline(
 )
 ```
 
+## Table of Contents
+
+- [Summary](#summary)
+- [Behavior](#behavior)
+- [Model Experience](#model-experience)
+- [Known Limitations and Deferred Work](#known-limitations-and-deferred-work)
+- [Dev Note](#dev-note)
+
+-----
+
+<a id="behavior"></a>
 ## Behavior
 
 - **Pipeline shape** — a pipeline is a named, ordered list of steps whose first step must be `ingest`; empty pipelines, duplicate step ids, and invalid step configs fail loud during `validatePipeline`. As a plugin (`name: exploration`), `Config.pipelines` registers each pipeline on mount through `ExplorationService`.
@@ -35,6 +53,7 @@ const result = runPipeline(
 - **Units and checksums** — `convert` composes affine transforms through the base unit, so linear and offset units (temperature) share one path; `checksumBytes`/`checksumDataset` use a stable FNV-1a so records replay identically across runs.
 - **Resource limits** — `Limits` (`maxInputBytes`, `maxRows`, `maxColumns`, `maxAnomalyRecords`) are validated Config fields enforced after every step; nothing is hardcoded inside the processors.
 
+<a id="model-experience"></a>
 ## Model Experience
 
 ### Tool outputs and errors
@@ -57,3 +76,13 @@ The engine contributes no prompt text and no prefix, so it never affects KV-cach
 - **SEG-Y is a limited subset** — the parser handles the 3200-byte text header, 400-byte binary header, and fixed sample-interval traces with configurable trace-header word sizes, but not rev/extension headers, non-standard formats, or variable-length headers.
 - **Statistics assume simple distributions** — z-score detection assumes roughly normal data; heavy-tailed or multimodal well-log distributions need explicit threshold rules instead.
 - **Unit table is fixed** — conversions resolve against a static symbol table; adding a project-specific unit requires a code change rather than a Config entry.
+
+<a id="dev-note"></a>
+### Dev Note
+
+<details>
+<summary>Working context for maintainers — click to expand</summary>
+
+None.
+
+</details>

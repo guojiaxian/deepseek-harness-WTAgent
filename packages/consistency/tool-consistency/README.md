@@ -1,6 +1,13 @@
+---
+description: "Model-facing consistency tools over the dsh-consistency engine: seven consistency_* tools that build the dense-array consistency-test workflow and run the engine's pure processors."
+kind: "package-reference"
+---
+
 # @deepseek-ai/dsh-tool-consistency
 
 English | [中文](README.zh.md)
+
+## Summary
 
 The **model-facing consistency tools** over the [`@deepseek-ai/dsh-consistency`](../consistency)
 engine: seven `consistency_*` tools that build the dense-array consistency-test workflow and run
@@ -11,6 +18,17 @@ engine's full traceability record. Actual file I/O (renaming directories, runnin
 obspy slicing, offset measurement, matplotlib rendering) is left to the preset's `tool-bash`/
 `tool-fs` tools guided by the engine's outputs.
 
+## Table of Contents
+
+- [Summary](#summary)
+- [Behavior](#behavior)
+- [Model Experience](#model-experience)
+- [Known Limitations and Deferred Work](#known-limitations-and-deferred-work)
+- [Dev Note](#dev-note)
+
+-----
+
+<a id="behavior"></a>
 ## Behavior
 
 - **Registration** — the plugin (`name: tool-consistency`, `inject: ['tools']`) registers all seven
@@ -34,6 +52,7 @@ obspy slicing, offset measurement, matplotlib rendering) is left to the preset's
   failing step — including an `INCOMPLETE_DATA` convert step — is recorded as `status: 'failed'`
   with the error code and step id, not thrown.
 
+<a id="model-experience"></a>
 ## Model Experience
 
 ### Tool schemas
@@ -72,6 +91,7 @@ arrays, bounded by the deployment's `Limits`.
 Append-only; newly visible result content follows the reusable request prefix and does not
 invalidate existing KV-cache entries.
 
+<a id="known-limitations-and-deferred-work"></a>
 ## Known Limitations and Deferred Work
 
 - **Workflows round-trip through tool arguments** — transform tools take and return the full
@@ -83,3 +103,13 @@ invalidate existing KV-cache entries.
 - **Input is one interchange JSON** — the ingest step takes a single self-contained JSON payload;
   scanning a real directory tree into that payload is done by the preset's filesystem tools before
   the pipeline runs.
+
+<a id="dev-note"></a>
+### Dev Note
+
+<details>
+<summary>Working context for maintainers — click to expand</summary>
+
+None.
+
+</details>

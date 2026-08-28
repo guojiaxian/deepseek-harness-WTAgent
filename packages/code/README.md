@@ -1,3 +1,8 @@
+---
+description: "A plugin family that grounds a program-development agent's changes in static analysis of Python, JavaScript, and Java source: language detection, metrics, complexity, quality score, and quality/security findings."
+kind: "package-group"
+---
+
 # code/ — program development assistance
 
 English | [中文](README.zh.md)
