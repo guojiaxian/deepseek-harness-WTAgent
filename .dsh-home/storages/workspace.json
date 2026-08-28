@@ -1,0 +1,111 @@
+{
+  "unit": {
+    "name": "workspace",
+    "version": 2
+  },
+  "global": {
+    "initialized": true,
+    "workspaceIds": [
+      "cea636ed-3ee6-41b7-866a-286ccfe9e5c4",
+      "e14d12f1-e4c9-4033-aea5-331a5a54db96",
+      "3f25f8c4-7ea5-4985-8a73-c8bc509667ac",
+      "f06400a9-4ba6-4e94-b5a7-b81b95a36ef5",
+      "4766ef9c-065c-43cb-af0f-03fd06038e56",
+      "f112df55-8b44-4322-9d1c-f2d3dcb64c2d",
+      "2df2bfb7-71e9-48e5-814a-b7c4a20e4863"
+    ],
+    "archivedSessionIds": [
+      "session-fb6fba44-12d9-47d2-9a07-459a1189ca2d",
+      "session-84c89ae1-15d3-41f7-a5d2-4311472363d5",
+      "session-c94aa5bb-1571-4b03-99f7-9fbc515714ae"
+    ]
+  },
+  "tables": {
+    "workspaces": {
+      "2df2bfb7-71e9-48e5-814a-b7c4a20e4863": {
+        "path": "/root/harness-task",
+        "title": "harness-task",
+        "sessionIds": [
+          "session-729bd107-9018-4b08-a3bd-8dd6a22c8661",
+          "session-50f6772b-5694-454e-83bf-10f444e5b282",
+          "session-946efc66-8f21-40e7-bcbe-4b125df89cec",
+          "session-3264bf6d-7d0b-44ae-897a-ea4c09b32c67",
+          "session-6360a9aa-49d2-418f-af07-4b609fb1289a",
+          "session-cf5843f6-200b-4c64-8b03-98916b6a70ff",
+          "session-5512bdde-7f20-438c-baa8-18035e3bd5c1",
+          "session-b9fedb31-2e3a-4c84-91a0-593133a5ad34",
+          "session-e26ad5c5-80e6-4d78-b3dc-da025a8a3926"
+        ],
+        "createdAt": "2026-08-19T12:15:08.663Z",
+        "updatedAt": "2026-08-25T01:38:39.131Z"
+      },
+      "f112df55-8b44-4322-9d1c-f2d3dcb64c2d": {
+        "path": "/root/harness-demo",
+        "title": "harness-demo",
+        "sessionIds": [
+          "session-ec424e61-cf99-42cd-865e-14b126733965",
+          "session-48dd8317-6837-4273-8838-6468fca33716",
+          "session-834fc31c-c851-473f-bf3b-7ea0ee331b31",
+          "session-16a20b7f-18a3-44ba-a7a7-0c3a702cb3dd",
+          "session-01ee7960-b13b-4e4c-992a-782c3c5b06cf"
+        ],
+        "createdAt": "2026-08-25T07:14:05.941Z",
+        "updatedAt": "2026-08-26T07:39:16.940Z"
+      },
+      "4766ef9c-065c-43cb-af0f-03fd06038e56": {
+        "path": "/root/harness-demo/consistency_test",
+        "title": "consistency_test",
+        "sessionIds": [
+          "session-899bdf76-4e52-4f0e-abf5-6f3f73997a0b",
+          "session-fb6fba44-12d9-47d2-9a07-459a1189ca2d",
+          "session-954de14f-119e-44b5-af44-1db59251ec09"
+        ],
+        "createdAt": "2026-08-26T14:24:50.615Z",
+        "updatedAt": "2026-08-27T00:42:19.727Z"
+      },
+      "f06400a9-4ba6-4e94-b5a7-b81b95a36ef5": {
+        "path": "/root/harness-demo/consistency_test2",
+        "title": "consistency_test2",
+        "sessionIds": [
+          "session-474abe25-d6c7-408f-a3a4-72d89d52b921",
+          "session-33b2907a-200d-4195-9996-4b231ef39f1a",
+          "session-84c89ae1-15d3-41f7-a5d2-4311472363d5",
+          "session-c94aa5bb-1571-4b03-99f7-9fbc515714ae",
+          "session-7755bd99-f347-45b6-bf39-cbdfb696cea0",
+          "session-8fe0ed2f-9966-4870-8532-314472d14085"
+        ],
+        "createdAt": "2026-08-27T00:50:52.451Z",
+        "updatedAt": "2026-08-27T06:54:50.574Z"
+      },
+      "3f25f8c4-7ea5-4985-8a73-c8bc509667ac": {
+        "path": "/root/harness-demo/consistency_test3",
+        "title": "consistency_test3",
+        "sessionIds": [
+          "session-15594215-d425-4d6a-8b6e-1425d66f8335"
+        ],
+        "createdAt": "2026-08-27T06:54:56.167Z",
+        "updatedAt": "2026-08-27T06:54:56.215Z"
+      },
+      "e14d12f1-e4c9-4033-aea5-331a5a54db96": {
+        "path": "/root/harness-demo/consistency_test4",
+        "title": "consistency_test4",
+        "sessionIds": [
+          "session-8998cc77-38ca-443c-85fc-82497b72ad73",
+          "session-b7429dbb-4b3f-46a7-9746-0178b88c4f74",
+          "session-929899bf-aedd-423c-ac45-ee358de97316"
+        ],
+        "createdAt": "2026-08-27T07:40:15.078Z",
+        "updatedAt": "2026-08-28T00:55:50.416Z"
+      },
+      "cea636ed-3ee6-41b7-866a-286ccfe9e5c4": {
+        "path": "/root/harness-demo/123",
+        "title": "123",
+        "sessionIds": [
+          "session-da0f39e4-5a64-4089-a56a-61a58d5fdb13"
+        ],
+        "createdAt": "2026-08-28T01:36:29.979Z",
+        "updatedAt": "2026-08-28T01:36:30.041Z"
+      }
+    }
+  }
+}

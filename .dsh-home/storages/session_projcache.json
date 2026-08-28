@@ -1,0 +1,4409 @@
+{
+  "unit": {
+    "name": "session_projcache",
+    "version": 3
+  },
+  "global": null,
+  "tables": {
+    "sessions": {
+      "session-e26ad5c5-80e6-4d78-b3dc-da025a8a3926": {
+        "identity": {
+          "createdAt": 1787141708697,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 337,
+            "val": "你好，介绍一下你自己"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 337,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 337,
+            "val": {
+              "turns": 1,
+              "steps": 1,
+              "llmMs": 3813,
+              "toolMs": 0,
+              "ttftMs": 1064,
+              "ttftSteps": 1,
+              "decodeMs": 2749,
+              "decodeTokens": 317,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 337,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 337,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 337,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 7592,
+                "outputTokens": 317,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 1,
+                "buckets": {
+                  "uncachedInputTokens": 7592,
+                  "outputTokens": 317,
+                  "cacheReadTokens": 0,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 337,
+            "val": {
+              "surfaceTokens": 290,
+              "contextWindow": 1000000,
+              "pressureTokens": 7592,
+              "sampledSurfaceTokens": 134
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 337,
+            "val": {
+              "systemTokens": 1502,
+              "toolsTokens": 6376,
+              "messageTokens": 290
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 337,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 337,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787141727143
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 337,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 337,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 337,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-b9fedb31-2e3a-4c84-91a0-593133a5ad34": {
+        "identity": {
+          "createdAt": 1787142049970,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 358,
+            "val": "你能干什么"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 358,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 358,
+            "val": {
+              "turns": 1,
+              "steps": 1,
+              "llmMs": 3780,
+              "toolMs": 0,
+              "ttftMs": 826,
+              "ttftSteps": 1,
+              "decodeMs": 2954,
+              "decodeTokens": 343,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 358,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 358,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 358,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 5926,
+                "outputTokens": 343,
+                "cacheReadTokens": 1664,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 1,
+                "buckets": {
+                  "uncachedInputTokens": 5926,
+                  "outputTokens": 343,
+                  "cacheReadTokens": 1664,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 358,
+            "val": {
+              "surfaceTokens": 300,
+              "contextWindow": 1000000,
+              "pressureTokens": 7590,
+              "sampledSurfaceTokens": 133
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 358,
+            "val": {
+              "systemTokens": 1502,
+              "toolsTokens": 6376,
+              "messageTokens": 300
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 358,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 358,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787142389975
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 358,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 358,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 358,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-5512bdde-7f20-438c-baa8-18035e3bd5c1": {
+        "identity": {
+          "createdAt": 1787186107581,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 4414,
+            "val": "AI插件可用列表查询"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 4414,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 4414,
+            "val": {
+              "turns": 1,
+              "steps": 14,
+              "llmMs": 52646,
+              "toolMs": 51000,
+              "ttftMs": 17490,
+              "ttftSteps": 14,
+              "decodeMs": 35156,
+              "decodeTokens": 4830,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 4414,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 4414,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 4414,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 12735,
+                "outputTokens": 4830,
+                "cacheReadTokens": 181760,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 14,
+                "buckets": {
+                  "uncachedInputTokens": 849,
+                  "outputTokens": 1671,
+                  "cacheReadTokens": 21504,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 4414,
+            "val": {
+              "surfaceTokens": 13797,
+              "contextWindow": 1000000,
+              "pressureTokens": 22353,
+              "sampledSurfaceTokens": 12901
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 4414,
+            "val": {
+              "systemTokens": 1502,
+              "toolsTokens": 6376,
+              "messageTokens": 13797
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 4414,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 4414,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787186146957
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 4414,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 4414,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 4414,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-cf5843f6-200b-4c64-8b03-98916b6a70ff": {
+        "identity": {
+          "createdAt": 1787196051794,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 4968,
+            "val": "解析SEG-Y采样间隔与道数"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 4968,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 4968,
+            "val": {
+              "turns": 1,
+              "steps": 10,
+              "llmMs": 41146,
+              "toolMs": 554,
+              "ttftMs": 6428,
+              "ttftSteps": 10,
+              "decodeMs": 34718,
+              "decodeTokens": 5208,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 4968,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 4968,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 4968,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 2865,
+                "outputTokens": 5208,
+                "cacheReadTokens": 101632,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 10,
+                "buckets": {
+                  "uncachedInputTokens": 101,
+                  "outputTokens": 466,
+                  "cacheReadTokens": 14080,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 4968,
+            "val": {
+              "surfaceTokens": 5037,
+              "contextWindow": 1000000,
+              "pressureTokens": 14181,
+              "sampledSurfaceTokens": 4795
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 4968,
+            "val": {
+              "systemTokens": 1502,
+              "toolsTokens": 6376,
+              "messageTokens": 5037
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 4968,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 4968,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787196171521
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 4968,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 4968,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 4968,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-6360a9aa-49d2-418f-af07-4b609fb1289a": {
+        "identity": {
+          "createdAt": 1787196282104,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 27035,
+            "val": "分析文件夹内的SGY文件"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 27035,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 27035,
+            "val": {
+              "turns": 3,
+              "steps": 67,
+              "llmMs": 253081,
+              "toolMs": 68230,
+              "ttftMs": 56912,
+              "ttftSteps": 67,
+              "decodeMs": 196169,
+              "decodeTokens": 28963,
+              "lastTurn": 3,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 27035,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 27035,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 27035,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 41000,
+                "outputTokens": 28963,
+                "cacheReadTokens": 2275328,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 3,
+                "step": 23,
+                "buckets": {
+                  "uncachedInputTokens": 35,
+                  "outputTokens": 809,
+                  "cacheReadTokens": 64000,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 27035,
+            "val": {
+              "surfaceTokens": 44490,
+              "contextWindow": 1000000,
+              "pressureTokens": 64035,
+              "sampledSurfaceTokens": 44096
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 27035,
+            "val": {
+              "systemTokens": 926,
+              "toolsTokens": 3353,
+              "messageTokens": 44490
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 27035,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 27035,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787619242283
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 27035,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 27035,
+            "val": [
+              {
+                "content": "确认两个 sample SEG-Y 文件路径与结构",
+                "status": "completed"
+              },
+              {
+                "content": "分析 sample_seismic_small.sgy（结构+统计）",
+                "status": "completed"
+              },
+              {
+                "content": "分析 sample_seismic.sgy（结构+统计）",
+                "status": "completed"
+              },
+              {
+                "content": "为两个文件生成剖面图 PNG",
+                "status": "completed"
+              },
+              {
+                "content": "汇总分析报告",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 27035,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-c76f327a-2394-4170-9946-83750802c0ee": {
+        "identity": {
+          "createdAt": 1787543320201,
+          "cwd": "/root/deepseek_harness"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 2033,
+            "val": "Gamma-ray log processing setup"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 2033,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 2033,
+            "val": {
+              "turns": 1,
+              "steps": 9,
+              "llmMs": 19293,
+              "toolMs": 669,
+              "ttftMs": 5765,
+              "ttftSteps": 9,
+              "decodeMs": 13528,
+              "decodeTokens": 2351,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 2033,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 2033,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 2033,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 19782,
+                "outputTokens": 2351,
+                "cacheReadTokens": 103680,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 9,
+                "buckets": {
+                  "uncachedInputTokens": 128,
+                  "outputTokens": 381,
+                  "cacheReadTokens": 21120,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 2033,
+            "val": {
+              "surfaceTokens": 16391,
+              "contextWindow": 1000000,
+              "pressureTokens": 21248,
+              "sampledSurfaceTokens": 16050
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 2033,
+            "val": {
+              "systemTokens": 926,
+              "toolsTokens": 3353,
+              "messageTokens": 16391
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 2033,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 2033,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787543363516
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 2033,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 2033,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 2033,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-9ed35760-dd7f-4c88-bcbb-5bd33fe4ffde": {
+        "identity": {
+          "createdAt": 1787543594716,
+          "cwd": "/root/deepseek_harness"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 2,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 2,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 2,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 2,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 2,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 2,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 2,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 2,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-3264bf6d-7d0b-44ae-897a-ea4c09b32c67": {
+        "identity": {
+          "createdAt": 1787555102292,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 6797,
+            "val": "分析文件夹SGY文件"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 6797,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 6797,
+            "val": {
+              "turns": 1,
+              "steps": 19,
+              "llmMs": 70029,
+              "toolMs": 299004,
+              "ttftMs": 15164,
+              "ttftSteps": 19,
+              "decodeMs": 54865,
+              "decodeTokens": 7442,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 6797,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 6797,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 6797,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 20397,
+                "outputTokens": 7442,
+                "cacheReadTokens": 289280,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 19,
+                "buckets": {
+                  "uncachedInputTokens": 166,
+                  "outputTokens": 764,
+                  "cacheReadTokens": 22400,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 6797,
+            "val": {
+              "surfaceTokens": 10674,
+              "contextWindow": 1000000,
+              "pressureTokens": 22566,
+              "sampledSurfaceTokens": 10308
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 6797,
+            "val": {
+              "systemTokens": 1502,
+              "toolsTokens": 6376,
+              "messageTokens": 10674
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 6797,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 6797,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787555111491
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 6797,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 6797,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 6797,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-946efc66-8f21-40e7-bcbe-4b125df89cec": {
+        "identity": {
+          "createdAt": 1787557204636,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 1954,
+            "val": "贪吃蛇程序编写"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 1954,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 1954,
+            "val": {
+              "turns": 1,
+              "steps": 3,
+              "llmMs": 13889,
+              "toolMs": 153,
+              "ttftMs": 1878,
+              "ttftSteps": 3,
+              "decodeMs": 12011,
+              "decodeTokens": 2005,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 1954,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 1954,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 1954,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 4058,
+                "outputTokens": 2005,
+                "cacheReadTokens": 12032,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 3,
+                "buckets": {
+                  "uncachedInputTokens": 36,
+                  "outputTokens": 135,
+                  "cacheReadTokens": 6016,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 1954,
+            "val": {
+              "surfaceTokens": 1790,
+              "contextWindow": 1000000,
+              "pressureTokens": 6052,
+              "sampledSurfaceTokens": 1724
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 1954,
+            "val": {
+              "systemTokens": 937,
+              "toolsTokens": 3055,
+              "messageTokens": 1790
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 1954,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 1954,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787575207952
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 1954,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 1954,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 1954,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-db98e971-987f-404f-a158-65f519e9e16f": {
+        "identity": {
+          "createdAt": 1787557453008,
+          "cwd": "/root/harness-plug"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 3,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 3,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 3,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 3,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 3,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 3,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 3,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 3,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-50f6772b-5694-454e-83bf-10f444e5b282": {
+        "identity": {
+          "createdAt": 1787584904963,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 13988,
+            "val": "人工智能物探论文撰写"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 13988,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 13988,
+            "val": {
+              "turns": 3,
+              "steps": 40,
+              "llmMs": 161115,
+              "toolMs": 404289,
+              "ttftMs": 38556,
+              "ttftSteps": 40,
+              "decodeMs": 122559,
+              "decodeTokens": 15099,
+              "lastTurn": 3,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 13988,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 13988,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 13988,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 54848,
+                "outputTokens": 15099,
+                "cacheReadTokens": 837376,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 3,
+                "step": 1,
+                "buckets": {
+                  "uncachedInputTokens": 33822,
+                  "outputTokens": 544,
+                  "cacheReadTokens": 256,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 13988,
+            "val": {
+              "surfaceTokens": 22130,
+              "contextWindow": 1000000,
+              "pressureTokens": 34078,
+              "sampledSurfaceTokens": 21862
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 13988,
+            "val": {
+              "systemTokens": 946,
+              "toolsTokens": 3339,
+              "messageTokens": 22130
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 13988,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 13988,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787625475771
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 13988,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 13988,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 13988,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-729bd107-9018-4b08-a3bd-8dd6a22c8661": {
+        "identity": {
+          "createdAt": 1787621919110,
+          "cwd": "/root/harness-task"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 6,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 6,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 6,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 6,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 6,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 6,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 6,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 6,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 6,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 6,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 6,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 6,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 6,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-26f09c19-723c-4560-858d-9bf470f0d029": {
+        "identity": {
+          "createdAt": 1787621925417,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 15709,
+            "val": "分析文件夹内的sgy文件"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 15709,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 15709,
+            "val": {
+              "turns": 1,
+              "steps": 36,
+              "llmMs": 155979,
+              "toolMs": 2871,
+              "ttftMs": 25382,
+              "ttftSteps": 36,
+              "decodeMs": 130597,
+              "decodeTokens": 16668,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 15709,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 15709,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 15709,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 13443,
+                "outputTokens": 16668,
+                "cacheReadTokens": 486784,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 36,
+                "buckets": {
+                  "uncachedInputTokens": 195,
+                  "outputTokens": 591,
+                  "cacheReadTokens": 25984,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 15709,
+            "val": {
+              "surfaceTokens": 18091,
+              "contextWindow": 1000000,
+              "pressureTokens": 26179,
+              "sampledSurfaceTokens": 17830
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 15709,
+            "val": {
+              "systemTokens": 941,
+              "toolsTokens": 3353,
+              "messageTokens": 18091
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 15709,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 15709,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787621945117
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 15709,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 15709,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 15709,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-f1f37e84-ab40-483d-bb1c-9c6de26c214e": {
+        "identity": {
+          "createdAt": 1787635059699,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 19839,
+            "val": "人工智能在网络运维中的作用"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 19839,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 19839,
+            "val": {
+              "turns": 1,
+              "steps": 47,
+              "llmMs": 176298,
+              "toolMs": 48960,
+              "ttftMs": 40164,
+              "ttftSteps": 47,
+              "decodeMs": 136134,
+              "decodeTokens": 21189,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 19839,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 19839,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 19839,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 29336,
+                "outputTokens": 21189,
+                "cacheReadTokens": 1289088,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 47,
+                "buckets": {
+                  "uncachedInputTokens": 181,
+                  "outputTokens": 525,
+                  "cacheReadTokens": 47872,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 19839,
+            "val": {
+              "surfaceTokens": 35137,
+              "contextWindow": 1000000,
+              "pressureTokens": 48053,
+              "sampledSurfaceTokens": 34900
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 19839,
+            "val": {
+              "systemTokens": 946,
+              "toolsTokens": 3339,
+              "messageTokens": 35137
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 19839,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 19839,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787635095206
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 19839,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 19839,
+            "val": [
+              {
+                "content": "撰写论文正文（中文）",
+                "status": "completed"
+              },
+              {
+                "content": "运行论文流水线（格式化+GB/T 7714引用）",
+                "status": "completed"
+              },
+              {
+                "content": "导出 .docx 到工作区",
+                "status": "completed"
+              },
+              {
+                "content": "验证输出文档并汇报结果",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 19839,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-050ce0f5-6131-4c81-b664-fb26ccf387ad": {
+        "identity": {
+          "createdAt": 1787639067590,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 4,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 4,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 4,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 4,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 4,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 4,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-01ee7960-b13b-4e4c-992a-782c3c5b06cf": {
+        "identity": {
+          "createdAt": 1787642045986,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 31915,
+            "val": "分析文件夹中的sgy文件"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 31915,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 31915,
+            "val": {
+              "turns": 1,
+              "steps": 68,
+              "llmMs": 273272,
+              "toolMs": 428266,
+              "ttftMs": 52748,
+              "ttftSteps": 68,
+              "decodeMs": 220524,
+              "decodeTokens": 33898,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 31915,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 31915,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 31915,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 81798,
+                "outputTokens": 33898,
+                "cacheReadTokens": 3741056,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 68,
+                "buckets": {
+                  "uncachedInputTokens": 145,
+                  "outputTokens": 734,
+                  "cacheReadTokens": 105728,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 31915,
+            "val": {
+              "surfaceTokens": 79317,
+              "contextWindow": 1000000,
+              "pressureTokens": 105873,
+              "sampledSurfaceTokens": 78950
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 31915,
+            "val": {
+              "systemTokens": 941,
+              "toolsTokens": 3487,
+              "messageTokens": 79317
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 31915,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 31915,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787642091795
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 31915,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 31915,
+            "val": [
+              {
+                "content": "Discover and inspect all sgy files in workspace",
+                "status": "completed"
+              },
+              {
+                "content": "Parse SEG-Y headers/metadata from the actual file",
+                "status": "completed"
+              },
+              {
+                "content": "Compute amplitude statistics from raw sgy bytes",
+                "status": "completed"
+              },
+              {
+                "content": "Render seismic section profile (PNG) locally",
+                "status": "completed"
+              },
+              {
+                "content": "Produce full base64 deliverable for inline tooling",
+                "status": "completed"
+              },
+              {
+                "content": "Report analysis findings",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 31915,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-16a20b7f-18a3-44ba-a7a7-0c3a702cb3dd": {
+        "identity": {
+          "createdAt": 1787642111659,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 4858,
+            "val": "贪吃蛇小游戏编写"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 4858,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 4858,
+            "val": {
+              "turns": 1,
+              "steps": 12,
+              "llmMs": 31583,
+              "toolMs": 4645,
+              "ttftMs": 7396,
+              "ttftSteps": 12,
+              "decodeMs": 24187,
+              "decodeTokens": 5163,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 4858,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 4858,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 4858,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 7287,
+                "outputTokens": 5163,
+                "cacheReadTokens": 100096,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 12,
+                "buckets": {
+                  "uncachedInputTokens": 139,
+                  "outputTokens": 317,
+                  "cacheReadTokens": 11392,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 4858,
+            "val": {
+              "surfaceTokens": 5601,
+              "contextWindow": 1000000,
+              "pressureTokens": 11531,
+              "sampledSurfaceTokens": 5457
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 4858,
+            "val": {
+              "systemTokens": 937,
+              "toolsTokens": 3055,
+              "messageTokens": 5601
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 4858,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 4858,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787642129627
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 4858,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 4858,
+            "val": null
+          },
+          "plan": {
+            "ver": 1,
+            "seq": 4858,
+            "val": {
+              "active": false,
+              "wanted": null
+            }
+          }
+        }
+      },
+      "session-834fc31c-c851-473f-bf3b-7ea0ee331b31": {
+        "identity": {
+          "createdAt": 1787642137953,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 27513,
+            "val": "分析文件夹内所有sgy文件"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 27513,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 27513,
+            "val": {
+              "turns": 1,
+              "steps": 44,
+              "llmMs": 263539,
+              "toolMs": 193914,
+              "ttftMs": 43903,
+              "ttftSteps": 44,
+              "decodeMs": 219636,
+              "decodeTokens": 28960,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 27513,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 27513,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 27513,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 78787,
+                "outputTokens": 28960,
+                "cacheReadTokens": 2947072,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 44,
+                "buckets": {
+                  "uncachedInputTokens": 127,
+                  "outputTokens": 701,
+                  "cacheReadTokens": 104448,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 27513,
+            "val": {
+              "surfaceTokens": 66417,
+              "contextWindow": 1000000,
+              "pressureTokens": 104575,
+              "sampledSurfaceTokens": 66074
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 27513,
+            "val": {
+              "systemTokens": 1011,
+              "toolsTokens": 3586,
+              "messageTokens": 66417
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 27513,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 27513,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787727376859
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 27513,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 27513,
+            "val": [
+              {
+                "content": "Locate all .sgy files in workspace",
+                "status": "completed"
+              },
+              {
+                "content": "Ingest and validate both SEG-Y files",
+                "status": "completed"
+              },
+              {
+                "content": "Run clean/convert/extract (stats, RMS)",
+                "status": "completed"
+              },
+              {
+                "content": "Run anomaly detection (z-score, nulls)",
+                "status": "completed"
+              },
+              {
+                "content": "Render seismic section profiles (PNG+SVG)",
+                "status": "completed"
+              },
+              {
+                "content": "Produce traceability record and summarize",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 27513,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-48dd8317-6837-4273-8838-6468fca33716": {
+        "identity": {
+          "createdAt": 1787728377838,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 2583,
+            "val": "分析文件夹中的sgy文件"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 2583,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 2583,
+            "val": {
+              "turns": 1,
+              "steps": 12,
+              "llmMs": 26957,
+              "toolMs": 67530,
+              "ttftMs": 8742,
+              "ttftSteps": 12,
+              "decodeMs": 18215,
+              "decodeTokens": 2904,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 2583,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 2583,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 2583,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 8165,
+                "outputTokens": 2904,
+                "cacheReadTokens": 116352,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 12,
+                "buckets": {
+                  "uncachedInputTokens": 88,
+                  "outputTokens": 718,
+                  "cacheReadTokens": 14208,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 2583,
+            "val": {
+              "surfaceTokens": 8092,
+              "contextWindow": 1000000,
+              "pressureTokens": 14296,
+              "sampledSurfaceTokens": 7729
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 2583,
+            "val": {
+              "systemTokens": 1011,
+              "toolsTokens": 3586,
+              "messageTokens": 8092
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 2583,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 2583,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787728456416
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 2583,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 2583,
+            "val": [
+              {
+                "content": "Ingest and parse both SEG-Y files",
+                "status": "completed"
+              },
+              {
+                "content": "Clean, convert, extract stats, detect anomalies",
+                "status": "completed"
+              },
+              {
+                "content": "Render seismic section profiles",
+                "status": "completed"
+              },
+              {
+                "content": "Compile traceability report",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 2583,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-ec424e61-cf99-42cd-865e-14b126733965": {
+        "identity": {
+          "createdAt": 1787729956923,
+          "cwd": "/root/harness-demo"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 4,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 4,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 4,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 4,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 4,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 4,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-954de14f-119e-44b5-af44-1db59251ec09": {
+        "identity": {
+          "createdAt": 1787754290652,
+          "cwd": "/root/harness-demo/consistency_test"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 28304,
+            "val": "密集台阵数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 28304,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 28304,
+            "val": {
+              "turns": 1,
+              "steps": 75,
+              "llmMs": 248905,
+              "toolMs": 545371,
+              "ttftMs": 65049,
+              "ttftSteps": 75,
+              "decodeMs": 183856,
+              "decodeTokens": 30661,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 28304,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 28304,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 28304,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 59477,
+                "outputTokens": 30661,
+                "cacheReadTokens": 3242496,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 75,
+                "buckets": {
+                  "uncachedInputTokens": 60,
+                  "outputTokens": 644,
+                  "cacheReadTokens": 83328,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 28304,
+            "val": {
+              "surfaceTokens": 58970,
+              "contextWindow": 1000000,
+              "pressureTokens": 83388,
+              "sampledSurfaceTokens": 58653
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 28304,
+            "val": {
+              "systemTokens": 1068,
+              "toolsTokens": 3409,
+              "messageTokens": 58970
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 28304,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 28304,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787754307802
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 28304,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 28304,
+            "val": [
+              {
+                "content": "Explore folder structure and reference scripts",
+                "status": "completed"
+              },
+              {
+                "content": "Copy datetime.dat excitation file into project",
+                "status": "completed"
+              },
+              {
+                "content": "Build interchange JSON and ingest workflow",
+                "status": "completed"
+              },
+              {
+                "content": "Run consistency_run full pipeline and capture plan",
+                "status": "completed"
+              },
+              {
+                "content": "Execute renames on raw_data directories",
+                "status": "completed"
+              },
+              {
+                "content": "Run mseed2sac conversions to sac/",
+                "status": "completed"
+              },
+              {
+                "content": "Set up Python/obspy runtime and write cut/plot scripts",
+                "status": "completed"
+              },
+              {
+                "content": "Slice cut windows with obspy to cut_wave/",
+                "status": "completed"
+              },
+              {
+                "content": "Render plot figures to fig_time_wave/",
+                "status": "completed"
+              },
+              {
+                "content": "Verify outputs and report traceability record",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 28304,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-fb6fba44-12d9-47d2-9a07-459a1189ca2d": {
+        "identity": {
+          "createdAt": 1787791331775,
+          "cwd": "/root/harness-demo/consistency_test"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 28306,
+            "val": "密集台阵数据一致性测试 (1)"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 28306,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 28306,
+            "val": {
+              "turns": 1,
+              "steps": 75,
+              "llmMs": 248905,
+              "toolMs": 545371,
+              "ttftMs": 65049,
+              "ttftSteps": 75,
+              "decodeMs": 183856,
+              "decodeTokens": 30661,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 28306,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 28306,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 28306,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 59477,
+                "outputTokens": 30661,
+                "cacheReadTokens": 3242496,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 75,
+                "buckets": {
+                  "uncachedInputTokens": 60,
+                  "outputTokens": 644,
+                  "cacheReadTokens": 83328,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 28306,
+            "val": {
+              "surfaceTokens": 58970,
+              "contextWindow": 1000000,
+              "pressureTokens": 83388,
+              "sampledSurfaceTokens": 58653
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 28306,
+            "val": {
+              "systemTokens": 1068,
+              "toolsTokens": 3409,
+              "messageTokens": 58970
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 28306,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 28306,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787754307802
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 28306,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 28306,
+            "val": [
+              {
+                "content": "Explore folder structure and reference scripts",
+                "status": "completed"
+              },
+              {
+                "content": "Copy datetime.dat excitation file into project",
+                "status": "completed"
+              },
+              {
+                "content": "Build interchange JSON and ingest workflow",
+                "status": "completed"
+              },
+              {
+                "content": "Run consistency_run full pipeline and capture plan",
+                "status": "completed"
+              },
+              {
+                "content": "Execute renames on raw_data directories",
+                "status": "completed"
+              },
+              {
+                "content": "Run mseed2sac conversions to sac/",
+                "status": "completed"
+              },
+              {
+                "content": "Set up Python/obspy runtime and write cut/plot scripts",
+                "status": "completed"
+              },
+              {
+                "content": "Slice cut windows with obspy to cut_wave/",
+                "status": "completed"
+              },
+              {
+                "content": "Render plot figures to fig_time_wave/",
+                "status": "completed"
+              },
+              {
+                "content": "Verify outputs and report traceability record",
+                "status": "completed"
+              }
+            ]
+          }
+        }
+      },
+      "session-899bdf76-4e52-4f0e-abf5-6f3f73997a0b": {
+        "identity": {
+          "createdAt": 1787791338908,
+          "cwd": "/root/harness-demo/consistency_test"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 2,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 2,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 2,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 2,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 2,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 2,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 2,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 2,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 2,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 2,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-8fe0ed2f-9966-4870-8532-314472d14085": {
+        "identity": {
+          "createdAt": 1787791852497,
+          "cwd": "/root/harness-demo/consistency_test2"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 387,
+            "val": "文件夹数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 387,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 387,
+            "val": {
+              "turns": 1,
+              "steps": 4,
+              "llmMs": 9200,
+              "toolMs": 199,
+              "ttftMs": 6647,
+              "ttftSteps": 4,
+              "decodeMs": 1016,
+              "decodeTokens": 259,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 387,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 387,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 387,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 5217,
+                "outputTokens": 259,
+                "cacheReadTokens": 9728,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 3,
+                "buckets": {
+                  "uncachedInputTokens": 371,
+                  "outputTokens": 87,
+                  "cacheReadTokens": 4992,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 387,
+            "val": {
+              "surfaceTokens": 1108,
+              "contextWindow": 1000000,
+              "pressureTokens": 5363,
+              "sampledSurfaceTokens": 500
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 387,
+            "val": {
+              "systemTokens": 1016,
+              "toolsTokens": 3409,
+              "messageTokens": 1108
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 387,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 387,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787791872545
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 387,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 387,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 387,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-7755bd99-f347-45b6-bf39-cbdfb696cea0": {
+        "identity": {
+          "createdAt": 1787792226329,
+          "cwd": "/root/harness-demo/consistency_test2"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 29219,
+            "val": "数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 29219,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 29219,
+            "val": {
+              "turns": 3,
+              "steps": 78,
+              "llmMs": 289517,
+              "toolMs": 67323,
+              "ttftMs": 83956,
+              "ttftSteps": 78,
+              "decodeMs": 205561,
+              "decodeTokens": 31275,
+              "lastTurn": 3,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 29219,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 29219,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 29219,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 172377,
+                "outputTokens": 31275,
+                "cacheReadTokens": 4557440,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 3,
+                "step": 5,
+                "buckets": {
+                  "uncachedInputTokens": 469,
+                  "outputTokens": 426,
+                  "cacheReadTokens": 102784,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 29219,
+            "val": {
+              "surfaceTokens": 67072,
+              "contextWindow": 1000000,
+              "pressureTokens": 103253,
+              "sampledSurfaceTokens": 66853
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 29219,
+            "val": {
+              "systemTokens": 1025,
+              "toolsTokens": 3633,
+              "messageTokens": 67072
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 29219,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 29219,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787793711627
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 29219,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 29219,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 29219,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-c94aa5bb-1571-4b03-99f7-9fbc515714ae": {
+        "identity": {
+          "createdAt": 1787792922221,
+          "cwd": "/root/harness-demo/consistency_test2"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 236,
+            "val": "测试当前模型连通性"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 236,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 236,
+            "val": {
+              "turns": 1,
+              "steps": 2,
+              "llmMs": 8385,
+              "toolMs": 53,
+              "ttftMs": 2463,
+              "ttftSteps": 2,
+              "decodeMs": 5922,
+              "decodeTokens": 233,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 236,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 236,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 236,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 2942,
+                "outputTokens": 233,
+                "cacheReadTokens": 12160,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 2,
+                "buckets": {
+                  "uncachedInputTokens": 1544,
+                  "outputTokens": 114,
+                  "cacheReadTokens": 6080,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 236,
+            "val": {
+              "surfaceTokens": 308,
+              "contextWindow": 200000,
+              "pressureTokens": 7624,
+              "sampledSurfaceTokens": 242
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 236,
+            "val": {
+              "systemTokens": 1602,
+              "toolsTokens": 6475,
+              "messageTokens": 308
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 236,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 236,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787797948627
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 236,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 236,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 236,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-84c89ae1-15d3-41f7-a5d2-4311472363d5": {
+        "identity": {
+          "createdAt": 1787813375239,
+          "cwd": "/root/harness-demo/consistency_test2"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 1840,
+            "val": "文件夹数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 1840,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 1840,
+            "val": {
+              "turns": 1,
+              "steps": 5,
+              "llmMs": 63504,
+              "toolMs": 316,
+              "ttftMs": 5062,
+              "ttftSteps": 5,
+              "decodeMs": 46228,
+              "decodeTokens": 1637,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 1840,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 1840,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 1840,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 9922,
+                "outputTokens": 1637,
+                "cacheReadTokens": 24320,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 4,
+                "buckets": {
+                  "uncachedInputTokens": 4635,
+                  "outputTokens": 1301,
+                  "cacheReadTokens": 6080,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 1840,
+            "val": {
+              "surfaceTokens": 3381,
+              "contextWindow": 1048576,
+              "pressureTokens": 10715,
+              "sampledSurfaceTokens": 1922
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 1840,
+            "val": {
+              "systemTokens": 1602,
+              "toolsTokens": 6475,
+              "messageTokens": 3381
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 1840,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 1840,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787813428236
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 1840,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 1840,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 1840,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-33b2907a-200d-4195-9996-4b231ef39f1a": {
+        "identity": {
+          "createdAt": 1787813617817,
+          "cwd": "/root/harness-demo/consistency_test2"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 30986,
+            "val": "文件夹数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 30986,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 30986,
+            "val": {
+              "turns": 1,
+              "steps": 158,
+              "llmMs": 2516868,
+              "toolMs": 459621,
+              "ttftMs": 1014439,
+              "ttftSteps": 158,
+              "decodeMs": 1502429,
+              "decodeTokens": 61407,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 30986,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 30986,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 30986,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 316723,
+                "outputTokens": 61407,
+                "cacheReadTokens": 9493568,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 158,
+                "buckets": {
+                  "uncachedInputTokens": 222,
+                  "outputTokens": 863,
+                  "cacheReadTokens": 120896,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 30986,
+            "val": {
+              "surfaceTokens": 96121,
+              "contextWindow": 1048576,
+              "pressureTokens": 121118,
+              "sampledSurfaceTokens": 95717
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 30986,
+            "val": {
+              "systemTokens": 1106,
+              "toolsTokens": 3633,
+              "messageTokens": 96121
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 30986,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 30986,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787813689504
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 30986,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 30986,
+            "val": [
+              {
+                "content": "复制原始数据到专用工作副本",
+                "status": "completed"
+              },
+              {
+                "content": "构建 workflow：ingest/rename/convert/cut/plot 决策链",
+                "status": "completed"
+              },
+              {
+                "content": "修复非标准 B1002 并完成 mini-SEED 解码验证",
+                "status": "completed"
+              },
+              {
+                "content": "mini-SEED→SAC 转换至 output/sac（副本内）",
+                "status": "completed"
+              },
+              {
+                "content": "按整体时间窗切片单一连续片段到 output/cut",
+                "status": "completed"
+              },
+              {
+                "content": "按引擎 plot 批次渲染一致性图件（两窗式）",
+                "status": "completed"
+              },
+              {
+                "content": "obspy 测量各台 DC 基线偏移并运行 exclude 得剔除清单",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 30986,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-474abe25-d6c7-408f-a3a4-72d89d52b921": {
+        "identity": {
+          "createdAt": 1787813690557,
+          "cwd": "/root/harness-demo/consistency_test2"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 3,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 3,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 3,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 3,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 3,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 3,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 3,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 3,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 3,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 3,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-15594215-d425-4d6a-8b6e-1425d66f8335": {
+        "identity": {
+          "createdAt": 1787813696201,
+          "cwd": "/root/harness-demo/consistency_test3"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 13776,
+            "val": "文件夹数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 13776,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 13776,
+            "val": {
+              "turns": 1,
+              "steps": 27,
+              "llmMs": 674168,
+              "toolMs": 11241,
+              "ttftMs": 74315,
+              "ttftSteps": 27,
+              "decodeMs": 599853,
+              "decodeTokens": 23369,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 13776,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 13776,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 13776,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 175763,
+                "outputTokens": 23369,
+                "cacheReadTokens": 550656,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 27,
+                "buckets": {
+                  "uncachedInputTokens": 1633,
+                  "outputTokens": 569,
+                  "cacheReadTokens": 44096,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 13776,
+            "val": {
+              "surfaceTokens": 20133,
+              "contextWindow": 1048576,
+              "pressureTokens": 45729,
+              "sampledSurfaceTokens": 19865
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 13776,
+            "val": {
+              "systemTokens": 1602,
+              "toolsTokens": 6475,
+              "messageTokens": 20133
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 13776,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 13776,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787813704408
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 13776,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 13776,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 13776,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-929899bf-aedd-423c-ac45-ee358de97316": {
+        "identity": {
+          "createdAt": 1787816415114,
+          "cwd": "/root/harness-demo/consistency_test4"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 47445,
+            "val": "文件夹数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 47445,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 47445,
+            "val": {
+              "turns": 1,
+              "steps": 93,
+              "llmMs": 406280,
+              "toolMs": 18449,
+              "ttftMs": 101425,
+              "ttftSteps": 93,
+              "decodeMs": 304855,
+              "decodeTokens": 50285,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 47445,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 47445,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 47445,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 72313,
+                "outputTokens": 50285,
+                "cacheReadTokens": 5248256,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 93,
+                "buckets": {
+                  "uncachedInputTokens": 118,
+                  "outputTokens": 991,
+                  "cacheReadTokens": 111488,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 47445,
+            "val": {
+              "surfaceTokens": 73698,
+              "contextWindow": 1000000,
+              "pressureTokens": 111606,
+              "sampledSurfaceTokens": 73205
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 47445,
+            "val": {
+              "systemTokens": 1107,
+              "toolsTokens": 3633,
+              "messageTokens": 73698
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 47445,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 47445,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787816430120
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 47445,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 47445,
+            "val": [
+              {
+                "content": "检查 mseed2sac / obspy 环境可用性",
+                "status": "completed"
+              },
+              {
+                "content": "构建 interchange JSON 并调用 consistency_ingest",
+                "status": "completed"
+              },
+              {
+                "content": "复制原始数据到工作目录（只读隔离）",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_rename 计算统一台站名并在工作副本执行重命名",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_convert 规划并执行 mseed2sac 转换",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_cut 解析 UTC 时间窗并用 obspy 裁波",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_plot 规划批次并渲染图件",
+                "status": "completed"
+              },
+              {
+                "content": "用 obspy 测量各台站 DC 基线偏移/静位移",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_exclude 分析剔除台站并报告",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 47445,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-b7429dbb-4b3f-46a7-9746-0178b88c4f74": {
+        "identity": {
+          "createdAt": 1787819002134,
+          "cwd": "/root/harness-demo/consistency_test4"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 42361,
+            "val": "文件夹数据一致性测试"
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 42361,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 42361,
+            "val": {
+              "turns": 1,
+              "steps": 78,
+              "llmMs": 410181,
+              "toolMs": 815975,
+              "ttftMs": 82682,
+              "ttftSteps": 78,
+              "decodeMs": 327499,
+              "decodeTokens": 44912,
+              "lastTurn": 1,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 42361,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 42361,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 42361,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 67036,
+                "outputTokens": 44912,
+                "cacheReadTokens": 3731712,
+                "cacheWriteTokens": 0
+              },
+              "last": {
+                "turn": 1,
+                "step": 78,
+                "buckets": {
+                  "uncachedInputTokens": 36,
+                  "outputTokens": 920,
+                  "cacheReadTokens": 104832,
+                  "cacheWriteTokens": 0
+                }
+              }
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 42361,
+            "val": {
+              "surfaceTokens": 65149,
+              "contextWindow": 1000000,
+              "pressureTokens": 104868,
+              "sampledSurfaceTokens": 64702
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 42361,
+            "val": {
+              "systemTokens": 1016,
+              "toolsTokens": 3633,
+              "messageTokens": 65149
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 42361,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 42361,
+            "val": {
+              "blank": false,
+              "lastPromptAt": 1787877783268
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 42361,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 42361,
+            "val": [
+              {
+                "content": "构建 interchange 并 ingest 工作流",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_rename 计算统一台站命名并实际重命名目录",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_convert 生成转换计划并运行 C-mseed2sac 转 SAC",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_cut 计算 UTC 时间窗并用 obspy 切片",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_plot 划分批次并渲染图件",
+                "status": "completed"
+              },
+              {
+                "content": "用 obspy 测量各台站 DC 基线偏移",
+                "status": "completed"
+              },
+              {
+                "content": "consistency_exclude 分析阈值并报告需剔除台站",
+                "status": "completed"
+              }
+            ]
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 42361,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-8998cc77-38ca-443c-85fc-82497b72ad73": {
+        "identity": {
+          "createdAt": 1787878550396,
+          "cwd": "/root/harness-demo/consistency_test4"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 5,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 5,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 5,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 5,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 5,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 5,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 5,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 5,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 5,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 5,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 5,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 5,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 5,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      },
+      "session-da0f39e4-5a64-4089-a56a-61a58d5fdb13": {
+        "identity": {
+          "createdAt": 1787880990024,
+          "cwd": "/root/harness-demo/123"
+        },
+        "rows": {
+          "title": {
+            "ver": 1,
+            "seq": 4,
+            "val": null
+          },
+          "goal": {
+            "ver": 4,
+            "seq": 4,
+            "val": null
+          },
+          "sessionStats": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "turns": 0,
+              "steps": 0,
+              "llmMs": 0,
+              "toolMs": 0,
+              "ttftMs": 0,
+              "ttftSteps": 0,
+              "decodeMs": 0,
+              "decodeTokens": 0,
+              "lastTurn": null,
+              "openStep": null,
+              "pendingCalls": {}
+            }
+          },
+          "subagentTiming": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "descriptorSeen": false,
+              "settledMs": 0
+            }
+          },
+          "subagent": {
+            "ver": 2,
+            "seq": 4,
+            "val": {}
+          },
+          "tokenUsage": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "totals": {
+                "uncachedInputTokens": 0,
+                "outputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0
+              },
+              "last": null
+            }
+          },
+          "contextPressure": {
+            "ver": 4,
+            "seq": 4,
+            "val": {
+              "surfaceTokens": 0
+            }
+          },
+          "contextBreakdown": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "systemTokens": 0,
+              "toolsTokens": 0,
+              "messageTokens": 0
+            }
+          },
+          "permissions": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "preset": "workspace-write",
+              "sandbox": "workspace-write",
+              "approval": "ask"
+            }
+          },
+          "sessionListMetadata": {
+            "ver": 1,
+            "seq": 4,
+            "val": {
+              "blank": true,
+              "lastPromptAt": null
+            }
+          },
+          "imageLimits": {
+            "ver": 1,
+            "seq": 4,
+            "val": null
+          },
+          "todos": {
+            "ver": 2,
+            "seq": 4,
+            "val": null
+          },
+          "plan": {
+            "ver": 2,
+            "seq": 4,
+            "val": {
+              "active": false,
+              "wanted": null,
+              "running": null
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,11 +4,11 @@
 
 **deepseek-harness-WTAgent**（以下简称 **WTAgent** 或 `dsh`）是基于 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 二次开发并持续演进的 agent harness（智能体框架），保留了上游**一切皆插件**的架构，并由 [Cordis](https://github.com/cordiverse/cordis) 驱动，其设计参见论文 [_A Programming Paradigm for Spatiotemporal Composability_](https://github.com/cordiverse/paper)。
 
-本项目在完整继承上游能力（会话、系统提示、工具、agent 循环、LLM 能力、shell/subprocess/文件系统/LSP/Web 等全套能力缝、以及 SDK / Web UI / ACP / JSON-RPC 等对外接口）的基础上，额外新增了面向专业领域的模块、插件与 agent 预设，具体见下方[相对上游新增的模块/插件](#相对上游新增的模块插件)。
+本项目在完整继承上游能力（会话、系统提示、工具、agent 循环、LLM 能力、shell/subprocess/文件系统/LSP/Web 等全套能力缝、以及 SDK / Web UI / ACP / JSON-RPC 等对外接口）的基础上，额外新增了面向专业领域的模块、插件与 agent 预设，具体见下方[相对上游新增的模块/插件](#相对上游新增的模块插件)。当前升级基线为上游 [`dsh-v0.1.2-alpha.1`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.1.2-alpha.1)，升级记录见[升级历史与上游差异](#升级历史与上游差异)。
 
 ## 开发者预览
 
-本项目目前处于 _开发者预览_ 阶段，正在快速迭代。**未来将出现破坏兼容性的变更。**
+本项目目前处于 _开发者预览_ 阶段，正在快速迭代。**未来将出现破坏兼容性的变更。** 运行本项目前请先阅读[安全须知](SAFETY.md)。
 
 ## 相对上游新增的模块/插件
 
@@ -248,6 +248,7 @@ pnpm dsh web
 
 - 欢迎通过 [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions) 提交反馈或 bug 报告。
 - 为你的插件仓库添加 [`dsh-plugin`](https://github.com/topics/dsh-plugin) 话题，便于被发现。
+- 加入 <a href="https://discord.gg/Ycq5dCaS4">DeepSeek Harness Discord 社区</a>。
 
 ## 参与贡献
 
