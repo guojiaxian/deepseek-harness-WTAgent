@@ -238,7 +238,7 @@ Web UI 通过 agent preset 内建五个专业 Agent（位于 `packages/preset/ag
 ### 当前基线
 
 - 上游版本：`dsh-v0.1.5-rc.2`（对应上游 tag [`dsh-v0.1.5-rc.2`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.1.5-rc.2)）
-- 本地合并提交：`<merge-commit>`（`merge: 合并上游 dsh-v0.1.5-rc.2`）
+- 本地合并提交：`98007f0b4b`（`merge: 合并上游 dsh-v0.1.5-rc.2`）
 - 升级前本地基线：`dsh-v0.1.2-alpha.1`；升级前的本地自定义保存点：`8bf702cbce`
 
 ### dsh-v0.1.2-alpha.1 → dsh-v0.1.5-rc.2 上游新功能
