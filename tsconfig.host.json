@@ -317,6 +317,8 @@
     { "path": "./packages/consistency/tool-consistency" },
     { "path": "./packages/paper/paper" },
     { "path": "./packages/paper/tool-paper" },
+    { "path": "./packages/bidding/bidding" },
+    { "path": "./packages/bidding/tool-bidding" },
     { "path": "./packages/hooks/hook-protocol" },
     { "path": "./packages/hooks/hooks-claude-code" },
     { "path": "./packages/hooks/hooks-codex" },

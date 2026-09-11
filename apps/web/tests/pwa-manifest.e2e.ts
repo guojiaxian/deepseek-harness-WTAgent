@@ -26,10 +26,9 @@ it('ships install metadata with the built web application', async () => {
   })
 })
 
-it('ships a favicon that switches to a light mark under dark color scheme', async () => {
+it('ships a favicon that embeds the raster brand mark', async () => {
   const favicon = await readFile(join(DIST_ROOT, 'favicon.svg'), 'utf8')
-  // The light fill must live inside the dark-scheme media query, so the icon
-  // stays black in light mode and only turns white under a dark scheme.
-  expect(favicon).toMatch(/@media \(prefers-color-scheme: dark\)\s*{\s*path\s*{[^}]*fill:\s*#fff/i)
-  expect(favicon).toContain('fill="#000"')
+  // The mark is a fixed raster artwork, so it carries its own colors and does
+  // not switch with the color scheme; the svg wraps the embedded PNG.
+  expect(favicon).toContain('<image width="128" height="128" href="data:image/png;base64,')
 })
