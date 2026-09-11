@@ -12,7 +12,8 @@ import { randomUUID } from 'node:crypto'
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
 import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { GenericCallView, JsonValue } from '@deepseek-ai/dsh-tools'
+import type { GenericCallView } from '@deepseek-ai/dsh-tools'
+import type { JsonValue } from '@deepseek-ai/dsh-util-values'
 import type { Limits, ProcessingInput, ProcessorResult, Workflow } from '@deepseek-ai/dsh-consistency'
 import {
   convert, cut, exclude, ingest, plot, rename, runPipeline, validatePipeline,

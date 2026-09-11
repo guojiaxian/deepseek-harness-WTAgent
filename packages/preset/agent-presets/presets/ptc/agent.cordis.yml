@@ -1,9 +1,9 @@
 # The `ptc` agent preset: the standard coding agent, presented as PTC mode.
 #
-# Everything in `standard` is here unchanged. What is added is the `tool-presentation`
-# row: instead of one tool call per action, the model writes a TypeScript
-# program against a generated SDK and `run_code` executes it, so a sequence
-# that would be five round trips becomes one.
+# Most of `standard` is here unchanged. The deliberate exception is the
+# general-purpose `workflow` tool: PTC mode uses `run_code` as its model-authored
+# composition surface. The `tool-presentation` row turns the remaining registry
+# into a generated SDK, so a sequence that would be five round trips becomes one.
 #
 # The registry itself stays on the host plane — the agent loop's scheduler and
 # the API proxy's presenters are its consumers — so what this preset owns is
@@ -31,10 +31,11 @@
 - id: persona
   name: '@deepseek-ai/dsh-persona'
   config:
-    text: >-
+    suffix: Your working directory is {{cwd}}.
+    prefix: >-
       语言规则（必须遵守）：你的一切内部思考推理过程和最终回答都必须使用简体中文，禁止使用英文或其他语言思考；代码、标识符、专有名词、工具名与技术术语保留原文。
 
-      You are a coding agent powered by the {{model}} model. Your working directory is {{cwd}}.
+      You are a coding agent powered by the {{model}} model.
 
 - id: agent-instructions
   name: '@deepseek-ai/dsh-agent-instructions'
@@ -196,8 +197,8 @@
 
     # Fork omits model selection so provider/model stay equal to the parent and
     # the inherited history remains eligible for KV Cache reuse. This preset
-    # keeps fork continuable and accepts its child-scoped `report` additions invalidating
-    # that prefix; issue #2124 tracks cache-preserving continuable fork.
+    # keeps fork continuable; parent and child inherit the same messaging tool,
+    # while the parent id and return guidance follow the inherited history.
     - id: tool-subagent-fork
       name: '@deepseek-ai/dsh-tool-subagent'
       config:
@@ -234,6 +235,9 @@
 
     - id: tool-workflow
       name: '@deepseek-ai/dsh-tool-workflow'
+      # Keep the engine above for `ralph`, but do not publish a second
+      # model-authored orchestration surface beside `run_code` in PTC mode.
+      disabled: true
 
     - id: tool-ralph
       name: '@deepseek-ai/dsh-tool-ralph'
@@ -268,3 +272,6 @@
   name: '@deepseek-ai/dsh-agent-tool-presentation'
   config:
     mode: ptc
+
+- id: present
+  name: '@deepseek-ai/dsh-tool-present'

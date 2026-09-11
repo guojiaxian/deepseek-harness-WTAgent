@@ -30,6 +30,7 @@ kind: "package-reference"
 - **`exploration_convert`** — 单位换算、深度↔双程时间与列选择。
 - **`exploration_extract`** — 描述性统计、滚动窗口与 RMS 振幅。
 - **`exploration_detect`** — z-score、IQR、硬阈值、尖峰、死道与缺失值异常。
+- **`exploration_profile`** — 将地震剖面（SEG-Y 长表或短表格式）渲染为 PNG 和/或 SVG，置于 `profile` 键下，供解析并验证剖面之后使用。
 - **`exploration_run`** — 校验具名流水线（首步必须为 `ingest`）并返回该次运行的 `RunRecord`（`runId`、`pipelineName`、`status`、`steps`、`output`、`outputSummary`）。步骤失败会记录而非抛出。
 
 <a id="model-experience"></a>
@@ -39,7 +40,7 @@ kind: "package-reference"
 
 #### 模型所见
 
-模型看到生成的 [`exploration_*` schemas](../../../docs/tool-catalog.md#deepseek-aidsh-tool-exploration)。`format` 为枚举（`csv`／`json`／`segy`）；`segy` 数据以 base64 传输；`pipeline` 是 JSON 对象，其首步必须为 `ingest`。
+模型看到生成的 [`exploration_*` schemas](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-exploration)。`format` 为枚举（`csv`／`json`／`segy`）；`segy` 数据以 base64 传输；`pipeline` 是 JSON 对象，其首步必须为 `ingest`。
 
 #### Token 影响
 

@@ -1,0 +1,148 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787196282104,
+      "cwd": "/root/harness-task"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 27035,
+        "val": "分析文件夹内的SGY文件"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 27035,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 27035,
+        "val": {
+          "turns": 3,
+          "steps": 67,
+          "llmMs": 253081,
+          "toolMs": 68230,
+          "ttftMs": 56912,
+          "ttftSteps": 67,
+          "decodeMs": 196169,
+          "decodeTokens": 28963,
+          "lastTurn": 3,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 27035,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 27035,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 27035,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 41000,
+            "outputTokens": 28963,
+            "cacheReadTokens": 2275328,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 3,
+            "step": 23,
+            "buckets": {
+              "uncachedInputTokens": 35,
+              "outputTokens": 809,
+              "cacheReadTokens": 64000,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 27035,
+        "val": {
+          "surfaceTokens": 44490,
+          "contextWindow": 1000000,
+          "pressureTokens": 64035,
+          "sampledSurfaceTokens": 44096
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 27035,
+        "val": {
+          "systemTokens": 926,
+          "toolsTokens": 3353,
+          "messageTokens": 44490
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 27035,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 27035,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787619242283
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 27035,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 27035,
+        "val": [
+          {
+            "content": "确认两个 sample SEG-Y 文件路径与结构",
+            "status": "completed"
+          },
+          {
+            "content": "分析 sample_seismic_small.sgy（结构+统计）",
+            "status": "completed"
+          },
+          {
+            "content": "分析 sample_seismic.sgy（结构+统计）",
+            "status": "completed"
+          },
+          {
+            "content": "为两个文件生成剖面图 PNG",
+            "status": "completed"
+          },
+          {
+            "content": "汇总分析报告",
+            "status": "completed"
+          }
+        ]
+      },
+      "plan": {
+        "ver": 1,
+        "seq": 27035,
+        "val": {
+          "active": false,
+          "wanted": null
+        }
+      }
+    }
+  }
+}

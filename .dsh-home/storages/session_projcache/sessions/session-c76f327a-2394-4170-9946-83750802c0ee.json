@@ -1,0 +1,127 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787543320201,
+      "cwd": "/root/deepseek_harness"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 2033,
+        "val": "Gamma-ray log processing setup"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 2033,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 2033,
+        "val": {
+          "turns": 1,
+          "steps": 9,
+          "llmMs": 19293,
+          "toolMs": 669,
+          "ttftMs": 5765,
+          "ttftSteps": 9,
+          "decodeMs": 13528,
+          "decodeTokens": 2351,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 2033,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 2033,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 2033,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 19782,
+            "outputTokens": 2351,
+            "cacheReadTokens": 103680,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 9,
+            "buckets": {
+              "uncachedInputTokens": 128,
+              "outputTokens": 381,
+              "cacheReadTokens": 21120,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 2033,
+        "val": {
+          "surfaceTokens": 16391,
+          "contextWindow": 1000000,
+          "pressureTokens": 21248,
+          "sampledSurfaceTokens": 16050
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 2033,
+        "val": {
+          "systemTokens": 926,
+          "toolsTokens": 3353,
+          "messageTokens": 16391
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 2033,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 2033,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787543363516
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 2033,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 2033,
+        "val": null
+      },
+      "plan": {
+        "ver": 1,
+        "seq": 2033,
+        "val": {
+          "active": false,
+          "wanted": null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787642045986,
+      "cwd": "/root/harness-demo"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 31915,
+        "val": "分析文件夹中的sgy文件"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 31915,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 31915,
+        "val": {
+          "turns": 1,
+          "steps": 68,
+          "llmMs": 273272,
+          "toolMs": 428266,
+          "ttftMs": 52748,
+          "ttftSteps": 68,
+          "decodeMs": 220524,
+          "decodeTokens": 33898,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 31915,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 31915,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 31915,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 81798,
+            "outputTokens": 33898,
+            "cacheReadTokens": 3741056,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 68,
+            "buckets": {
+              "uncachedInputTokens": 145,
+              "outputTokens": 734,
+              "cacheReadTokens": 105728,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 31915,
+        "val": {
+          "surfaceTokens": 79317,
+          "contextWindow": 1000000,
+          "pressureTokens": 105873,
+          "sampledSurfaceTokens": 78950
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 31915,
+        "val": {
+          "systemTokens": 941,
+          "toolsTokens": 3487,
+          "messageTokens": 79317
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 31915,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 31915,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787642091795
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 31915,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 31915,
+        "val": [
+          {
+            "content": "Discover and inspect all sgy files in workspace",
+            "status": "completed"
+          },
+          {
+            "content": "Parse SEG-Y headers/metadata from the actual file",
+            "status": "completed"
+          },
+          {
+            "content": "Compute amplitude statistics from raw sgy bytes",
+            "status": "completed"
+          },
+          {
+            "content": "Render seismic section profile (PNG) locally",
+            "status": "completed"
+          },
+          {
+            "content": "Produce full base64 deliverable for inline tooling",
+            "status": "completed"
+          },
+          {
+            "content": "Report analysis findings",
+            "status": "completed"
+          }
+        ]
+      },
+      "plan": {
+        "ver": 1,
+        "seq": 31915,
+        "val": {
+          "active": false,
+          "wanted": null
+        }
+      }
+    }
+  }
+}

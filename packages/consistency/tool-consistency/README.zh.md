@@ -40,7 +40,7 @@ kind: "package-reference"
 
 #### 模型所见
 
-模型看到生成的 [`consistency_*` schemas](../../../docs/tool-catalog.md#deepseek-aidsh-tool-consistency)。`data` 为 JSON 文本（需要 `project`、`stations` 与 `arrivalLines`）；`workflow` 为先前 `consistency_*` 工具返回的 JSON 形态；`pipeline` 是 JSON 对象，其首步必须为 `ingest`。
+模型看到生成的 [`consistency_*` schemas](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-consistency)。`data` 为 JSON 文本（需要 `project`、`stations` 与 `arrivalLines`）；`workflow` 为先前 `consistency_*` 工具返回的 JSON 形态；`pipeline` 是 JSON 对象，其首步必须为 `ingest`。
 
 #### Token 影响
 

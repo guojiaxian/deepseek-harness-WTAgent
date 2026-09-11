@@ -36,7 +36,7 @@ kind: "package-reference"
 
 #### 模型所见
 
-模型看到生成的 [`code_*` schema](../../../docs/tool-catalog.md#deepseek-aidsh-tool-code)。`source` 是必填字符串；`fileName`（已知扩展名优先于内容启发式进行语言检测）与 `checks`（规则开关的 JSON 对象）为可选项。
+模型看到生成的 [`code_*` schema](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-code)。`source` 是必填字符串；`fileName`（已知扩展名优先于内容启发式进行语言检测）与 `checks`（规则开关的 JSON 对象）为可选项。
 
 #### Token 影响
 

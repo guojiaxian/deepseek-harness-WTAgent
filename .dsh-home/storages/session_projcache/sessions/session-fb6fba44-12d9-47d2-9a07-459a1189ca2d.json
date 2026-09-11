@@ -1,0 +1,160 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787791331775,
+      "cwd": "/root/harness-demo/consistency_test"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 28306,
+        "val": "密集台阵数据一致性测试 (1)"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 28306,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 28306,
+        "val": {
+          "turns": 1,
+          "steps": 75,
+          "llmMs": 248905,
+          "toolMs": 545371,
+          "ttftMs": 65049,
+          "ttftSteps": 75,
+          "decodeMs": 183856,
+          "decodeTokens": 30661,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 28306,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 28306,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 28306,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 59477,
+            "outputTokens": 30661,
+            "cacheReadTokens": 3242496,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 75,
+            "buckets": {
+              "uncachedInputTokens": 60,
+              "outputTokens": 644,
+              "cacheReadTokens": 83328,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 28306,
+        "val": {
+          "surfaceTokens": 58970,
+          "contextWindow": 1000000,
+          "pressureTokens": 83388,
+          "sampledSurfaceTokens": 58653
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 28306,
+        "val": {
+          "systemTokens": 1068,
+          "toolsTokens": 3409,
+          "messageTokens": 58970
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 28306,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 28306,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787754307802
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 28306,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 28306,
+        "val": [
+          {
+            "content": "Explore folder structure and reference scripts",
+            "status": "completed"
+          },
+          {
+            "content": "Copy datetime.dat excitation file into project",
+            "status": "completed"
+          },
+          {
+            "content": "Build interchange JSON and ingest workflow",
+            "status": "completed"
+          },
+          {
+            "content": "Run consistency_run full pipeline and capture plan",
+            "status": "completed"
+          },
+          {
+            "content": "Execute renames on raw_data directories",
+            "status": "completed"
+          },
+          {
+            "content": "Run mseed2sac conversions to sac/",
+            "status": "completed"
+          },
+          {
+            "content": "Set up Python/obspy runtime and write cut/plot scripts",
+            "status": "completed"
+          },
+          {
+            "content": "Slice cut windows with obspy to cut_wave/",
+            "status": "completed"
+          },
+          {
+            "content": "Render plot figures to fig_time_wave/",
+            "status": "completed"
+          },
+          {
+            "content": "Verify outputs and report traceability record",
+            "status": "completed"
+          }
+        ]
+      }
+    }
+  }
+}

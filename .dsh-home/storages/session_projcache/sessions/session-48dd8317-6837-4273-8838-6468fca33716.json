@@ -1,0 +1,145 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787728377838,
+      "cwd": "/root/harness-demo"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 2583,
+        "val": "分析文件夹中的sgy文件"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 2583,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 2583,
+        "val": {
+          "turns": 1,
+          "steps": 12,
+          "llmMs": 26957,
+          "toolMs": 67530,
+          "ttftMs": 8742,
+          "ttftSteps": 12,
+          "decodeMs": 18215,
+          "decodeTokens": 2904,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 2583,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 2583,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 2583,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 8165,
+            "outputTokens": 2904,
+            "cacheReadTokens": 116352,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 12,
+            "buckets": {
+              "uncachedInputTokens": 88,
+              "outputTokens": 718,
+              "cacheReadTokens": 14208,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 2583,
+        "val": {
+          "surfaceTokens": 8092,
+          "contextWindow": 1000000,
+          "pressureTokens": 14296,
+          "sampledSurfaceTokens": 7729
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 2583,
+        "val": {
+          "systemTokens": 1011,
+          "toolsTokens": 3586,
+          "messageTokens": 8092
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 2583,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 2583,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787728456416
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 2583,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 2583,
+        "val": [
+          {
+            "content": "Ingest and parse both SEG-Y files",
+            "status": "completed"
+          },
+          {
+            "content": "Clean, convert, extract stats, detect anomalies",
+            "status": "completed"
+          },
+          {
+            "content": "Render seismic section profiles",
+            "status": "completed"
+          },
+          {
+            "content": "Compile traceability report",
+            "status": "completed"
+          }
+        ]
+      },
+      "plan": {
+        "ver": 2,
+        "seq": 2583,
+        "val": {
+          "active": false,
+          "wanted": null,
+          "running": null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787142049970,
+      "cwd": "/root/harness-task"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 358,
+        "val": "你能干什么"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 358,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 358,
+        "val": {
+          "turns": 1,
+          "steps": 1,
+          "llmMs": 3780,
+          "toolMs": 0,
+          "ttftMs": 826,
+          "ttftSteps": 1,
+          "decodeMs": 2954,
+          "decodeTokens": 343,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 358,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 358,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 358,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 5926,
+            "outputTokens": 343,
+            "cacheReadTokens": 1664,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 1,
+            "buckets": {
+              "uncachedInputTokens": 5926,
+              "outputTokens": 343,
+              "cacheReadTokens": 1664,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 358,
+        "val": {
+          "surfaceTokens": 300,
+          "contextWindow": 1000000,
+          "pressureTokens": 7590,
+          "sampledSurfaceTokens": 133
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 358,
+        "val": {
+          "systemTokens": 1502,
+          "toolsTokens": 6376,
+          "messageTokens": 300
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 358,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 358,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787142389975
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 358,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 358,
+        "val": null
+      },
+      "plan": {
+        "ver": 1,
+        "seq": 358,
+        "val": {
+          "active": false,
+          "wanted": null
+        }
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
 import { defineTool } from '@deepseek-ai/dsh-tools'
 import type { GenericCallView } from '@deepseek-ai/dsh-tools'
-import type { JsonValue } from '@deepseek-ai/dsh-tools'
+import type { JsonValue } from '@deepseek-ai/dsh-util-values'
 import type { Limits, Paper, ProcessingInput, ProcessorResult } from '@deepseek-ai/dsh-paper'
 import {
   cite, format, ingest, renderDocument, revise, runPipeline, validateDocumentConfig, validatePipeline,

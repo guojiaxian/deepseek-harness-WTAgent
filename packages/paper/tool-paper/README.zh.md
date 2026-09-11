@@ -39,7 +39,7 @@ kind: "package-reference"
 
 #### 模型所见
 
-模型看到生成的 [`paper_*` schemas](../../../docs/tool-catalog.md#deepseek-aidsh-tool-paper)。`format` 为枚举（`text`／`markdown`）；`style` 为枚举（`gb7714`／`apa`／`mla`）；`paper` 与 `pipeline` 为 JSON 对象。转换工具传入并返回论文 JSON，结果可跨调用链式传递。
+模型看到生成的 [`paper_*` schemas](../../../docs/tool-catalog.zh.md#deepseek-aidsh-tool-paper)。`format` 为枚举（`text`／`markdown`）；`style` 为枚举（`gb7714`／`apa`／`mla`）；`paper` 与 `pipeline` 为 JSON 对象。转换工具传入并返回论文 JSON，结果可跨调用链式传递。
 
 #### Token 影响
 

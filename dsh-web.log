@@ -42,3 +42,31 @@ nohup: 忽略输入
 $ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
 [dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
 dsh web: http://127.0.0.1:3080 (LAN: http://10.8.11.4:3080)
+nohup: 忽略输入
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=JwhAlaMdnGClBOterPvAdUW7EZPMN2mpr5_DeSzosQc (LAN: http://10.8.11.4:3080/?token=JwhAlaMdnGClBOterPvAdUW7EZPMN2mpr5_DeSzosQc)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=Ggtkzna6CB0E65JdTQVL3v0_CLDFHlkjwOG-DyqaSyg (LAN: http://10.8.11.4:3080/?token=Ggtkzna6CB0E65JdTQVL3v0_CLDFHlkjwOG-DyqaSyg)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=HC0cM0bsigXtfvYsqnQwL1LRkvEkzT020DlRLoezmNc (LAN: http://10.8.11.4:3080/?token=HC0cM0bsigXtfvYsqnQwL1LRkvEkzT020DlRLoezmNc)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=z2KjffZFbsWEQGwB_ofh_v0HceOasi-CnW8ucSfL8pM (LAN: http://10.8.11.4:3080/?token=z2KjffZFbsWEQGwB_ofh_v0HceOasi-CnW8ucSfL8pM)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=sXno2MwAzBoJB9o8hsZPwOl3Kn9IJsAqXeKGyzOZjSA (LAN: http://10.8.11.4:3080/?token=sXno2MwAzBoJB9o8hsZPwOl3Kn9IJsAqXeKGyzOZjSA)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=lU2sfNqEXoM_2Sr_rhbXJ6Hl9f6f0YODbqakY41sx7k (LAN: http://10.8.11.4:3080/?token=lU2sfNqEXoM_2Sr_rhbXJ6Hl9f6f0YODbqakY41sx7k)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=uSotHbrxXTRVBmoR8QPmMO85MYip1VN8HyAnIkD_Jmg (LAN: http://10.8.11.4:3080/?token=uSotHbrxXTRVBmoR8QPmMO85MYip1VN8HyAnIkD_Jmg)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=8VTlRaK7yVa8j0IvUZx1xiYq-pkZ1IqRspWcccWmS-M (LAN: http://10.8.11.4:3080/?token=8VTlRaK7yVa8j0IvUZx1xiYq-pkZ1IqRspWcccWmS-M)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: http://127.0.0.1:3080/?token=k3yemU0LtHPrTK88QwF7sqP70WgZ59a20NSuSzd54GM (LAN: http://10.8.11.4:3080/?token=k3yemU0LtHPrTK88QwF7sqP70WgZ59a20NSuSzd54GM)

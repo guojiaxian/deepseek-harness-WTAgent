@@ -1,0 +1,157 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787813617817,
+      "cwd": "/root/harness-demo/consistency_test2"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 30986,
+        "val": "文件夹数据一致性测试"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 30986,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 30986,
+        "val": {
+          "turns": 1,
+          "steps": 158,
+          "llmMs": 2516868,
+          "toolMs": 459621,
+          "ttftMs": 1014439,
+          "ttftSteps": 158,
+          "decodeMs": 1502429,
+          "decodeTokens": 61407,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 30986,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 30986,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 30986,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 316723,
+            "outputTokens": 61407,
+            "cacheReadTokens": 9493568,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 158,
+            "buckets": {
+              "uncachedInputTokens": 222,
+              "outputTokens": 863,
+              "cacheReadTokens": 120896,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 30986,
+        "val": {
+          "surfaceTokens": 96121,
+          "contextWindow": 1048576,
+          "pressureTokens": 121118,
+          "sampledSurfaceTokens": 95717
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 30986,
+        "val": {
+          "systemTokens": 1106,
+          "toolsTokens": 3633,
+          "messageTokens": 96121
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 30986,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 30986,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787813689504
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 30986,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 30986,
+        "val": [
+          {
+            "content": "复制原始数据到专用工作副本",
+            "status": "completed"
+          },
+          {
+            "content": "构建 workflow：ingest/rename/convert/cut/plot 决策链",
+            "status": "completed"
+          },
+          {
+            "content": "修复非标准 B1002 并完成 mini-SEED 解码验证",
+            "status": "completed"
+          },
+          {
+            "content": "mini-SEED→SAC 转换至 output/sac（副本内）",
+            "status": "completed"
+          },
+          {
+            "content": "按整体时间窗切片单一连续片段到 output/cut",
+            "status": "completed"
+          },
+          {
+            "content": "按引擎 plot 批次渲染一致性图件（两窗式）",
+            "status": "completed"
+          },
+          {
+            "content": "obspy 测量各台 DC 基线偏移并运行 exclude 得剔除清单",
+            "status": "completed"
+          }
+        ]
+      },
+      "plan": {
+        "ver": 2,
+        "seq": 30986,
+        "val": {
+          "active": false,
+          "wanted": null,
+          "running": null
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ kind: "package-group"
 
 | 包 | 角色 | ctx key |
 |---|---|---|
-| [`paper/`](paper/README.md) | 拥有引擎：论文／章节／参考文献类型、参考文献解析器、引文格式化器（GB/T 7714、APA、MLA）、纯处理器（ingest/revise/format/cite）以及经验证的具名流水线服务 | `ctx.paper` |
-| [`tool-paper/`](tool-paper/README.md) | 注册面向模型的 `paper_*` 工具，它们直接调用引擎的纯处理器 | — |
+| [`paper/`](paper/README.zh.md) | 拥有引擎：论文／章节／参考文献类型、参考文献解析器、引文格式化器（GB/T 7714、APA、MLA）、纯处理器（ingest/revise/format/cite）以及经验证的具名流水线服务 | `ctx.paper` |
+| [`tool-paper/`](tool-paper/README.zh.md) | 注册面向模型的 `paper_*` 工具，它们直接调用引擎的纯处理器 | — |
 
-引擎保持框架无关，使面向模型的工具能直接调用其处理器；服务拥有经验证的具名流水线以及端到端 `runPipeline`。子系统参考为 [docs/subsystems/paper.md](../../docs/subsystems/paper.md)。
+引擎保持框架无关，使面向模型的工具能直接调用其处理器；服务拥有经验证的具名流水线以及端到端 `runPipeline`。子系统参考为 [docs/subsystems/paper.zh.md](../../docs/subsystems/paper.zh.md)。

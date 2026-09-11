@@ -7,7 +7,7 @@
 
 已发布插件向 `ctx.tools` 提供的所有面向模型的工具：模型通过系统提示词组装获得的 `name`、`description` 和 JSON Schema `parameters`。本目录是[子系统页面](subsystems/core.zh.md)（类型及每页生成的 `cordis-surface` 接线区域）的补充；本页列出的是向 agent（智能体）提供的*工具*。
 
-英文源文件由系统**生成**，并通过 `pnpm run verify-tool-catalog`（`doc-sync`（文档同步门禁）的一部分）验证新鲜度；本中文文件作为经评审对侧通过双语配对维护。与 Cordis 目录（纯源码 AST 处理）不同，英文生成器会在真实上下文中**启动**每个工具插件并读取 `ctx.tools.schemas()`，因为工具 schema 无法通过静态分析完全确定，例如运行时展开的枚举、拼接的描述、由配置决定的名称以及使用原始 JSON Schema 的 MCP 工具。完整性守卫会 glob 匹配 `packages/*/tool-*`；如果生成器的启动 manifest（元数据清单）遗漏任何包，检查就会失败，因此新工具不会在无人察觉的情况下缺少文档。参见[工具 schema 目录 Agent Note](../.agents/notes/implemented/process/2026-07-02-tool-schema-catalog.zh.md)。
+英文源文件由系统**生成**，并通过 `pnpm run verify-tool-catalog`（`doc-sync`（文档同步门禁）的一部分）验证新鲜度；本中文文件作为经评审对侧通过双语配对维护。与 Cordis 目录（纯源码 AST 处理）不同，英文生成器会在真实上下文中**启动**每个工具插件并读取 `ctx.tools.schemas()`，因为工具 schema 无法通过静态分析完全确定，例如运行时展开的枚举、拼接的描述、由配置决定的名称以及使用原始 JSON Schema 的 MCP 工具。完整性守卫会 glob 匹配 `packages/*/tool-*`；如果生成器的启动 manifest（元数据清单）遗漏任何包，检查就会失败，因此新工具不会在无人察觉的情况下缺少文档。
 
 范围：`packages/*/tool-*` 下已发布的产品工具，每个工具均使用其**默认**配置启动；但如果某个 Config 字段是**必填项**且没有默认值，生成器就必须作出选择，对应包的说明会记录本页展示的是哪个分支。注册的工具**名称**可以是加载时配置，例如 `tool-subagent` 的 `toolName`，因此部署可能以不同名称或额外名称提供某个包；如果存在随产品发布的别名，对应包的说明会予以记录。`examples/` 中的演示工具（例如 `echo`）不在范围内，这与 Cordis 目录仅涵盖包的范围一致。
 
@@ -20,9 +20,10 @@
 | 工具包 | 模型可见名称 | 依赖 | 写入／影响 | 随产品发布的别名 | 部署说明 |
 | --- | --- | --- | --- | --- | --- |
 | `@deepseek-ai/dsh-tool-ask-user` | `ask_user_question` | `ctx.tools`、`ctx.userQuestions` | `tool/call`、`tool/result after a UI/provider answers the question` | - | ask_user_question 会暂停工具调用，直到当前 UI 提供方返回人类答案。 |
-| `@deepseek-ai/dsh-tools` | `run_code` | `ctx.tools`、`ctx.codeRuntime (execution time)`、`ctx.systemPrompt` | `tool/call`、`one tool/code-dispatch-start + tool/code-dispatch pair per bridged sub-call`、`tool/result` | - | 在 `mode: ptc`／`mode: both` 下，它由工具注册表所有，作为可过滤能力层之外的保留传输机制（参见 PTC mode Agent Note）。在 `ptc` 下，它是注册表对协议格式（wire format）的唯一贡献；其他可见能力在使用已加载运行时语言生成的 SDK 章节中声明。程序通过 binding 调用这些能力，调用按照原生并发约定调度：启动顺序和策略遵循提交顺序，并发安全的函数体最多重叠执行 `maxParallelSubCalls` 个。调用会重新进入完整且受守卫保护的工具流水线，并将每个嵌套执行关联到此外层结果。 |
+| `@deepseek-ai/dsh-tools` | `run_code` | `ctx.tools`、`ctx.codeRuntime (execution time)`、`ctx.systemPrompt` | `tool/call`、`one tool/ptc-dispatch-start + tool/ptc-dispatch pair per bridged sub-call`、`tool/result` | - | 在 `mode: ptc`／`mode: both` 下，它由工具注册表所有，作为可过滤能力层之外的保留传输机制（参见 PTC mode Agent Note）。在 `ptc` 下，它是注册表对协议格式（wire format）的唯一贡献；其他可见能力在使用已加载运行时语言生成的 SDK 章节中声明。程序通过 binding 调用这些能力，调用按照原生并发约定调度：启动顺序和策略遵循提交顺序，并发安全的函数体最多重叠执行 `maxParallelSubCalls` 个。调用会重新进入完整且受守卫保护的工具流水线，并将每个嵌套执行关联到此外层结果。 |
 | `@deepseek-ai/dsh-plan-mode` | `exit_plan_mode` | `ctx.tools`、`ctx.systemPrompt`、`ctx.userQuestions (execution time, opportunistic)` | `tool/call`、`plan/mode inactive on an approved review`、`tool/result` | - | 规划未激活时，exit_plan_mode 仍保留在面向模型的 schema 中，这样状态转换不会在规划策略变更之外额外造成工具目录变动。其执行路径会拒绝规划模式之外的调用；在规划模式下，它通过用户交互 seam 提交计划（批准／根据反馈继续规划），批准后会在步骤边界记录规划模式已停用。 |
 | `@deepseek-ai/dsh-tool-bash` | `bash` | `ctx.tools`、`ctx.shell`、`ctx.systemPrompt`、`ctx.shellEnv`、`ctx.jobs at call time for run_in_background` | `tool/call`、`tool/result` | - | bash 工具是 bash 执行器 seam 面向模型的消费方。使用 `run_in_background` 的运行会注册到通用 `ctx.jobs` 运行时，并通过 `job_*` 工具（来自 `@deepseek-ai/dsh-tool-jobs`）收集／停止；禁用 `enableRunInBackground` 配置（默认为 true）后，该参数会被完全移除。 |
+| `@deepseek-ai/dsh-tool-present` | `present` | `ctx.tools`, `ctx.fs`, `ctx.sessionProjections` | `tool/call`, `deliverables/presented 在成功的最终结果之后`, `tool/result` | - | 交付归调用方 Session 所有；Web ui-deliverables 提供源文件打开与卡片。 |
 | `@deepseek-ai/dsh-tool-pwsh` | `pwsh` | `ctx.tools`、`ctx.shell`、`ctx.systemPrompt`、`ctx.shellEnv`、`ctx.jobs at call time for run_in_background` | `tool/call`、`tool/result` | - | pwsh 工具是 Windows 组合中 bash 执行器 seam 的 PowerShell 方言消费方（由 `@deepseek-ai/dsh-pwsh-local` 等 PowerShell 执行器为 `ctx.shell` 提供后端）；除沙箱接口外，它逐项对应 bash 工具调用。使用 `run_in_background` 的运行会注册到通用 `ctx.jobs` 运行时，并通过 `job_*` 工具收集／停止；托管的 `DSH_*` 环境来自 `@deepseek-ai/dsh-shell-env`。每次调用都在新进程中运行，不使用持久 PTY 会话。路径采用原生 `C:\...` 形式，变量采用 `$env:NAME`。 |
 | `@deepseek-ai/dsh-tool-cordis` | `cordis_define`、`cordis_inspect_list`、`cordis_inspect_query`、`cordis_inspect_self`、`cordis_run`、`cordis_stop`、`cordis_undefine` | `ctx.tools`、`ctx.dynamicCordisRunner` | `tool/call`、`tool/result`、`process-local dynamic package lifecycle` | - | 不在任何随产品发布的树中，需要显式选择启用；动态 Package 代码可以访问真实运行时，见 .agents/notes/implemented/feature/2026-07-08-self-referential-cordis-toolset.md。该工具集注入 `@deepseek-ai/dsh-cordis-host-runner` 提供的 `ctx.dynamicCordisRunner`，后者拥有定义注册表和 vm 沙箱；组合缺少它时这些工具不会激活。运行中的 Package 在停止、undefine 或 DSH 重启前可以注册**额外的**模型可见工具；发生这类工具集变化时，系统会记录完整且有变动的请求头。 |
 | `@deepseek-ai/dsh-tool-bash-persistent` | `bash` | `ctx.tools`、`ctx.terminals`、`an owning Agent at execution time` | `tool/call`、`PTY shell state`、`tool/result` | - | 一个按所有者隔离的持久 bash 工具；部署组合提供 PTY 后端，并可覆盖面向模型的环境描述。 |
@@ -39,11 +40,15 @@
 | `@deepseek-ai/dsh-tool-session-query` | `session_event_read`、`session_event_search`、`session_event_trace`、`session_search`、`session_trace` | `ctx.tools`、`ctx.systemPrompt`、`ctx.sessionQuery`、`a calling Agent for workspace authority` | `tool/call`、`tool/result` | - | 这 5 个只读工具会隐藏提供方游标，并根据不可变的调用 agent 会话为每个结果授权。该包需要选择启用；需要强制截止时间或限制行内输出的组合还会挂载通用超时或 spill 策略。 |
 | `@deepseek-ai/dsh-tool-subagent` | `list_subagent_models`、`subagent` | `ctx.tools`、`ctx.subagents`、`ctx.systemPrompt`、`用于模型发现和所选路由校验的 ctx.llm` | `tool/call`、`tool/result`、`child session events through the chosen provider` | `subagent`、`subagent_fork` | 注册的委派工具名称取决于加载时 `toolName` 配置（默认为 `subagent`）；上述默认 schema 关闭模型选择，而发现 schema 则展示为已启用 Session 中可用的固定配套工具。Web preset 会在每个新顶层 Session 创建时读取插件页偏好，并为其子 Session 保留该决定；`subagent_fork` 始终使用固定路由。每个实例通过 `modelSelectionSettings`、`backgroundMode` 与 `enableRunInBackground` 独立控制是否读取模型选择设置及其后台行为。 |
 | `@deepseek-ai/dsh-tool-subagent-control` | `interrupt_agent`、`list_agents`、`send_message` | `ctx.tools`、`ctx.subagents`、`ctx.agents and ctx.sessionProjections (list_agents only)` | `tool/call`、`tool/result`、`child session events through ctx.subagents` | - | 这些是控制可继续后台 subagent 的全局命名工具：绑定提供方的 `tool-subagent` 实例注册不同的委派工具；本包注册一次 `send_message` 和 `interrupt_agent`，另由 `list_agents` 通过单独加载的 `/list-agents` 插件提供，其目录行使用 sessionProjections 和实时 Agent 注册表。 |
-| `@deepseek-ai/dsh-tool-subagent-report` | `report` | `ctx.subagents`、`ctx.systemPrompt`、`a live continuable in-process child Agent` | `tool/call`、`tool/result`、`a user-role message in the direct parent session` | - | 按可继续的进程内子级注册，而非全局注册，因此该 schema 仅在这种子级内部可见，并且不受其全局 `toolFilter` 影响。同一份贡献还会安装子级作用域的 `tool:report` 系统提示词 section，本目录不渲染该 section。面向父级的 `send_message` 工具单独安装。 |
 | `@deepseek-ai/dsh-tool-jobs` | `job_kill`、`job_list`、`job_output` | `ctx.tools`、`ctx.jobs`、`ctx.systemPrompt` | `tool/call`、`tool/result`、`user/message via agent.inject() for background completion notices` | - | 与任务种类无关的后台任务控制器：后台 bash 命令、PTY 发送和 subagent 都通过相同的 3 个工具读取、列出和终止。加载该插件会挂接控制器，从而启用生产方的 `ctx.jobs.start()`。 |
-| `@deepseek-ai/dsh-experimental-tool-agent-team` | `followup_task`、`interrupt_agent`、`list_agents`、`send_message`、`spawn_teammate`、`team_task_create`、`team_task_get`、`team_task_list`、`team_task_update`、`wait_agent` | `ctx.tools`、`ctx.systemPrompt`、`ctx.agentTeams`、`an exact live Team member Agent` | `tool/call`、`team/member`、`team/message/queued`、`team/message/delivered`、`team/task`、`tool/result` | - | 这 10 个工具限定于隐式 Team Lead 与持久 teammate 作用域。随产品发布的 dsh-base bundle 默认禁用该包；文档中的 Agent Teams profile patch 会启用它，并禁用旧 continuable child 的同名控制工具。 |
+| `@deepseek-ai/dsh-experimental-tool-agent-team` | `interrupt_agent`、`list_agents`、`send_message`、`spawn_teammate`、`team_task_create`、`team_task_get`、`team_task_list`、`team_task_update`、`wait_agent` | `ctx.tools`、`ctx.systemPrompt`、`ctx.agentTeams`、`an exact live Team member Agent` | `tool/call`、`team/member`、`team/message/queued`、`team/message/delivered`、`team/task`、`tool/result` | - | 这 9 个工具限定于隐式 Team Lead 与持久 teammate 作用域。随产品发布的 dsh-base bundle 默认禁用该包；文档中的 Agent Teams profile patch 会启用它，并禁用旧 continuable child 的同名控制工具。 |
 | `@deepseek-ai/dsh-tool-todo` | `todo_write` | `ctx.tools`、`owning Agent session` | `tool/call`、`todo/write`、`tool/result` | - | todo_write 是会话所有的状态；UI 将最新的 todo/write 事件渲染为检查清单。`allowParallelInProgress` 是没有默认值的必填项，因此本目录明确选择 `true`，对应描述允许同时存在多个 `in_progress` 项。选择 `false` 的部署会获得同一工具，但描述会要求只能有 1 个活动任务。 |
 | `@deepseek-ai/dsh-tool-workflow` | `workflow` | `ctx.tools`、`ctx.workflowEngine`、`ctx.systemPrompt`、`a calling Agent (exec.agent parents the script children)` | `tool/call`、`tool/result` | - | - |
+| `@deepseek-ai/dsh-tool-exploration` | `exploration_clean`、`exploration_convert`、`exploration_detect`、`exploration_extract`、`exploration_ingest`、`exploration_profile`、`exploration_run` | `ctx.tools` | `tool/call`、`tool/result` | - | 这六个 exploration_* 工具直接调用 @deepseek-ai/dsh-exploration 引擎的纯处理器。转换类工具通过参数往返传递完整数据集 JSON；`segy` 输入以 base64 编码传入。 |
+| `@deepseek-ai/dsh-tool-consistency` | `consistency_convert`、`consistency_cut`、`consistency_exclude`、`consistency_ingest`、`consistency_plot`、`consistency_rename`、`consistency_run` | `ctx.tools` | `tool/call`、`tool/result` | - | 这七个 consistency_* 工具直接调用 @deepseek-ai/dsh-consistency 引擎的纯处理器。转换类工具通过参数往返传递工作流 JSON；exclude 工具在绘图后剔除大偏移台站；run 工具返回完整可追溯运行记录。 |
+| `@deepseek-ai/dsh-tool-code` | `code_analyze`、`code_check` | `ctx.tools` | `tool/call`、`tool/result` | - | code_analyze 与 code_check 工具直接调用 @deepseek-ai/dsh-code 引擎的纯分析器（语言检测、度量、圈复杂度、质量得分与静态质量／安全检查发现）。 |
+| `@deepseek-ai/dsh-tool-paper` | `paper_cite`、`paper_export`、`paper_format`、`paper_ingest`、`paper_revise`、`paper_run` | `ctx.tools` | `tool/call`、`tool/result` | - | 这五个 paper_* 工具（ingest/revise/format/cite/run）直接调用 @deepseek-ai/dsh-paper 引擎的纯处理器；ingest/revise/format/cite 往返传递论文 JSON，run 返回可追溯运行记录。 |
+| `@deepseek-ai/dsh-tool-bidding` | `bidding_assemble_draft`、`bidding_compare`、`bidding_list_templates`、`bidding_parse_tender`、`bidding_render_docx`、`bidding_save_material`、`bidding_search_materials` | `ctx.tools`、`ctx.fs` | `tool/call`、`tool/result` | - | 这七个 bidding_* 工具（parse_tender/list_templates/save_material/search_materials/assemble_draft/render_docx/compare）直接调用 @deepseek-ai/dsh-bidding 引擎的纯处理器，作用于招标文档、随产品发布加用户自建的模板根目录以及持久化素材库。 |
 | `@deepseek-ai/dsh-tool-web` | `web_fetch`、`web_search` | `ctx.tools`、`ctx.web`、`ctx.systemPrompt` | `tool/call`、`tool/result` | - | web_search 和 web_fetch 将提供方选择置于 ctx.web 之后，使模型可见 schema 在更换后端时保持稳定。 |
 
 <a id="deepseek-aidsh-tool-ask-user"></a>
@@ -222,6 +227,49 @@ ask_user_question 会暂停工具调用，直到当前 UI 提供方返回人类�
 来源：[`packages/shell/tool-bash/src/index.ts`](../packages/shell/tool-bash/src/index.ts)
 
 bash 工具是 bash 执行器 seam 面向模型的消费方。使用 `run_in_background` 的运行会注册到通用 `ctx.jobs` 运行时，并通过 `job_*` 工具（来自 `@deepseek-ai/dsh-tool-jobs`）收集／停止；禁用 `enableRunInBackground` 配置（默认为 true）后，该参数会被完全移除。
+
+<a id="deepseek-aidsh-tool-present"></a>
+
+## `@deepseek-ai/dsh-tool-present`
+
+### `present`
+
+声明交付 Session 文件系统可访问的已有文件。如果你创建或更新的文件是用户要求接收的成果，则必须在写入完成后、最终回复前调用 present，包括通过 Bash 或代码执行创建的文件。在回复中提到文件路径不能替代这次调用。文件必须已存在。用户打开当前源文件；不复制或保存其内容。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path of an existing regular file. Relative paths use the Session working directory."
+          },
+          "description": {
+            "type": "string",
+            "description": "Brief description for the user."
+          }
+        },
+        "required": [
+          "path"
+        ]
+      }
+    }
+  },
+  "required": [
+    "files"
+  ]
+}
+```
+
+来源： [`packages/fs/tool-present/src/index.ts`](../packages/fs/tool-present/src/index.ts)
+
+交付归调用方 Session 所有；Web ui-deliverables 提供源文件打开与卡片。
 
 <a id="deepseek-aidsh-tool-pwsh"></a>
 
@@ -737,7 +785,7 @@ pwsh 工具是 Windows 组合中 bash 执行器 seam 的 PowerShell 方言消费
 
 ### `read_image`
 
-读取 PNG/JPEG/WebP/GIF 文件并返回图像本身。Harness 会在下一次模型请求前校验并缩小受支持的大图，因此仅为查看图片时应直接使用此工具，无需安装图片库或创建缩略图。可以用小批次并发读取彼此独立的文件。要求当前模型接受图像输入。
+读取 PNG/JPEG/WebP/GIF 文件并返回图像本身。无扩展名的路径同样被接受；格式按文件内容检测，因此规范化附件路径可以直接传入，无需复制或重命名。Harness 会在下一次模型请求前校验并缩小受支持的大图，因此仅为查看图片时应直接使用此工具，无需安装图片库或创建缩略图。可以用小批次并发读取彼此独立的文件。要求当前模型接受图像输入。
 
 ```json
 {
@@ -1624,7 +1672,7 @@ lsp 工具将提供方选择和语言服务器子进程置于 ctx.lsp 之后，�
 
 ### `list_agents`
 
-按持久 id 和标签列出你的可继续后台 subagent。用它回忆你启动过哪些 subagent，而不是轮询完成情况——subagent 完成时你会被告知。状态来自实时注册表：running 表示 agent 此刻正在工作；idle 表示已加载但处于轮次之间，可能正在等待它启动的 agent；ready 表示它只存在于存储中——可恢复而非终态，也不表示有结果等待收集；`send_message` 会在同一对话上开启新的轮次，且无论处于哪种状态，直接子级都仍可作为 `send_message` 的目标。该快照并非投递承诺；`send_message` 会执行权威检查，仍可能失败。无法读取的子级会作为诊断信息报告，而不会被静默丢弃。`descendants` 作用域会按稳定的前序顺序遍历你下方的整棵树，并为每个条目标注其持久的直接父会话 id 和深度。只有深度为 1 的条目可以使用 `send_message`；更深的条目只能作为 `interrupt_agent` 的候选目标。
+按持久 id 和标签列出你的可继续后台 subagent。用它回忆你启动过哪些 subagent，而不是轮询完成情况——subagent 完成时你会被告知。状态来自实时注册表：running 表示 agent 此刻正在工作；idle 表示已加载但处于轮次之间，可能正在等待它启动的 agent；ready 表示它只存在于存储中——可恢复而非终态，也不表示有结果等待收集；`send_message` 会在运行中 child 的最近 step 边界 steer 消息，或为 idle、ready child 启动轮次，且无论处于哪种状态，直接子级都仍可作为 `send_message` 的目标。该快照并非投递承诺；`send_message` 会执行权威检查，仍可能失败。无法读取的子级会作为诊断信息报告，而不会被静默丢弃。`descendants` 作用域会按稳定的前序顺序遍历你下方的整棵树，并为每个条目标注其持久的直接父会话 id 和深度。只有深度为 1 的条目可以使用 `send_message`；更深的条目只能作为 `interrupt_agent` 的候选目标。
 
 ```json
 {
@@ -1646,23 +1694,23 @@ lsp 工具将提供方选择和语言服务器子进程置于 ctx.lsp 之后，�
 
 ### `send_message`
 
-根据 subagent id 向后台 subagent 发送消息，继续同一段对话。该消息会成为 subagent 的下一轮次：如果它仍在工作，消息会等待当前轮次结束，因此无法改变已经开始的工作方向。此调用不会返回 subagent 的答案，只会确认消息已投递，因此请用它分派更多工作。调用失败表示消息**未**投递。
+根据 agent id 向直接可继续 child 发送消息。如果你是驻留的可继续 child，也可以把自己的直接 parent 作为目标。如果目标仍在工作，消息会 steer 其最近的 step；如果目标处于 idle，消息会启动一个轮次。此调用不会返回该 agent 的答案，只会确认消息已投递。调用失败表示消息**未**投递。
 
 ```json
 {
   "type": "object",
   "properties": {
-    "subagent_id": {
+    "agent_id": {
       "type": "string",
-      "description": "The subagent id returned when the background subagent was started."
+      "description": "The agent id of your direct continuable child, or your direct parent when you are a resident continuable child."
     },
     "message": {
       "type": "string",
-      "description": "The message to deliver to the subagent."
+      "description": "The message to deliver to the agent."
     }
   },
   "required": [
-    "subagent_id",
+    "agent_id",
     "message"
   ]
 }
@@ -1671,33 +1719,6 @@ lsp 工具将提供方选择和语言服务器子进程置于 ctx.lsp 之后，�
 来源：[`packages/subagent/tool-subagent-control/src/index.ts`](../packages/subagent/tool-subagent-control/src/index.ts)
 
 这些是控制可继续后台 subagent 的全局命名工具：绑定提供方的 `tool-subagent` 实例注册不同的委派工具；本包注册一次 `send_message` 和 `interrupt_agent`，另由 `list_agents` 通过单独加载的 `/list-agents` 插件提供，其目录行使用 sessionProjections 和实时 Agent 注册表。
-
-<a id="deepseek-aidsh-tool-subagent-report"></a>
-
-## `@deepseek-ai/dsh-tool-subagent-report`
-
-### `report`
-
-向启动你的 agent 报告选定内容。在你结束前调用一次，给出自包含的最终结果；当进度或发现会改变该 agent 接下来的行动时，也可以更早调用。该 agent 与你共享工作区，但不会自动收到你的 transcript（文本记录）、工具输出或推理，因此完成你的工作本身并不等于交出结果。报告不会结束你的轮次或完成你的工作，且只有直接父级会收到。失败的调用仍可能已经送达，因此不要盲目重复。
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "output": {
-      "type": "string",
-      "description": "Actionable content for your parent; summarize conclusions and reference relevant shared paths."
-    }
-  },
-  "required": [
-    "output"
-  ]
-}
-```
-
-来源：[`packages/subagent/tool-subagent-report/src/index.ts`](../packages/subagent/tool-subagent-report/src/index.ts)
-
-按可继续的进程内子级注册，而非全局注册，因此该 schema 仅在这种子级内部可见，并且不受其全局 `toolFilter` 影响。同一份贡献还会安装子级作用域的 `tool:report` 系统提示词 section，本目录不渲染该 section。面向父级的 `send_message` 工具单独安装。
 
 <a id="deepseek-aidsh-tool-jobs"></a>
 
@@ -1776,32 +1797,6 @@ lsp 工具将提供方选择和语言服务器子进程置于 ctx.lsp 之后，�
 
 ## `@deepseek-ai/dsh-experimental-tool-agent-team`
 
-### `followup_task`
-
-向另一名 Team member 发送持久 follow-up task，并在需要时启动一个 turn。
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "target": {
-      "type": "string",
-      "description": "Team member name, or lead."
-    },
-    "message": {
-      "type": "string",
-      "description": "Self-contained message for the target."
-    }
-  },
-  "required": [
-    "target",
-    "message"
-  ]
-}
-```
-
-来源：[`packages/experimental/tool-agent-team/src/index.ts`](../packages/experimental/tool-agent-team/src/index.ts)
-
 ### `interrupt_agent`
 
 中断一名 teammate 的当前 turn，同时保留其待处理 inbox。仅 Team Lead 可用。
@@ -1838,7 +1833,7 @@ lsp 工具将提供方选择和语言服务器子进程置于 ctx.lsp 之后，�
 
 ### `send_message`
 
-向另一名 Team member 发送持久信息，但不启动 idle member。
+向另一名 Team member 发送一条持久消息。running target 会在最近的步骤边界收到消息；idle target 会启动一个 turn；inactive teammate 会冷恢复。
 
 ```json
 {
@@ -2285,3 +2280,831 @@ todo_write 是会话所有的状态；UI 将最新的 todo/write 事件渲染为
 来源：[`packages/web/tool-web/src/index.ts`](../packages/web/tool-web/src/index.ts)
 
 web_search 和 web_fetch 将提供方选择置于 ctx.web 之后，使模型可见 schema 在更换后端时保持稳定。
+
+## `@deepseek-ai/dsh-tool-exploration`
+
+### `exploration_clean`
+
+清洗勘探数据集：缺失值策略、数值范围、去重、删除列、重命名与类型强制转换。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Clean options (missing, ranges, dedupe, dropColumns, renameColumns, trimStrings, columnTypes)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_convert`
+
+转换勘探数据集：单位换算、深度↔时间转换与列选择。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Convert options (units, depthTime, selectColumns)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_detect`
+
+检测勘探数据异常：z-score、IQR、硬阈值、尖峰、死道与空值。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Detect options (zscore, iqr, threshold, spike, deadTrace, nulls)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_extract`
+
+提取勘探统计量：描述性统计、滚动窗口与 RMS 振幅。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Extract options (statistics, rolling, rms)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_ingest`
+
+将原始勘探输入（CSV、JSON 或 base64 编码的 SEG-Y）解析为表格数据集。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input format; csv and json take text, segy takes base64-encoded bytes.",
+      "enum": [
+        "csv",
+        "json",
+        "segy"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw input: CSV/JSON text or base64 SEG-Y."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the dataset meta."
+    },
+    "config": {
+      "description": "Ingest options (delimiter, hasHeader, trim, inferTypes, longFormat, sampleLimit)."
+    }
+  },
+  "required": [
+    "format",
+    "data"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_profile`
+
+由勘探数据集渲染地震剖面图（PNG 和/或 SVG），并在 profile 键下返回渲染结果；请在解析并验证 SEG-Y 之后使用。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "description": "The exploration dataset JSON from a prior exploration_* tool."
+    },
+    "config": {
+      "description": "Profile options (formats, width, height, colorMap, title)."
+    }
+  },
+  "required": [
+    "dataset",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+### `exploration_run`
+
+运行完整勘探流水线（先 ingest，再执行 clean/convert/extract/detect/profile 步骤）并返回可追溯运行记录；profile 步骤会把地震剖面渲染进输出元数据。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input format; csv and json take text, segy takes base64-encoded bytes.",
+      "enum": [
+        "csv",
+        "json",
+        "segy"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw input: CSV/JSON text or base64 SEG-Y."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the ingested dataset meta."
+    },
+    "pipeline": {
+      "description": "Named pipeline whose first step is ingest."
+    }
+  },
+  "required": [
+    "format",
+    "data",
+    "pipeline"
+  ]
+}
+```
+
+来源： [`packages/exploration/tool-exploration/src/index.ts`](../packages/exploration/tool-exploration/src/index.ts)
+
+这六个 exploration_* 工具直接调用 @deepseek-ai/dsh-exploration 引擎的纯处理器。转换类工具通过参数往返传递完整数据集 JSON；`segy` 输入以 base64 编码传入。
+
+<a id="deepseek-aidsh-tool-consistency"></a>
+
+
+## `@deepseek-ai/dsh-tool-consistency`
+
+### `consistency_convert`
+
+校验 mseed2sac/e-mseed2sac 转换器，并按 C/E 类别生成 seed 转换规划。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Convert options (converterC, converterE overrides)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_cut`
+
+将 datetime.dat 原始激发时刻行（北京时间）转为 UTC 到达时间窗并给出裁波文件命名。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Cut options (cutBefore, cutAfter, timezoneOffsetHours, outputCutRoot)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_exclude`
+
+将测量得到的各台站数据偏移（DC 基线漂移／静位移，绘图后用 obspy 计算）与阈值比较，报告需要剔除的台站。仅返回报告——绘图批次与数据保持不变；实际设备移除由操作人员手动执行。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "offsets": {
+      "type": "array",
+      "description": "Measured per-station offset magnitudes, e.g. [{\"station\":\"0756_260818\",\"value\":12.5,\"source\":\"obspy dc shift\"}].",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "config": {
+      "description": "Exclude options (threshold required; metric in samples/dc-offset/amplitude; optional arrivalLabel to scope one arrival slice)."
+    }
+  },
+  "required": [
+    "workflow",
+    "offsets"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_ingest`
+
+根据互换 JSON 载荷（项目、含 seed 文件名的台站目录，以及 datetime.dat 原始激发时刻行）构建一致性测试工作流。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string",
+      "description": "JSON text payload of the interchange document."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the workflow meta."
+    },
+    "config": {
+      "description": "Ingest options (baseDir, inputRoot, outputSacRoot, outputCutRoot, outputFigRoot, converterC, converterE, channel, cutBefore, cutAfter, timezoneOffsetHours, batchSize)."
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_plot`
+
+按激发时刻把台站划分为固定高度的绘图批次（按编号排序，偏移量 (batchSize-1-i)*1.5，Y 轴标签 WT.<sta[:4]>）。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Plot options (outputFigRoot, channel, batchSize)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_rename`
+
+计算统一的台站目录名（去除前导 C，否则取前 4 个字符），并带冲突防护。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflow": {
+      "description": "The workflow JSON from a prior consistency_* tool."
+    },
+    "config": {
+      "description": "Rename options (none tunable; the rule is fixed)."
+    }
+  },
+  "required": [
+    "workflow"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+### `consistency_run`
+
+对互换 JSON 运行完整一致性测试流水线（先 ingest，再依次执行 rename/convert/cut/plot/exclude 步骤）并返回可追溯运行记录。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string",
+      "description": "JSON text payload of the interchange document."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the ingested workflow meta."
+    },
+    "pipeline": {
+      "description": "Named pipeline whose first step is ingest."
+    }
+  },
+  "required": [
+    "data",
+    "pipeline"
+  ]
+}
+```
+
+来源： [`packages/consistency/tool-consistency/src/index.ts`](../packages/consistency/tool-consistency/src/index.ts)
+
+这七个 consistency_* 工具直接调用 @deepseek-ai/dsh-consistency 引擎的纯处理器。转换类工具通过参数往返传递工作流 JSON；exclude 工具在绘图后剔除大偏移台站；run 工具返回完整可追溯运行记录。
+
+<a id="deepseek-aidsh-tool-code"></a>
+
+
+## `@deepseek-ai/dsh-tool-code`
+
+### `code_analyze`
+
+分析一段源代码：检测语言、计算行度量、函数与类、圈复杂度、静态发现，并给出 0–100 的质量得分。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source code text to analyze."
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Optional file name; a known extension wins over content heuristics for language detection."
+    },
+    "checks": {
+      "description": "Optional rule toggles: dangerous, secrets, todos, debugResidue, emptyCatch, broadCatch."
+    }
+  },
+  "required": [
+    "source"
+  ]
+}
+```
+
+来源： [`packages/code/tool-code/src/index.ts`](../packages/code/tool-code/src/index.ts)
+
+### `code_check`
+
+对源代码片段执行静态质量与安全检查：动态执行、原生 SQL 拼接、硬编码密钥、TODO 标记、调试器残留以及空／裸异常处理。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source code text to scan."
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Optional file name for language detection."
+    },
+    "checks": {
+      "description": "Optional rule toggles: dangerous, secrets, todos, debugResidue, emptyCatch, broadCatch."
+    }
+  },
+  "required": [
+    "source"
+  ]
+}
+```
+
+来源： [`packages/code/tool-code/src/index.ts`](../packages/code/tool-code/src/index.ts)
+
+code_analyze 与 code_check 工具直接调用 @deepseek-ai/dsh-code 引擎的纯分析器（语言检测、度量、圈复杂度、质量得分与静态质量／安全检查发现）。
+
+<a id="deepseek-aidsh-tool-paper"></a>
+
+
+## `@deepseek-ai/dsh-tool-paper`
+
+### `paper_cite`
+
+按目标样式（GB/T 7714、APA 或 MLA）格式化论文参考文献，可选择对条目排序。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "config": {
+      "description": "Cite options (style: gb7714|apa|mla, sort, maxCitations)."
+    }
+  },
+  "required": [
+    "paper",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_export`
+
+从论文生成 .docx 或 .doc 文档，采用结构化排版（页眉、页脚、页码、字体、行距、页边距）。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "format": {
+      "type": "string",
+      "description": "Output document format.",
+      "enum": [
+        "doc",
+        "docx"
+      ]
+    },
+    "config": {
+      "description": "Document layout (headerText, footerText, pageNumbers, fontFamily, fontSizePt, lineSpacing, paragraphSpacingPt, marginsMm)."
+    }
+  },
+  "required": [
+    "paper",
+    "format"
+  ]
+}
+```
+
+来源： [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_format`
+
+规范化论文：标题编号、规整间距、弯曲歧义引号并补全引文标记。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "config": {
+      "description": "Format options (numberedHeadings, spacing, typographicQuotes, citationMarks, maxFindings)."
+    }
+  },
+  "required": [
+    "paper"
+  ]
+}
+```
+
+来源： [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_ingest`
+
+将原始手稿文本（纯文本或 Markdown）解析为带章节和参考文献的结构化论文。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input manuscript format.",
+      "enum": [
+        "text",
+        "markdown"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw manuscript text."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the paper meta."
+    },
+    "config": {
+      "description": "Ingest options (markdownHeadings, detectTitle, sectionPattern)."
+    }
+  },
+  "required": [
+    "format",
+    "data"
+  ]
+}
+```
+
+来源： [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_revise`
+
+分析论文并给出内容修改建议：清晰度改写、被动语态检测与陈词滥调标记。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "paper": {
+      "description": "The paper JSON from a prior paper_* tool."
+    },
+    "config": {
+      "description": "Revise options (clarity, flagPassiveVoice, flagClichés, maxFindings)."
+    }
+  },
+  "required": [
+    "paper",
+    "config"
+  ]
+}
+```
+
+来源： [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+### `paper_run`
+
+运行完整论文流水线（先 ingest，再执行 revise/format/cite 步骤）并返回可追溯运行记录。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "Input manuscript format.",
+      "enum": [
+        "text",
+        "markdown"
+      ]
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw manuscript text."
+    },
+    "source": {
+      "type": "string",
+      "description": "Optional source label recorded in the ingested paper meta."
+    },
+    "pipeline": {
+      "description": "Named pipeline whose first step is ingest."
+    }
+  },
+  "required": [
+    "format",
+    "data",
+    "pipeline"
+  ]
+}
+```
+
+来源： [`packages/paper/tool-paper/src/index.ts`](../packages/paper/tool-paper/src/index.ts)
+
+这五个 paper_* 工具（ingest/revise/format/cite/run）直接调用 @deepseek-ai/dsh-paper 引擎的纯处理器；ingest/revise/format/cite 往返传递论文 JSON，run 返回可追溯运行记录。
+
+<a id="deepseek-aidsh-tool-bidding"></a>
+
+
+## `@deepseek-ai/dsh-tool-bidding`
+
+### `bidding_assemble_draft`
+
+校验并规范化标书草稿：章节级连续性、模板必填章节覆盖与素材来源引用。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "draft": {
+      "description": "The BidDraft JSON (templateId, tender facts, sections)."
+    }
+  },
+  "required": [
+    "draft"
+  ]
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+### `bidding_compare`
+
+对标书与招标文件做确定性预检：评分点覆盖矩阵、废标条款响应发现与格式检查清单。得出结论前请对矩阵做语义复核。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "tender": {
+      "description": "The TenderDocument JSON from bidding_parse_tender."
+    },
+    "draft": {
+      "description": "The BidDraft JSON to compare (preferred)."
+    },
+    "bidPath": {
+      "type": "string",
+      "description": "Workspace-relative path of a finished bid .docx, as an alternative to draft."
+    }
+  },
+  "required": [
+    "tender"
+  ]
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+### `bidding_list_templates`
+
+列出所有可用标书模板：四个内置骨架，加上放入用户模板根目录的任何自定义模板。
+
+```json
+{
+  "type": "object",
+  "properties": {}
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+### `bidding_parse_tender`
+
+将招标文件 .docx 解析为结构化投影：章节树、评分条款、废标条款与关键信息。提供工作区路径或 base64 字节。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "Workspace-relative path of the tender .docx file (preferred when the file is in the workspace)."
+    },
+    "dataBase64": {
+      "type": "string",
+      "description": "Base64-encoded tender .docx bytes, as an alternative to path."
+    },
+    "fileName": {
+      "type": "string",
+      "description": "File name used for the sidecar when dataBase64 is given."
+    }
+  }
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+### `bidding_render_docx`
+
+将标书草稿渲染为格式化的 .docx（封面、目录域、标题样式、表格、页眉／页脚、页码）。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "draft": {
+      "description": "The BidDraft JSON to render."
+    },
+    "config": {
+      "description": "Layout options (headerText, footerText, pageNumbers, bodyFontFamily, headingFontFamily, fontSizePt, lineSpacing, paragraphSpacingPt, marginsMm)."
+    }
+  },
+  "required": [
+    "draft"
+  ]
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+### `bidding_save_material`
+
+将可复用的素材（企业资质、项目业绩、技术章节、团队简介、服务承诺）存入持久化素材库，供后续标书使用。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "Kebab-case category, e.g. company-qualification, performance-proof, technical-proposal."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short material title."
+    },
+    "content": {
+      "type": "string",
+      "description": "Markdown content of the material (tables allowed)."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Search tags.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "Originating bid or project name."
+    }
+  },
+  "required": [
+    "category",
+    "title",
+    "content"
+  ]
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+### `bidding_search_materials`
+
+以确定性的关键词／类别／标签评分检索持久化素材库；按相关度排序后，请自行判断语义契合度。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "description": "Free-text query matched against titles, tags, and content."
+    },
+    "category": {
+      "type": "string",
+      "description": "Exact kebab-case category filter."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Material must carry at least one of these tags.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "includeContent": {
+      "type": "boolean",
+      "description": "Return full content instead of a 200-character preview; default false."
+    }
+  }
+}
+```
+
+来源： [`packages/bidding/tool-bidding/src/index.ts`](../packages/bidding/tool-bidding/src/index.ts)
+
+这七个 bidding_* 工具（parse_tender/list_templates/save_material/search_materials/assemble_draft/render_docx/compare）直接调用 @deepseek-ai/dsh-bidding 引擎的纯处理器，作用于招标文档、随产品发布加用户自建的模板根目录以及持久化素材库。

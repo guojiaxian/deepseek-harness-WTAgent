@@ -2,11 +2,11 @@
 
 [English](exploration.md) | 中文
 
-勘探数据处理服务（`ctx.exploration`）校验插件配置中声明的具名流水线并注册，随后端到端执行：接收原始勘探记录（地质、地球物理或测井数据）、清洗数据集、单位或深度／时间转换、统计提取与异常检测，并返回可追溯的 run 记录。纯函数、框架无关的引擎函数与类型位于 [`@deepseek-ai/dsh-exploration`](../../packages/exploration/exploration/README.md)。
+勘探数据处理服务（`ctx.exploration`）校验插件配置中声明的具名流水线并注册，随后端到端执行：接收原始勘探记录（地质、地球物理或测井数据）、清洗数据集、单位或深度／时间转换、统计提取与异常检测，并返回可追溯的 run 记录。纯函数、框架无关的引擎函数与类型位于 [`@deepseek-ai/dsh-exploration`](../../packages/exploration/exploration/README.zh.md)。
 
 ## 服务行为
 
-[`ExplorationService`](../../packages/exploration/exploration/src/service.ts) 在挂载时校验每条配置的流水线、按名称注册，并从经过校验的 `Config` 字段解析部署限制。`runPipeline` 在 `RunRecord` 上记录逐步骤 `StepRecord`（时间戳、耗时、输入哈希、输出摘要、说明）与输入校验和；步骤失败会被记录在 run 记录上而不中断调用方，输出回退到最后一次成功的数据集。面向模型的 `exploration_*` 工具位于 [`@deepseek-ai/dsh-tool-exploration`](../../packages/exploration/tool-exploration/README.md)，它们直接调用引擎的纯处理器。
+[`ExplorationService`](../../packages/exploration/exploration/src/service.ts) 在挂载时校验每条配置的流水线、按名称注册，并从经过校验的 `Config` 字段解析部署限制。`runPipeline` 在 `RunRecord` 上记录逐步骤 `StepRecord`（时间戳、耗时、输入哈希、输出摘要、说明）与输入校验和；步骤失败会被记录在 run 记录上而不中断调用方，输出回退到最后一次成功的数据集。面向模型的 `exploration_*` 工具位于 [`@deepseek-ai/dsh-tool-exploration`](../../packages/exploration/tool-exploration/README.zh.md)，它们直接调用引擎的纯处理器。
 
 <!-- BEGIN GENERATED cordis-surface (gen-cordis-catalog.ts) — do not edit between markers -->
 

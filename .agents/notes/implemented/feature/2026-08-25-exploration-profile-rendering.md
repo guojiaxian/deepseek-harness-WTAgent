@@ -2,6 +2,8 @@
 
 Status: implemented
 
+English | [中文](2026-08-25-exploration-profile-rendering.zh.md)
+
 ## Problem
 
 A professional seismic-exploration agent could ingest, clean, convert, extract, and detect over SEG-Y data, but had no way to turn a parsed and validated seismic section into a viewable profile image. Rendering a section required post-processing outside the engine, so the agent could not answer "show me this line" without an extra, un-audited step, and nothing paused the pipeline when the section was incomplete.

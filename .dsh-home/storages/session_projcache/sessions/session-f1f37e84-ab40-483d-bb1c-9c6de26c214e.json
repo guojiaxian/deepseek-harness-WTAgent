@@ -1,0 +1,144 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787635059699,
+      "cwd": "/root/harness-demo"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 19839,
+        "val": "人工智能在网络运维中的作用"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 19839,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 19839,
+        "val": {
+          "turns": 1,
+          "steps": 47,
+          "llmMs": 176298,
+          "toolMs": 48960,
+          "ttftMs": 40164,
+          "ttftSteps": 47,
+          "decodeMs": 136134,
+          "decodeTokens": 21189,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 19839,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 19839,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 19839,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 29336,
+            "outputTokens": 21189,
+            "cacheReadTokens": 1289088,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 47,
+            "buckets": {
+              "uncachedInputTokens": 181,
+              "outputTokens": 525,
+              "cacheReadTokens": 47872,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 19839,
+        "val": {
+          "surfaceTokens": 35137,
+          "contextWindow": 1000000,
+          "pressureTokens": 48053,
+          "sampledSurfaceTokens": 34900
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 19839,
+        "val": {
+          "systemTokens": 946,
+          "toolsTokens": 3339,
+          "messageTokens": 35137
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 19839,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 19839,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787635095206
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 19839,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 19839,
+        "val": [
+          {
+            "content": "撰写论文正文（中文）",
+            "status": "completed"
+          },
+          {
+            "content": "运行论文流水线（格式化+GB/T 7714引用）",
+            "status": "completed"
+          },
+          {
+            "content": "导出 .docx 到工作区",
+            "status": "completed"
+          },
+          {
+            "content": "验证输出文档并汇报结果",
+            "status": "completed"
+          }
+        ]
+      },
+      "plan": {
+        "ver": 1,
+        "seq": 19839,
+        "val": {
+          "active": false,
+          "wanted": null
+        }
+      }
+    }
+  }
+}

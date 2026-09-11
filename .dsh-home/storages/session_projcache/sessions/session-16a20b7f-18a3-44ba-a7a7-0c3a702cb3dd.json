@@ -1,0 +1,127 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787642111659,
+      "cwd": "/root/harness-demo"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 4858,
+        "val": "贪吃蛇小游戏编写"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 4858,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 4858,
+        "val": {
+          "turns": 1,
+          "steps": 12,
+          "llmMs": 31583,
+          "toolMs": 4645,
+          "ttftMs": 7396,
+          "ttftSteps": 12,
+          "decodeMs": 24187,
+          "decodeTokens": 5163,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 4858,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 4858,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 1,
+        "seq": 4858,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 7287,
+            "outputTokens": 5163,
+            "cacheReadTokens": 100096,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 12,
+            "buckets": {
+              "uncachedInputTokens": 139,
+              "outputTokens": 317,
+              "cacheReadTokens": 11392,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 4858,
+        "val": {
+          "surfaceTokens": 5601,
+          "contextWindow": 1000000,
+          "pressureTokens": 11531,
+          "sampledSurfaceTokens": 5457
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 4858,
+        "val": {
+          "systemTokens": 937,
+          "toolsTokens": 3055,
+          "messageTokens": 5601
+        }
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 4858,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 4858,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787642129627
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 4858,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 4858,
+        "val": null
+      },
+      "plan": {
+        "ver": 1,
+        "seq": 4858,
+        "val": {
+          "active": false,
+          "wanted": null
+        }
+      }
+    }
+  }
+}

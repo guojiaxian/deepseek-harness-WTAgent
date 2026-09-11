@@ -11,7 +11,7 @@ kind: "package-group"
 
 | 包 | 职责 | ctx 键 |
 |---|---|---|
-| [`code/`](code/README.md) | 引擎：语言检测、度量、复杂度、静态检查以及经过验证的分析服务 | `ctx.code` |
-| [`tool-code/`](tool-code/README.md) | 注册面向模型的 `code_analyze` / `code_check` 工具，调用引擎的纯分析器 | — |
+| [`code/`](code/README.zh.md) | 引擎：语言检测、度量、复杂度、静态检查以及经过验证的分析服务 | `ctx.code` |
+| [`tool-code/`](tool-code/README.zh.md) | 注册面向模型的 `code_analyze` / `code_check` 工具，调用引擎的纯分析器 | — |
 
-引擎保持无框架依赖，使面向模型的工具可直接调用其分析器；服务（`ctx.code`）负责经过验证的限额与默认检查开关以及端到端的 `analyze`。子系统参考见 [docs/subsystems/code.md](../../docs/subsystems/code.md)。可运行示例见 [examples/code-agent](../../examples/code-agent)。
+引擎保持无框架依赖，使面向模型的工具可直接调用其分析器；服务（`ctx.code`）负责经过验证的限额与默认检查开关以及端到端的 `analyze`。子系统参考见 [docs/subsystems/code.zh.md](../../docs/subsystems/code.zh.md)。可运行示例见 [examples/code-agent](../../examples/code-agent)。

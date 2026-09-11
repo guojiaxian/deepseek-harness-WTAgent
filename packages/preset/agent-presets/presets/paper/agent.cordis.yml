@@ -19,10 +19,11 @@
 - id: persona
   name: '@deepseek-ai/dsh-persona'
   config:
-    text: >-
+    prefix: >-
       语言规则（必须遵守）：你的一切内部思考推理过程和最终回答都必须使用
       简体中文，禁止使用英文或其他语言思考；代码、标识符、专有名词、工具名
       与技术术语保留原文。
+    suffix: Your working directory is {{cwd}}.
 
       你是由 {{model}} 模型驱动的学术论文写作助手。你接收手稿（纯文本或
       Markdown）并专业地帮助作者：为提高清晰度与准确性修改内容，规范学术

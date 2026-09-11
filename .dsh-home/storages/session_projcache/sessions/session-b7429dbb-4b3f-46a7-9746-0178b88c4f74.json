@@ -1,0 +1,165 @@
+{
+  "version": 4,
+  "record": {
+    "identity": {
+      "createdAt": 1787819002134,
+      "cwd": "/root/harness-demo/consistency_test4"
+    },
+    "rows": {
+      "title": {
+        "ver": 1,
+        "seq": 42362,
+        "val": "文件夹数据一致性测试"
+      },
+      "goal": {
+        "ver": 4,
+        "seq": 42362,
+        "val": null
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 42362,
+        "val": {
+          "turns": 1,
+          "steps": 78,
+          "llmMs": 410181,
+          "toolMs": 815975,
+          "ttftMs": 82682,
+          "ttftSteps": 78,
+          "decodeMs": 327499,
+          "decodeTokens": 44912,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 42362,
+        "val": {
+          "settledMs": 0,
+          "descriptorSeen": false
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 42362,
+        "val": {}
+      },
+      "tokenUsage": {
+        "ver": 2,
+        "seq": 42362,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 67036,
+            "outputTokens": 44912,
+            "cacheReadTokens": 3731712,
+            "cacheWriteTokens": 0
+          },
+          "last": {
+            "turn": 1,
+            "step": 78,
+            "buckets": {
+              "uncachedInputTokens": 36,
+              "outputTokens": 920,
+              "cacheReadTokens": 104832,
+              "cacheWriteTokens": 0
+            }
+          }
+        }
+      },
+      "contextPressure": {
+        "ver": 4,
+        "seq": 42362,
+        "val": {
+          "contextWindow": 1000000,
+          "pressureTokens": 104868,
+          "surfaceTokens": 65149,
+          "sampledSurfaceTokens": 64702
+        }
+      },
+      "contextBreakdown": {
+        "ver": 2,
+        "seq": 42362,
+        "val": {
+          "systemTokens": 1016,
+          "toolsTokens": 3633,
+          "messageTokens": 65149
+        }
+      },
+      "agentPreset": {
+        "ver": 1,
+        "seq": 42362,
+        "val": "consistency"
+      },
+      "permissions": {
+        "ver": 1,
+        "seq": 42362,
+        "val": {
+          "preset": "workspace-write",
+          "sandbox": "workspace-write",
+          "approval": "ask"
+        }
+      },
+      "modelSelection": {
+        "ver": 2,
+        "seq": 42362,
+        "val": {
+          "lastUsed": {
+            "provider": "deepseek-official",
+            "model": "deepseek-v4-flash",
+            "reasoningEffort": "high"
+          },
+          "pending": null
+        }
+      },
+      "sessionListMetadata": {
+        "ver": 1,
+        "seq": 42362,
+        "val": {
+          "blank": false,
+          "lastPromptAt": 1787877783268
+        }
+      },
+      "imageLimits": {
+        "ver": 1,
+        "seq": 42362,
+        "val": null
+      },
+      "todos": {
+        "ver": 2,
+        "seq": 42362,
+        "val": [
+          {
+            "content": "构建 interchange 并 ingest 工作流",
+            "status": "completed"
+          },
+          {
+            "content": "consistency_rename 计算统一台站命名并实际重命名目录",
+            "status": "completed"
+          },
+          {
+            "content": "consistency_convert 生成转换计划并运行 C-mseed2sac 转 SAC",
+            "status": "completed"
+          },
+          {
+            "content": "consistency_cut 计算 UTC 时间窗并用 obspy 切片",
+            "status": "completed"
+          },
+          {
+            "content": "consistency_plot 划分批次并渲染图件",
+            "status": "completed"
+          },
+          {
+            "content": "用 obspy 测量各台站 DC 基线偏移",
+            "status": "completed"
+          },
+          {
+            "content": "consistency_exclude 分析阈值并报告需剔除台站",
+            "status": "completed"
+          }
+        ]
+      }
+    }
+  }
+}

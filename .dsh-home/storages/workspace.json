@@ -6,6 +6,7 @@
   "global": {
     "initialized": true,
     "workspaceIds": [
+      "c99de3b9-86d5-46a5-89e1-6ae16969f96e",
       "cea636ed-3ee6-41b7-866a-286ccfe9e5c4",
       "e14d12f1-e4c9-4033-aea5-331a5a54db96",
       "3f25f8c4-7ea5-4985-8a73-c8bc509667ac",
@@ -105,6 +106,16 @@
         ],
         "createdAt": "2026-08-28T01:36:29.979Z",
         "updatedAt": "2026-08-28T01:36:30.041Z"
+      },
+      "c99de3b9-86d5-46a5-89e1-6ae16969f96e": {
+        "path": "/root/harness-demo/bid_documents",
+        "title": "bid_documents",
+        "sessionIds": [
+          "session-c1ecf853-580b-418c-b322-f589111e1b59",
+          "session-a441d07b-375a-4f4c-9b36-6c947ae193fa"
+        ],
+        "createdAt": "2026-09-04T02:34:19.389Z",
+        "updatedAt": "2026-09-09T08:24:14.028Z"
       }
     }
   }

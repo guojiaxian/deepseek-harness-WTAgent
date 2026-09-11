@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-23-academic-paper-writing-agent.md
-2026-08-23-academic-paper-writing-agent.md:
-2026-08-23-academic-paper-writing-agent.zh.md:
+2026-08-23-academic-paper-writing-agent.md: eb72de22a622b94239ba5cbceb79f20c78dd9b4f
+2026-08-23-academic-paper-writing-agent.zh.md: 3c9d218041fe40e0fb091cc5f6e200a2342af7c8

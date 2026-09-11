@@ -2,11 +2,11 @@
 
 [English](paper.md) | 中文
 
-科研论文写作服务（`ctx.paper`）校验插件配置中声明的具名流水线并注册，随后端到端执行：将原始手稿解析为结构化论文、修改与优化内容、规范化论文格式、将参考文献整理为 GB/T 7714、APA 或 MLA 格式，并返回可追溯的 run 记录。纯函数、框架无关的引擎函数与类型位于 [`@deepseek-ai/dsh-paper`](../../packages/paper/paper/README.md)。
+科研论文写作服务（`ctx.paper`）校验插件配置中声明的具名流水线并注册，随后端到端执行：将原始手稿解析为结构化论文、修改与优化内容、规范化论文格式、将参考文献整理为 GB/T 7714、APA 或 MLA 格式，并返回可追溯的 run 记录。纯函数、框架无关的引擎函数与类型位于 [`@deepseek-ai/dsh-paper`](../../packages/paper/paper/README.zh.md)。
 
 ## 服务行为
 
-[`PaperService`](../../packages/paper/paper/src/service.ts) 在挂载时校验每条配置的流水线、按名称注册，并从经过校验的 `Config` 字段解析部署限制。`runPipeline` 在 `RunRecord` 上记录逐步骤 `StepRecord`（时间戳、耗时、输入哈希、输出摘要、说明）与输入校验和；步骤失败会被记录在 run 记录上而不中断调用方，输出回退到最后一次成功的论文。面向模型的 `paper_*` 工具位于 [`@deepseek-ai/dsh-tool-paper`](../../packages/paper/tool-paper/README.md)，它们直接调用引擎的纯处理器。
+[`PaperService`](../../packages/paper/paper/src/service.ts) 在挂载时校验每条配置的流水线、按名称注册，并从经过校验的 `Config` 字段解析部署限制。`runPipeline` 在 `RunRecord` 上记录逐步骤 `StepRecord`（时间戳、耗时、输入哈希、输出摘要、说明）与输入校验和；步骤失败会被记录在 run 记录上而不中断调用方，输出回退到最后一次成功的论文。面向模型的 `paper_*` 工具位于 [`@deepseek-ai/dsh-tool-paper`](../../packages/paper/tool-paper/README.zh.md)，它们直接调用引擎的纯处理器。
 
 <!-- BEGIN GENERATED cordis-surface (gen-cordis-catalog.ts) — do not edit between markers -->
 

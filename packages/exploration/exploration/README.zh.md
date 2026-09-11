@@ -48,6 +48,7 @@ const result = runPipeline(
   - `convert` 通过仿射单位表进行单位换算、深度↔双程时间（`t = 2d/v`）与列选择。
   - `extract` 派生逐列描述性统计、滚动窗口与 RMS 振幅。
   - `detect` 标记 z-score、IQR、硬阈值、短窗尖峰、死道与缺失值异常。
+  - `profile` 将二维地震剖面（SEG-Y 长表 `trace`／`sampleIndex`／`value`，或短表 `trace` 加 `sample_*` 列）渲染为颜色映射栅格（seismic／grayscale／jet），并以 PNG 和/或 SVG 嵌入 `meta.profile`。数据集无地震列、无行或无有限振幅时抛出 `INCOMPLETE_DATA`，暂停运行。
 - **可追溯性** — `runPipeline` 在 `RunRecord` 上记录逐步骤 `StepRecord`（开始／结束时间戳、耗时、输入哈希、输出摘要、说明）与输入校验和。步骤失败会被记录在 run 记录上而不中断调用方，输出回退到最后一次成功的数据集。
 - **单位与校验和** — `convert` 通过基准单位组合仿射变换，因此线性单位与带偏移单位（温度）共用同一条路径；`checksumBytes`／`checksumDataset` 使用稳定的 FNV-1a，保证记录跨运行可复现。
 - **资源限制** — `Limits`（`maxInputBytes`、`maxRows`、`maxColumns`、`maxAnomalyRecords`）是经过校验的 Config 字段，在每一步之后强制执行；处理器内部无硬编码。

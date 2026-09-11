@@ -11,7 +11,8 @@
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
 import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { GenericCallView, JsonValue } from '@deepseek-ai/dsh-tools'
+import type { GenericCallView } from '@deepseek-ai/dsh-tools'
+import type { JsonValue } from '@deepseek-ai/dsh-util-values'
 import {
   analyze, detectLanguage, runChecks, CodeError, DEFAULT_LIMITS,
 } from '@deepseek-ai/dsh-code'

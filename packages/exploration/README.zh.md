@@ -11,7 +11,7 @@ kind: "package-group"
 
 | 包 | 职责 | ctx 键 |
 |---|---|---|
-| [`exploration/`](exploration/README.md) | 引擎：数据类型、格式解析器、纯处理器（ingest/clean/convert/extract/detect）以及经验证的命名 pipeline 服务 | `ctx.exploration` |
-| [`tool-exploration/`](tool-exploration/README.md) | 注册面向模型的 `exploration_*` 工具，调用引擎的纯处理器 | — |
+| [`exploration/`](exploration/README.zh.md) | 引擎：数据类型、格式解析器、纯处理器（ingest/clean/convert/extract/detect）以及经验证的命名 pipeline 服务 | `ctx.exploration` |
+| [`tool-exploration/`](tool-exploration/README.zh.md) | 注册面向模型的 `exploration_*` 工具，调用引擎的纯处理器 | — |
 
-引擎保持无框架依赖，使面向模型的工具可直接调用其处理器；服务则负责经验证的命名 pipeline 与端到端 `runPipeline`。子系统参考见 [docs/subsystems/exploration.md](../../docs/subsystems/exploration.md)。
+引擎保持无框架依赖，使面向模型的工具可直接调用其处理器；服务则负责经验证的命名 pipeline 与端到端 `runPipeline`。子系统参考见 [docs/subsystems/exploration.zh.md](../../docs/subsystems/exploration.zh.md)。
