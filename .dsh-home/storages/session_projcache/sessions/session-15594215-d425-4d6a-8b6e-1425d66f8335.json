@@ -1,54 +1,66 @@
 {
-  "version": 4,
+  "version": 7,
   "record": {
     "identity": {
+      "formatVersion": 3,
       "createdAt": 1787813696201,
-      "cwd": "/root/harness-demo/consistency_test3"
+      "cwd": "/root/harness-demo/consistency_test3",
+      "isSeeded": false,
+      "inheritedEventCount": 0
     },
     "rows": {
+      "sandboxMode": {
+        "ver": 1,
+        "seq": 157,
+        "val": "workspace-write"
+      },
       "title": {
         "ver": 1,
-        "seq": 13776,
+        "seq": 157,
         "val": "文件夹数据一致性测试"
       },
-      "goal": {
-        "ver": 4,
-        "seq": 13776,
-        "val": null
+      "titleInput": {
+        "ver": 3,
+        "seq": 157,
+        "val": {
+          "first": {
+            "seq": 10,
+            "text": "对文件夹下的数据进行一致性测试"
+          },
+          "count": 1,
+          "lastSeq": 10
+        }
       },
-      "sessionStats": {
+      "llmRetry": {
         "ver": 1,
-        "seq": 13776,
-        "val": {
-          "turns": 1,
-          "steps": 27,
-          "llmMs": 674168,
-          "toolMs": 11241,
-          "ttftMs": 74315,
-          "ttftSteps": 27,
-          "decodeMs": 599853,
-          "decodeTokens": 23369,
-          "lastTurn": 1,
-          "openStep": null,
-          "pendingCalls": {}
-        }
-      },
-      "subagentTiming": {
-        "ver": 2,
-        "seq": 13776,
-        "val": {
-          "descriptorSeen": false,
-          "settledMs": 0
-        }
-      },
-      "subagent": {
-        "ver": 2,
-        "seq": 13776,
+        "seq": 157,
         "val": {}
       },
+      "goal": {
+        "ver": 6,
+        "seq": 157,
+        "val": {
+          "current": null,
+          "seenGoalIds": [],
+          "failure": null
+        }
+      },
+      "turnBoundary": {
+        "ver": 2,
+        "seq": 157,
+        "val": {
+          "openTurnStartSeq": null,
+          "lastStepStartSeq": 153,
+          "lastStepBoundary": {
+            "kind": "end",
+            "seq": 155
+          },
+          "lastTurn": 1
+        }
+      },
       "tokenUsage": {
-        "ver": 1,
-        "seq": 13776,
+        "ver": 2,
+        "seq": 157,
         "val": {
           "totals": {
             "uncachedInputTokens": 175763,
@@ -70,7 +82,7 @@
       },
       "contextPressure": {
         "ver": 4,
-        "seq": 13776,
+        "seq": 157,
         "val": {
           "surfaceTokens": 20133,
           "contextWindow": 1048576,
@@ -79,26 +91,394 @@
         }
       },
       "contextBreakdown": {
-        "ver": 2,
-        "seq": 13776,
+        "ver": 4,
+        "seq": 157,
         "val": {
-          "systemTokens": 1602,
-          "toolsTokens": 6475,
-          "messageTokens": 20133
+          "nodes": [
+            {
+              "seq": 13,
+              "heuristicTokens": 1602,
+              "system": true
+            },
+            {
+              "seq": 10,
+              "heuristicTokens": 12,
+              "system": false
+            },
+            {
+              "seq": 11,
+              "heuristicTokens": 128,
+              "system": false
+            },
+            {
+              "seq": 17,
+              "heuristicTokens": 94,
+              "system": false
+            },
+            {
+              "seq": 19,
+              "heuristicTokens": 71,
+              "system": false
+            },
+            {
+              "seq": 21,
+              "heuristicTokens": 132,
+              "system": false
+            },
+            {
+              "seq": 25,
+              "heuristicTokens": 174,
+              "system": false
+            },
+            {
+              "seq": 28,
+              "heuristicTokens": 104,
+              "system": false
+            },
+            {
+              "seq": 29,
+              "heuristicTokens": 66,
+              "system": false
+            },
+            {
+              "seq": 32,
+              "heuristicTokens": 127,
+              "system": false
+            },
+            {
+              "seq": 34,
+              "heuristicTokens": 601,
+              "system": false
+            },
+            {
+              "seq": 37,
+              "heuristicTokens": 122,
+              "system": false
+            },
+            {
+              "seq": 39,
+              "heuristicTokens": 433,
+              "system": false
+            },
+            {
+              "seq": 42,
+              "heuristicTokens": 219,
+              "system": false
+            },
+            {
+              "seq": 44,
+              "heuristicTokens": 965,
+              "system": false
+            },
+            {
+              "seq": 46,
+              "heuristicTokens": 693,
+              "system": false
+            },
+            {
+              "seq": 49,
+              "heuristicTokens": 2034,
+              "system": false
+            },
+            {
+              "seq": 51,
+              "heuristicTokens": 42,
+              "system": false
+            },
+            {
+              "seq": 54,
+              "heuristicTokens": 26,
+              "system": false
+            },
+            {
+              "seq": 56,
+              "heuristicTokens": 494,
+              "system": false
+            },
+            {
+              "seq": 59,
+              "heuristicTokens": 1206,
+              "system": false
+            },
+            {
+              "seq": 61,
+              "heuristicTokens": 42,
+              "system": false
+            },
+            {
+              "seq": 64,
+              "heuristicTokens": 26,
+              "system": false
+            },
+            {
+              "seq": 66,
+              "heuristicTokens": 113,
+              "system": false
+            },
+            {
+              "seq": 69,
+              "heuristicTokens": 94,
+              "system": false
+            },
+            {
+              "seq": 71,
+              "heuristicTokens": 36,
+              "system": false
+            },
+            {
+              "seq": 74,
+              "heuristicTokens": 84,
+              "system": false
+            },
+            {
+              "seq": 76,
+              "heuristicTokens": 36,
+              "system": false
+            },
+            {
+              "seq": 79,
+              "heuristicTokens": 25,
+              "system": false
+            },
+            {
+              "seq": 81,
+              "heuristicTokens": 127,
+              "system": false
+            },
+            {
+              "seq": 84,
+              "heuristicTokens": 83,
+              "system": false
+            },
+            {
+              "seq": 86,
+              "heuristicTokens": 36,
+              "system": false
+            },
+            {
+              "seq": 89,
+              "heuristicTokens": 26,
+              "system": false
+            },
+            {
+              "seq": 91,
+              "heuristicTokens": 526,
+              "system": false
+            },
+            {
+              "seq": 94,
+              "heuristicTokens": 1018,
+              "system": false
+            },
+            {
+              "seq": 96,
+              "heuristicTokens": 509,
+              "system": false
+            },
+            {
+              "seq": 99,
+              "heuristicTokens": 554,
+              "system": false
+            },
+            {
+              "seq": 101,
+              "heuristicTokens": 77,
+              "system": false
+            },
+            {
+              "seq": 104,
+              "heuristicTokens": 2060,
+              "system": false
+            },
+            {
+              "seq": 106,
+              "heuristicTokens": 41,
+              "system": false
+            },
+            {
+              "seq": 109,
+              "heuristicTokens": 29,
+              "system": false
+            },
+            {
+              "seq": 111,
+              "heuristicTokens": 847,
+              "system": false
+            },
+            {
+              "seq": 114,
+              "heuristicTokens": 1965,
+              "system": false
+            },
+            {
+              "seq": 116,
+              "heuristicTokens": 41,
+              "system": false
+            },
+            {
+              "seq": 119,
+              "heuristicTokens": 25,
+              "system": false
+            },
+            {
+              "seq": 121,
+              "heuristicTokens": 354,
+              "system": false
+            },
+            {
+              "seq": 124,
+              "heuristicTokens": 459,
+              "system": false
+            },
+            {
+              "seq": 126,
+              "heuristicTokens": 35,
+              "system": false
+            },
+            {
+              "seq": 129,
+              "heuristicTokens": 151,
+              "system": false
+            },
+            {
+              "seq": 131,
+              "heuristicTokens": 35,
+              "system": false
+            },
+            {
+              "seq": 134,
+              "heuristicTokens": 369,
+              "system": false
+            },
+            {
+              "seq": 136,
+              "heuristicTokens": 35,
+              "system": false
+            },
+            {
+              "seq": 139,
+              "heuristicTokens": 26,
+              "system": false
+            },
+            {
+              "seq": 141,
+              "heuristicTokens": 762,
+              "system": false
+            },
+            {
+              "seq": 144,
+              "heuristicTokens": 567,
+              "system": false
+            },
+            {
+              "seq": 146,
+              "heuristicTokens": 169,
+              "system": false
+            },
+            {
+              "seq": 149,
+              "heuristicTokens": 697,
+              "system": false
+            },
+            {
+              "seq": 151,
+              "heuristicTokens": 43,
+              "system": false
+            },
+            {
+              "seq": 154,
+              "heuristicTokens": 268,
+              "system": false
+            }
+          ],
+          "breakdown": {
+            "systemTokens": 1602,
+            "toolsTokens": 6475,
+            "messageTokens": 20133
+          }
         }
       },
-      "permissions": {
+      "sessionStats": {
         "ver": 1,
-        "seq": 13776,
+        "seq": 157,
+        "val": {
+          "turns": 1,
+          "steps": 27,
+          "llmMs": 674168,
+          "toolMs": 11241,
+          "ttftMs": 74315,
+          "ttftSteps": 27,
+          "decodeMs": 599853,
+          "decodeTokens": 23369,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "turnOutline": {
+        "ver": 2,
+        "seq": 157,
+        "val": {
+          "turns": [
+            {
+              "turn": 1,
+              "seq": 6,
+              "prompt": "对文件夹下的数据进行一致性测试",
+              "response": "一致性测试完成。完整报告见 `consistency_report.md`。 ## 测试结论：✅ 全部通过 工作区数据是 5 台 CDS-E20 接收机的 200 sps 二进制观测文件（256 B 定长帧，HEWT/HZWT/HNWT…"
+            }
+          ],
+          "draft": ""
+        }
+      },
+      "agentPreset": {
+        "ver": 1,
+        "seq": 157,
+        "val": "standard"
+      },
+      "subagentCatalog": {
+        "ver": 2,
+        "seq": 157,
+        "val": {
+          "inheritedEventCount": 0
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 157,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 157,
+        "val": {}
+      },
+      "permissions": {
+        "ver": 2,
+        "seq": 157,
         "val": {
           "preset": "workspace-write",
           "sandbox": "workspace-write",
-          "approval": "ask"
+          "approval": "ask",
+          "seeded": true
+        }
+      },
+      "modelSelection": {
+        "ver": 2,
+        "seq": 157,
+        "val": {
+          "lastUsed": {
+            "provider": "zai-coding-cn",
+            "model": "glm-5.3-flash"
+          },
+          "pending": null
         }
       },
       "sessionListMetadata": {
         "ver": 1,
-        "seq": 13776,
+        "seq": 157,
         "val": {
           "blank": false,
           "lastPromptAt": 1787813704408
@@ -106,22 +486,36 @@
       },
       "imageLimits": {
         "ver": 1,
-        "seq": 13776,
+        "seq": 157,
         "val": null
+      },
+      "inbox": {
+        "ver": 1,
+        "seq": 157,
+        "val": {
+          "next-turn": [],
+          "next-step": []
+        }
       },
       "todos": {
         "ver": 2,
-        "seq": 13776,
+        "seq": 157,
         "val": null
       },
       "plan": {
-        "ver": 2,
-        "seq": 13776,
+        "ver": 3,
+        "seq": 157,
         "val": {
           "active": false,
           "wanted": null,
-          "running": null
+          "running": null,
+          "activeAtLastHeader": false
         }
+      },
+      "subagentModelSelectionPolicy": {
+        "ver": 1,
+        "seq": 157,
+        "val": null
       }
     }
   }

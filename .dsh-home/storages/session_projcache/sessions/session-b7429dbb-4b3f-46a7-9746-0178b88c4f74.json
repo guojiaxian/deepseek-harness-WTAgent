@@ -1,54 +1,66 @@
 {
-  "version": 4,
+  "version": 7,
   "record": {
     "identity": {
+      "formatVersion": 3,
       "createdAt": 1787819002134,
-      "cwd": "/root/harness-demo/consistency_test4"
+      "cwd": "/root/harness-demo/consistency_test4",
+      "isSeeded": false,
+      "inheritedEventCount": 0
     },
     "rows": {
+      "sandboxMode": {
+        "ver": 1,
+        "seq": 429,
+        "val": "workspace-write"
+      },
       "title": {
         "ver": 1,
-        "seq": 42362,
+        "seq": 429,
         "val": "文件夹数据一致性测试"
       },
-      "goal": {
-        "ver": 4,
-        "seq": 42362,
-        "val": null
+      "titleInput": {
+        "ver": 3,
+        "seq": 429,
+        "val": {
+          "first": {
+            "seq": 10,
+            "text": "对文件夹内的数据进行一致性测试"
+          },
+          "count": 1,
+          "lastSeq": 10
+        }
       },
-      "sessionStats": {
+      "llmRetry": {
         "ver": 1,
-        "seq": 42362,
-        "val": {
-          "turns": 1,
-          "steps": 78,
-          "llmMs": 410181,
-          "toolMs": 815975,
-          "ttftMs": 82682,
-          "ttftSteps": 78,
-          "decodeMs": 327499,
-          "decodeTokens": 44912,
-          "lastTurn": 1,
-          "openStep": null,
-          "pendingCalls": {}
-        }
-      },
-      "subagentTiming": {
-        "ver": 2,
-        "seq": 42362,
-        "val": {
-          "settledMs": 0,
-          "descriptorSeen": false
-        }
-      },
-      "subagent": {
-        "ver": 2,
-        "seq": 42362,
+        "seq": 429,
         "val": {}
+      },
+      "goal": {
+        "ver": 6,
+        "seq": 429,
+        "val": {
+          "current": null,
+          "seenGoalIds": [],
+          "failure": null
+        }
+      },
+      "turnBoundary": {
+        "ver": 2,
+        "seq": 429,
+        "val": {
+          "openTurnStartSeq": null,
+          "lastStepStartSeq": 425,
+          "lastStepBoundary": {
+            "kind": "end",
+            "seq": 427
+          },
+          "lastTurn": 1
+        }
       },
       "tokenUsage": {
         "ver": 2,
-        "seq": 42362,
+        "seq": 429,
         "val": {
           "totals": {
             "uncachedInputTokens": 67036,
@@ -70,40 +82,937 @@
       },
       "contextPressure": {
         "ver": 4,
-        "seq": 42362,
+        "seq": 429,
         "val": {
+          "surfaceTokens": 65149,
           "contextWindow": 1000000,
           "pressureTokens": 104868,
-          "surfaceTokens": 65149,
           "sampledSurfaceTokens": 64702
         }
       },
       "contextBreakdown": {
-        "ver": 2,
-        "seq": 42362,
+        "ver": 4,
+        "seq": 429,
         "val": {
-          "systemTokens": 1016,
-          "toolsTokens": 3633,
-          "messageTokens": 65149
+          "nodes": [
+            {
+              "seq": 13,
+              "heuristicTokens": 1016,
+              "system": true
+            },
+            {
+              "seq": 10,
+              "heuristicTokens": 12,
+              "system": false
+            },
+            {
+              "seq": 11,
+              "heuristicTokens": 128,
+              "system": false
+            },
+            {
+              "seq": 18,
+              "heuristicTokens": 63,
+              "system": false
+            },
+            {
+              "seq": 20,
+              "heuristicTokens": 71,
+              "system": false
+            },
+            {
+              "seq": 23,
+              "heuristicTokens": 75,
+              "system": false
+            },
+            {
+              "seq": 25,
+              "heuristicTokens": 104,
+              "system": false
+            },
+            {
+              "seq": 27,
+              "heuristicTokens": 352,
+              "system": false
+            },
+            {
+              "seq": 30,
+              "heuristicTokens": 78,
+              "system": false
+            },
+            {
+              "seq": 32,
+              "heuristicTokens": 270,
+              "system": false
+            },
+            {
+              "seq": 34,
+              "heuristicTokens": 25,
+              "system": false
+            },
+            {
+              "seq": 37,
+              "heuristicTokens": 316,
+              "system": false
+            },
+            {
+              "seq": 39,
+              "heuristicTokens": 176,
+              "system": false
+            },
+            {
+              "seq": 41,
+              "heuristicTokens": 178,
+              "system": false
+            },
+            {
+              "seq": 44,
+              "heuristicTokens": 308,
+              "system": false
+            },
+            {
+              "seq": 46,
+              "heuristicTokens": 15,
+              "system": false
+            },
+            {
+              "seq": 49,
+              "heuristicTokens": 65,
+              "system": false
+            },
+            {
+              "seq": 51,
+              "heuristicTokens": 662,
+              "system": false
+            },
+            {
+              "seq": 54,
+              "heuristicTokens": 226,
+              "system": false
+            },
+            {
+              "seq": 56,
+              "heuristicTokens": 360,
+              "system": false
+            },
+            {
+              "seq": 59,
+              "heuristicTokens": 37,
+              "system": false
+            },
+            {
+              "seq": 61,
+              "heuristicTokens": 1263,
+              "system": false
+            },
+            {
+              "seq": 64,
+              "heuristicTokens": 300,
+              "system": false
+            },
+            {
+              "seq": 66,
+              "heuristicTokens": 505,
+              "system": false
+            },
+            {
+              "seq": 69,
+              "heuristicTokens": 105,
+              "system": false
+            },
+            {
+              "seq": 71,
+              "heuristicTokens": 321,
+              "system": false
+            },
+            {
+              "seq": 73,
+              "heuristicTokens": 15,
+              "system": false
+            },
+            {
+              "seq": 76,
+              "heuristicTokens": 99,
+              "system": false
+            },
+            {
+              "seq": 78,
+              "heuristicTokens": 62,
+              "system": false
+            },
+            {
+              "seq": 81,
+              "heuristicTokens": 61,
+              "system": false
+            },
+            {
+              "seq": 83,
+              "heuristicTokens": 318,
+              "system": false
+            },
+            {
+              "seq": 86,
+              "heuristicTokens": 44,
+              "system": false
+            },
+            {
+              "seq": 88,
+              "heuristicTokens": 934,
+              "system": false
+            },
+            {
+              "seq": 91,
+              "heuristicTokens": 104,
+              "system": false
+            },
+            {
+              "seq": 93,
+              "heuristicTokens": 430,
+              "system": false
+            },
+            {
+              "seq": 96,
+              "heuristicTokens": 242,
+              "system": false
+            },
+            {
+              "seq": 98,
+              "heuristicTokens": 360,
+              "system": false
+            },
+            {
+              "seq": 101,
+              "heuristicTokens": 44,
+              "system": false
+            },
+            {
+              "seq": 103,
+              "heuristicTokens": 1353,
+              "system": false
+            },
+            {
+              "seq": 106,
+              "heuristicTokens": 761,
+              "system": false
+            },
+            {
+              "seq": 108,
+              "heuristicTokens": 42,
+              "system": false
+            },
+            {
+              "seq": 110,
+              "heuristicTokens": 80,
+              "system": false
+            },
+            {
+              "seq": 113,
+              "heuristicTokens": 123,
+              "system": false
+            },
+            {
+              "seq": 115,
+              "heuristicTokens": 35,
+              "system": false
+            },
+            {
+              "seq": 118,
+              "heuristicTokens": 69,
+              "system": false
+            },
+            {
+              "seq": 120,
+              "heuristicTokens": 53,
+              "system": false
+            },
+            {
+              "seq": 123,
+              "heuristicTokens": 137,
+              "system": false
+            },
+            {
+              "seq": 125,
+              "heuristicTokens": 246,
+              "system": false
+            },
+            {
+              "seq": 128,
+              "heuristicTokens": 216,
+              "system": false
+            },
+            {
+              "seq": 130,
+              "heuristicTokens": 1685,
+              "system": false
+            },
+            {
+              "seq": 133,
+              "heuristicTokens": 162,
+              "system": false
+            },
+            {
+              "seq": 135,
+              "heuristicTokens": 177,
+              "system": false
+            },
+            {
+              "seq": 138,
+              "heuristicTokens": 202,
+              "system": false
+            },
+            {
+              "seq": 140,
+              "heuristicTokens": 903,
+              "system": false
+            },
+            {
+              "seq": 142,
+              "heuristicTokens": 193,
+              "system": false
+            },
+            {
+              "seq": 145,
+              "heuristicTokens": 202,
+              "system": false
+            },
+            {
+              "seq": 147,
+              "heuristicTokens": 1138,
+              "system": false
+            },
+            {
+              "seq": 150,
+              "heuristicTokens": 488,
+              "system": false
+            },
+            {
+              "seq": 152,
+              "heuristicTokens": 58,
+              "system": false
+            },
+            {
+              "seq": 154,
+              "heuristicTokens": 43,
+              "system": false
+            },
+            {
+              "seq": 157,
+              "heuristicTokens": 138,
+              "system": false
+            },
+            {
+              "seq": 159,
+              "heuristicTokens": 289,
+              "system": false
+            },
+            {
+              "seq": 161,
+              "heuristicTokens": 29,
+              "system": false
+            },
+            {
+              "seq": 164,
+              "heuristicTokens": 136,
+              "system": false
+            },
+            {
+              "seq": 166,
+              "heuristicTokens": 106,
+              "system": false
+            },
+            {
+              "seq": 169,
+              "heuristicTokens": 76,
+              "system": false
+            },
+            {
+              "seq": 171,
+              "heuristicTokens": 96,
+              "system": false
+            },
+            {
+              "seq": 174,
+              "heuristicTokens": 187,
+              "system": false
+            },
+            {
+              "seq": 176,
+              "heuristicTokens": 112,
+              "system": false
+            },
+            {
+              "seq": 179,
+              "heuristicTokens": 142,
+              "system": false
+            },
+            {
+              "seq": 181,
+              "heuristicTokens": 192,
+              "system": false
+            },
+            {
+              "seq": 184,
+              "heuristicTokens": 289,
+              "system": false
+            },
+            {
+              "seq": 186,
+              "heuristicTokens": 187,
+              "system": false
+            },
+            {
+              "seq": 189,
+              "heuristicTokens": 67,
+              "system": false
+            },
+            {
+              "seq": 191,
+              "heuristicTokens": 107,
+              "system": false
+            },
+            {
+              "seq": 194,
+              "heuristicTokens": 603,
+              "system": false
+            },
+            {
+              "seq": 197,
+              "heuristicTokens": 27,
+              "system": false
+            },
+            {
+              "seq": 199,
+              "heuristicTokens": 45,
+              "system": false
+            },
+            {
+              "seq": 202,
+              "heuristicTokens": 140,
+              "system": false
+            },
+            {
+              "seq": 204,
+              "heuristicTokens": 22,
+              "system": false
+            },
+            {
+              "seq": 207,
+              "heuristicTokens": 283,
+              "system": false
+            },
+            {
+              "seq": 209,
+              "heuristicTokens": 474,
+              "system": false
+            },
+            {
+              "seq": 212,
+              "heuristicTokens": 120,
+              "system": false
+            },
+            {
+              "seq": 214,
+              "heuristicTokens": 103,
+              "system": false
+            },
+            {
+              "seq": 217,
+              "heuristicTokens": 60,
+              "system": false
+            },
+            {
+              "seq": 219,
+              "heuristicTokens": 15,
+              "system": false
+            },
+            {
+              "seq": 222,
+              "heuristicTokens": 101,
+              "system": false
+            },
+            {
+              "seq": 224,
+              "heuristicTokens": 276,
+              "system": false
+            },
+            {
+              "seq": 227,
+              "heuristicTokens": 387,
+              "system": false
+            },
+            {
+              "seq": 229,
+              "heuristicTokens": 1178,
+              "system": false
+            },
+            {
+              "seq": 232,
+              "heuristicTokens": 634,
+              "system": false
+            },
+            {
+              "seq": 234,
+              "heuristicTokens": 42,
+              "system": false
+            },
+            {
+              "seq": 237,
+              "heuristicTokens": 218,
+              "system": false
+            },
+            {
+              "seq": 239,
+              "heuristicTokens": 1338,
+              "system": false
+            },
+            {
+              "seq": 242,
+              "heuristicTokens": 414,
+              "system": false
+            },
+            {
+              "seq": 244,
+              "heuristicTokens": 174,
+              "system": false
+            },
+            {
+              "seq": 247,
+              "heuristicTokens": 50,
+              "system": false
+            },
+            {
+              "seq": 249,
+              "heuristicTokens": 662,
+              "system": false
+            },
+            {
+              "seq": 252,
+              "heuristicTokens": 475,
+              "system": false
+            },
+            {
+              "seq": 254,
+              "heuristicTokens": 942,
+              "system": false
+            },
+            {
+              "seq": 257,
+              "heuristicTokens": 197,
+              "system": false
+            },
+            {
+              "seq": 259,
+              "heuristicTokens": 308,
+              "system": false
+            },
+            {
+              "seq": 262,
+              "heuristicTokens": 278,
+              "system": false
+            },
+            {
+              "seq": 264,
+              "heuristicTokens": 38,
+              "system": false
+            },
+            {
+              "seq": 267,
+              "heuristicTokens": 473,
+              "system": false
+            },
+            {
+              "seq": 269,
+              "heuristicTokens": 95,
+              "system": false
+            },
+            {
+              "seq": 272,
+              "heuristicTokens": 100,
+              "system": false
+            },
+            {
+              "seq": 274,
+              "heuristicTokens": 164,
+              "system": false
+            },
+            {
+              "seq": 277,
+              "heuristicTokens": 300,
+              "system": false
+            },
+            {
+              "seq": 279,
+              "heuristicTokens": 12512,
+              "system": false
+            },
+            {
+              "seq": 282,
+              "heuristicTokens": 287,
+              "system": false
+            },
+            {
+              "seq": 284,
+              "heuristicTokens": 718,
+              "system": false
+            },
+            {
+              "seq": 287,
+              "heuristicTokens": 319,
+              "system": false
+            },
+            {
+              "seq": 289,
+              "heuristicTokens": 115,
+              "system": false
+            },
+            {
+              "seq": 292,
+              "heuristicTokens": 1096,
+              "system": false
+            },
+            {
+              "seq": 294,
+              "heuristicTokens": 236,
+              "system": false
+            },
+            {
+              "seq": 297,
+              "heuristicTokens": 514,
+              "system": false
+            },
+            {
+              "seq": 299,
+              "heuristicTokens": 34,
+              "system": false
+            },
+            {
+              "seq": 302,
+              "heuristicTokens": 138,
+              "system": false
+            },
+            {
+              "seq": 304,
+              "heuristicTokens": 164,
+              "system": false
+            },
+            {
+              "seq": 307,
+              "heuristicTokens": 826,
+              "system": false
+            },
+            {
+              "seq": 309,
+              "heuristicTokens": 210,
+              "system": false
+            },
+            {
+              "seq": 312,
+              "heuristicTokens": 528,
+              "system": false
+            },
+            {
+              "seq": 314,
+              "heuristicTokens": 489,
+              "system": false
+            },
+            {
+              "seq": 317,
+              "heuristicTokens": 158,
+              "system": false
+            },
+            {
+              "seq": 319,
+              "heuristicTokens": 163,
+              "system": false
+            },
+            {
+              "seq": 322,
+              "heuristicTokens": 571,
+              "system": false
+            },
+            {
+              "seq": 324,
+              "heuristicTokens": 250,
+              "system": false
+            },
+            {
+              "seq": 327,
+              "heuristicTokens": 737,
+              "system": false
+            },
+            {
+              "seq": 329,
+              "heuristicTokens": 240,
+              "system": false
+            },
+            {
+              "seq": 332,
+              "heuristicTokens": 247,
+              "system": false
+            },
+            {
+              "seq": 334,
+              "heuristicTokens": 435,
+              "system": false
+            },
+            {
+              "seq": 337,
+              "heuristicTokens": 506,
+              "system": false
+            },
+            {
+              "seq": 340,
+              "heuristicTokens": 27,
+              "system": false
+            },
+            {
+              "seq": 342,
+              "heuristicTokens": 164,
+              "system": false
+            },
+            {
+              "seq": 345,
+              "heuristicTokens": 159,
+              "system": false
+            },
+            {
+              "seq": 347,
+              "heuristicTokens": 509,
+              "system": false
+            },
+            {
+              "seq": 350,
+              "heuristicTokens": 149,
+              "system": false
+            },
+            {
+              "seq": 352,
+              "heuristicTokens": 558,
+              "system": false
+            },
+            {
+              "seq": 355,
+              "heuristicTokens": 52,
+              "system": false
+            },
+            {
+              "seq": 357,
+              "heuristicTokens": 68,
+              "system": false
+            },
+            {
+              "seq": 360,
+              "heuristicTokens": 1100,
+              "system": false
+            },
+            {
+              "seq": 362,
+              "heuristicTokens": 42,
+              "system": false
+            },
+            {
+              "seq": 365,
+              "heuristicTokens": 85,
+              "system": false
+            },
+            {
+              "seq": 367,
+              "heuristicTokens": 137,
+              "system": false
+            },
+            {
+              "seq": 370,
+              "heuristicTokens": 429,
+              "system": false
+            },
+            {
+              "seq": 372,
+              "heuristicTokens": 493,
+              "system": false
+            },
+            {
+              "seq": 375,
+              "heuristicTokens": 334,
+              "system": false
+            },
+            {
+              "seq": 377,
+              "heuristicTokens": 266,
+              "system": false
+            },
+            {
+              "seq": 380,
+              "heuristicTokens": 353,
+              "system": false
+            },
+            {
+              "seq": 382,
+              "heuristicTokens": 207,
+              "system": false
+            },
+            {
+              "seq": 385,
+              "heuristicTokens": 157,
+              "system": false
+            },
+            {
+              "seq": 387,
+              "heuristicTokens": 869,
+              "system": false
+            },
+            {
+              "seq": 390,
+              "heuristicTokens": 633,
+              "system": false
+            },
+            {
+              "seq": 392,
+              "heuristicTokens": 52,
+              "system": false
+            },
+            {
+              "seq": 395,
+              "heuristicTokens": 1598,
+              "system": false
+            },
+            {
+              "seq": 397,
+              "heuristicTokens": 42,
+              "system": false
+            },
+            {
+              "seq": 400,
+              "heuristicTokens": 85,
+              "system": false
+            },
+            {
+              "seq": 402,
+              "heuristicTokens": 474,
+              "system": false
+            },
+            {
+              "seq": 405,
+              "heuristicTokens": 340,
+              "system": false
+            },
+            {
+              "seq": 407,
+              "heuristicTokens": 538,
+              "system": false
+            },
+            {
+              "seq": 410,
+              "heuristicTokens": 1601,
+              "system": false
+            },
+            {
+              "seq": 412,
+              "heuristicTokens": 23,
+              "system": false
+            },
+            {
+              "seq": 415,
+              "heuristicTokens": 1280,
+              "system": false
+            },
+            {
+              "seq": 417,
+              "heuristicTokens": 54,
+              "system": false
+            },
+            {
+              "seq": 420,
+              "heuristicTokens": 321,
+              "system": false
+            },
+            {
+              "seq": 423,
+              "heuristicTokens": 27,
+              "system": false
+            },
+            {
+              "seq": 426,
+              "heuristicTokens": 447,
+              "system": false
+            }
+          ],
+          "breakdown": {
+            "systemTokens": 1016,
+            "toolsTokens": 3633,
+            "messageTokens": 65149
+          }
+        }
+      },
+      "sessionStats": {
+        "ver": 1,
+        "seq": 429,
+        "val": {
+          "turns": 1,
+          "steps": 78,
+          "llmMs": 410181,
+          "toolMs": 815975,
+          "ttftMs": 82682,
+          "ttftSteps": 78,
+          "decodeMs": 327499,
+          "decodeTokens": 44912,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "turnOutline": {
+        "ver": 2,
+        "seq": 429,
+        "val": {
+          "turns": [
+            {
+              "turn": 1,
+              "seq": 6,
+              "prompt": "对文件夹内的数据进行一致性测试",
+              "response": "一致性测试已完成。全部流程如下： ## 一致性测试报告（consistency_test4） **流程记录**：`consistency_run` runId `90bd6cf4-16e1-4c0e-80b3-9862f6b178fb`（…"
+            }
+          ],
+          "draft": ""
         }
       },
       "agentPreset": {
         "ver": 1,
-        "seq": 42362,
+        "seq": 429,
         "val": "consistency"
       },
+      "subagentCatalog": {
+        "ver": 2,
+        "seq": 429,
+        "val": {
+          "inheritedEventCount": 0
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 429,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 429,
+        "val": {}
+      },
       "permissions": {
-        "ver": 1,
-        "seq": 42362,
+        "ver": 2,
+        "seq": 429,
         "val": {
           "preset": "workspace-write",
           "sandbox": "workspace-write",
-          "approval": "ask"
+          "approval": "ask",
+          "seeded": true
         }
       },
       "modelSelection": {
         "ver": 2,
-        "seq": 42362,
+        "seq": 429,
         "val": {
           "lastUsed": {
             "provider": "deepseek-official",
@@ -115,7 +1024,7 @@
       },
       "sessionListMetadata": {
         "ver": 1,
-        "seq": 42362,
+        "seq": 429,
         "val": {
           "blank": false,
           "lastPromptAt": 1787877783268
@@ -123,12 +1032,20 @@
       },
       "imageLimits": {
         "ver": 1,
-        "seq": 42362,
+        "seq": 429,
         "val": null
+      },
+      "inbox": {
+        "ver": 1,
+        "seq": 429,
+        "val": {
+          "next-turn": [],
+          "next-step": []
+        }
       },
       "todos": {
         "ver": 2,
-        "seq": 42362,
+        "seq": 429,
         "val": [
           {
             "content": "构建 interchange 并 ingest 工作流",
@@ -159,6 +1076,21 @@
             "status": "completed"
           }
         ]
+      },
+      "plan": {
+        "ver": 3,
+        "seq": 429,
+        "val": {
+          "active": false,
+          "wanted": null,
+          "running": null,
+          "activeAtLastHeader": false
+        }
+      },
+      "subagentModelSelectionPolicy": {
+        "ver": 1,
+        "seq": 429,
+        "val": null
       }
     }
   }

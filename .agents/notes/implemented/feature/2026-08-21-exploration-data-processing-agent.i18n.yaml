@@ -1,6 +1,19 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-08-21-exploration-data-processing-agent.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-21-exploration-data-processing-agent.md
-2026-08-21-exploration-data-processing-agent.md: 48eaee63644aa59afcffe59344d8c157c38aa934
-2026-08-21-exploration-data-processing-agent.zh.md: 72f7b57c83aff388f5721c2751224fc3b2692ac5
+/agent-note-exploration-data-processing-agent:
+  en: 4ca919e456434403
+  zh: 66f7174287a61ce0
+/agent-note-exploration-data-processing-agent/problem:
+  en: a3723c2573ffc097
+  zh: 56d0de341204582d
+/agent-note-exploration-data-processing-agent/decision:
+  en: b4ef79f1db6c95e7
+  zh: 70beda656bcc8244
+/agent-note-exploration-data-processing-agent/alternatives-considered:
+  en: 5bfb6b8eead1bdc8
+  zh: c4694fce87a74ea2
+/agent-note-exploration-data-processing-agent/consequences:
+  en: 6765d67bc61419d2
+  zh: b5dd89d35073bbc7

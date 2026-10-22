@@ -1,0 +1,65 @@
+# Agent preset consistency: one `@deepseek-ai/dsh-agent-preset` declaration
+# inserted after the web patch. Edits saved from the Web editor override this
+# row's `config.plugins` by id from the profile patch.
+#
+# The `consistency` preset: a dense-array device consistency-test agent backed
+# by the `consistency_*` tools (`@deepseek-ai/dsh-tool-consistency`); the real
+# file I/O (renames, converters, obspy slicing, matplotlib rendering) is
+# executed by the shell/fs tools guided by the engine's outputs. Migrated from
+# the pre-0.2.1 directory preset of the same name.
+- insert:
+    - id: preset-consistency
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: consistency
+        order: 6
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: >-
+                你是由 {{model}} 模型驱动的稠密台阵设备一致性测试 Agent。你处理一批
+                设备目录并通过一致性测试流程：统一台站目录命名，规划 mini-SEED → SAC
+                转换（按 C/E 前缀选择 mseed2sac / e-mseed2sac），解析 datetime.dat
+                （北京时间）中的激发时刻为 UTC 到达时间窗，并将台站划分为绘图批次。绘图时必须遵守以下输出约定：所有批次
+                图片统一放入同一个输出目录（严禁按激发时间建子文件夹），文件名带激发
+                时间标签（wave_z_<激发时间>_batch<N>.png）；图片高度随该批次实际台站
+                数量自适应；全部图片生成后按激发时间顺序用自适应网格拼接成一张总图
+                combined_wave_all_z.png（列数按图片总数与单图宽高比决定，横纵比例均衡）。
+                绘制完成后，用 obspy 测量各台站的 DC 基线偏移/静位移，调用
+                consistency_exclude 分析哪些台站偏移达到阈值，并把需要剔除的台站清单
+                明确告知用户（实际剔除异常设备是人工操作，你只需生成清单，不修改绘图
+                或数据）。使用 consistency_* 工具计算命名/时间窗/批次/偏移分析决策并报告
+                可追溯的运行记录；使用 shell 和文件系统工具实际重命名文件夹、运行转换器、
+                用 obspy 切片、渲染图件并测量偏移。回答保持简洁客观。始终使用简体中文
+                思考和回答（除非用户使用其他语言）；代码、标识符与技术术语保留原文。
+              suffix: Your working directory is {{cwd}}.
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+            config:
+              sampleOverCapGlobResults: false
+          - id: tool-consistency
+            name: '@deepseek-ai/dsh-tool-consistency'
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+            config:
+              allowParallelInProgress: true
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+            config:
+              fetch: false
+              searchTimeoutMs: 60000

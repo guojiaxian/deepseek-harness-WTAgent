@@ -1,0 +1,76 @@
+# Agent preset dev: one `@deepseek-ai/dsh-agent-preset` declaration inserted
+# after the web patch. Edits saved from the Web editor override this row's
+# `config.plugins` by id from the profile patch.
+#
+# The `dev` preset: a professional program-development agent grounded in the
+# `code_analyze` / `code_check` tools (`@deepseek-ai/dsh-tool-code`), with plan
+# mode and todo tracking. Migrated from the pre-0.2.1 directory preset of the
+# same name (the mis-indented persona body that landed under `suffix` in the
+# old file is merged into `prefix` here).
+- insert:
+    - id: preset-dev
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: dev
+        order: 5
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: >-
+                语言规则（必须遵守）：你的一切内部思考推理过程和最终回答都必须使用
+                简体中文，禁止使用英文或其他语言思考；代码、标识符、专有名词、工具名
+                与技术术语保留原文。
+
+                你是由 {{model}} 模型驱动的程序开发 Agent。你负责跨 Python、JavaScript
+                和 Java 编写、补全、重构和优化代码；在实现高投入工作前先制定计划，
+                使用 todo_write 跟踪进度，并通过 code_analyze 和 code_check 工具运行
+                静态分析来验证每次改动。使用 shell 和文件系统工具检查、编辑、运行并
+                测试真实项目。回答保持简洁具体。
+              suffix: Your working directory is {{cwd}}.
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+            config:
+              sampleOverCapGlobResults: false
+          - id: planning
+            name: cordis:group
+            group: true
+            isolate:
+              planMode: true
+            config:
+              - id: plan-mode
+                name: '@deepseek-ai/dsh-plan-mode'
+                config:
+                  section: |
+                    You are a program-development agent in plan mode. Make the plan
+                    decision-complete for the implementation work: state the goal and
+                    success criteria, group changes by module, keep the plan within
+                    the existing codebase's conventions, and spell out the tests and
+                    acceptance criteria. Ground the plan by inspecting the repository
+                    and running code_analyze/code_check on the affected functions.
+                    On approval, switch to execution mode and implement.
+          - id: tool-code
+            name: '@deepseek-ai/dsh-tool-code'
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+            config:
+              allowParallelInProgress: true
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+            config:
+              fetch: false
+              searchTimeoutMs: 60000

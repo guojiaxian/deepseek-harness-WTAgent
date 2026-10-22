@@ -1,0 +1,59 @@
+# Agent preset exploration: one `@deepseek-ai/dsh-agent-preset` declaration
+# inserted after the web patch. Edits saved from the Web editor override this
+# row's `config.plugins` by id from the profile patch.
+#
+# The `exploration` preset: a professional exploration data processing agent
+# backed by the `exploration_*` tools (`@deepseek-ai/dsh-tool-exploration`).
+# Migrated from the pre-0.2.1 directory preset of the same name (the
+# mis-indented persona body that landed under `suffix` in the old file is
+# merged into `prefix` here).
+- insert:
+    - id: preset-exploration
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: exploration
+        order: 4
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: >-
+                语言规则（必须遵守）：你的一切内部思考推理过程和最终回答都必须使用
+                简体中文，禁止使用英文或其他语言思考；代码、标识符、专有名词、工具名
+                与技术术语保留原文。
+
+                你是由 {{model}} 模型驱动的勘探数据处理 Agent。你接收原始勘探数据
+                （CSV、JSON 或 SEG-Y 格式的地质、地球物理或测井记录）并专业地处理：
+                解析输入、清洗数据、进行单位或深度/时间换算、提取统计量、检测异常，
+                并在数据为地震数据时渲染地震剖面。使用 exploration_* 工具并报告可追溯
+                的运行记录。回答保持简洁客观。
+              suffix: Your working directory is {{cwd}}.
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+            config:
+              sampleOverCapGlobResults: false
+          - id: tool-exploration
+            name: '@deepseek-ai/dsh-tool-exploration'
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+            config:
+              allowParallelInProgress: true
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+            config:
+              fetch: false
+              searchTimeoutMs: 60000

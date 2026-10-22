@@ -1,6 +1,52 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/paper/tool-paper/README.md
-README.md: ccc9a4f803e940ce98510e95c8fa570e32812dbf
-README.zh.md: a431f4762423a1b1af222fd2a8d7b367834e061e
+/:
+  en: 8558ed0fa5c0e3ac
+  zh: 0bf67846e7a2d7d1
+/deepseek-ai-dsh-tool-paper:
+  en: c4a7be6e66fa1d8b
+  zh: 125849fbc8fdf2c1
+/deepseek-ai-dsh-tool-paper/summary:
+  en: 3e215816b2d8392c
+  zh: 5b39cbd8b8ff8ced
+/deepseek-ai-dsh-tool-paper/table-of-contents:
+  en: 24e377236a2106a3
+  zh: 324e55f2783fbe8f
+/deepseek-ai-dsh-tool-paper/behavior:
+  en: 69cf5945eb86d928
+  zh: 10f0c0b5a71613f8
+/deepseek-ai-dsh-tool-paper/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/deepseek-ai-dsh-tool-paper/model-experience/tool-schemas:
+  en: 3039bc5e7a796b21
+  zh: 6b7a9eaf69c9ea53
+/deepseek-ai-dsh-tool-paper/model-experience/tool-schemas/what-the-model-sees:
+  en: 6fbf0a345d0cabe4
+  zh: 90957f2bf6b8b8db
+/deepseek-ai-dsh-tool-paper/model-experience/tool-schemas/token-effect:
+  en: 318360f093fa6470
+  zh: bf1cd20b502c4e1f
+/deepseek-ai-dsh-tool-paper/model-experience/tool-schemas/kv-cache-effect:
+  en: c8c96f412c286558
+  zh: 51d51e1b3b68c5e5
+/deepseek-ai-dsh-tool-paper/model-experience/pipeline-run-record:
+  en: 0fdd26285798cf68
+  zh: c93d29cfb97be3b3
+/deepseek-ai-dsh-tool-paper/model-experience/pipeline-run-record/what-the-model-sees:
+  en: 8bf7e81466ea6d4e
+  zh: 4d9f49082d1c462b
+/deepseek-ai-dsh-tool-paper/model-experience/pipeline-run-record/token-effect:
+  en: b801ef3adb967a37
+  zh: 4e5ba25ca90640a3
+/deepseek-ai-dsh-tool-paper/model-experience/pipeline-run-record/kv-cache-effect:
+  en: 8c61eb1bcd1574d7
+  zh: 670326676c481a40
+/deepseek-ai-dsh-tool-paper/known-limitations-and-deferred-work:
+  en: b7dfacf8c509dbd4
+  zh: e8a75c51bcad830a
+/deepseek-ai-dsh-tool-paper/known-limitations-and-deferred-work/dev-note:
+  en: e67f633dc6fe7773
+  zh: 3bb0c20c93f16f98

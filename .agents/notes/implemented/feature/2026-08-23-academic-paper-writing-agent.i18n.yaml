@@ -1,6 +1,19 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-08-23-academic-paper-writing-agent.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-23-academic-paper-writing-agent.md
-2026-08-23-academic-paper-writing-agent.md: eb72de22a622b94239ba5cbceb79f20c78dd9b4f
-2026-08-23-academic-paper-writing-agent.zh.md: 3c9d218041fe40e0fb091cc5f6e200a2342af7c8
+/agent-note-academic-paper-writing-agent:
+  en: 852fcdcdbe563182
+  zh: 57a9e4d1bd676a4d
+/agent-note-academic-paper-writing-agent/problem:
+  en: a3c7bc2883f547ea
+  zh: 60531019133b3d6e
+/agent-note-academic-paper-writing-agent/decision:
+  en: 7ceee0821c7af374
+  zh: 8ddf5f70b0994f83
+/agent-note-academic-paper-writing-agent/alternatives-considered:
+  en: f57e50d500adf682
+  zh: 2a1159fef4370fef
+/agent-note-academic-paper-writing-agent/consequences:
+  en: e994978701708126
+  zh: 7f724335f987fd89

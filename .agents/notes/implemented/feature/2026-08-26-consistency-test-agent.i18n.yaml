@@ -1,6 +1,19 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-08-26-consistency-test-agent.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-26-consistency-test-agent.md
-2026-08-26-consistency-test-agent.md: 9477392937daa0251df88acf189f6fc7cdacc5eb
-2026-08-26-consistency-test-agent.zh.md: 835a42188f7c75b17c56b452b2952421434673e9
+/agent-note-consistency-test-agent:
+  en: 607291e78f3ea578
+  zh: 1bb62b39185d0b61
+/agent-note-consistency-test-agent/problem:
+  en: 677569f500520bfb
+  zh: c6f58ecdc63df4ad
+/agent-note-consistency-test-agent/decision:
+  en: 39355e0ae13161f5
+  zh: f2fa81af7accfc16
+/agent-note-consistency-test-agent/alternatives-considered:
+  en: ce0f2e596c7efef6
+  zh: 9a3055e45c5f8e60
+/agent-note-consistency-test-agent/consequences:
+  en: e60449812689ca62
+  zh: ce025674bf1c385f

@@ -1,54 +1,66 @@
 {
-  "version": 4,
+  "version": 7,
   "record": {
     "identity": {
+      "formatVersion": 3,
       "createdAt": 1787791852497,
-      "cwd": "/root/harness-demo/consistency_test2"
+      "cwd": "/root/harness-demo/consistency_test2",
+      "isSeeded": false,
+      "inheritedEventCount": 0
     },
     "rows": {
+      "sandboxMode": {
+        "ver": 1,
+        "seq": 35,
+        "val": "workspace-write"
+      },
       "title": {
         "ver": 1,
-        "seq": 387,
+        "seq": 35,
         "val": "文件夹数据一致性测试"
       },
-      "goal": {
-        "ver": 4,
-        "seq": 387,
-        "val": null
+      "titleInput": {
+        "ver": 3,
+        "seq": 35,
+        "val": {
+          "first": {
+            "seq": 9,
+            "text": "对文件夹下的数据进行一致性测试"
+          },
+          "count": 1,
+          "lastSeq": 9
+        }
       },
-      "sessionStats": {
+      "llmRetry": {
         "ver": 1,
-        "seq": 387,
-        "val": {
-          "turns": 1,
-          "steps": 4,
-          "llmMs": 9200,
-          "toolMs": 199,
-          "ttftMs": 6647,
-          "ttftSteps": 4,
-          "decodeMs": 1016,
-          "decodeTokens": 259,
-          "lastTurn": 1,
-          "openStep": null,
-          "pendingCalls": {}
-        }
-      },
-      "subagentTiming": {
-        "ver": 2,
-        "seq": 387,
-        "val": {
-          "descriptorSeen": false,
-          "settledMs": 0
-        }
-      },
-      "subagent": {
-        "ver": 2,
-        "seq": 387,
+        "seq": 35,
         "val": {}
       },
+      "goal": {
+        "ver": 6,
+        "seq": 35,
+        "val": {
+          "current": null,
+          "seenGoalIds": [],
+          "failure": null
+        }
+      },
+      "turnBoundary": {
+        "ver": 2,
+        "seq": 35,
+        "val": {
+          "openTurnStartSeq": null,
+          "lastStepStartSeq": 31,
+          "lastStepBoundary": {
+            "kind": "end",
+            "seq": 33
+          },
+          "lastTurn": 1
+        }
+      },
       "tokenUsage": {
-        "ver": 1,
-        "seq": 387,
+        "ver": 2,
+        "seq": 35,
         "val": {
           "totals": {
             "uncachedInputTokens": 5217,
@@ -70,7 +82,7 @@
       },
       "contextPressure": {
         "ver": 4,
-        "seq": 387,
+        "seq": 35,
         "val": {
           "surfaceTokens": 1108,
           "contextWindow": 1000000,
@@ -79,26 +91,150 @@
         }
       },
       "contextBreakdown": {
-        "ver": 2,
-        "seq": 387,
+        "ver": 4,
+        "seq": 35,
         "val": {
-          "systemTokens": 1016,
-          "toolsTokens": 3409,
-          "messageTokens": 1108
+          "nodes": [
+            {
+              "seq": 12,
+              "heuristicTokens": 1016,
+              "system": true
+            },
+            {
+              "seq": 9,
+              "heuristicTokens": 12,
+              "system": false
+            },
+            {
+              "seq": 10,
+              "heuristicTokens": 128,
+              "system": false
+            },
+            {
+              "seq": 17,
+              "heuristicTokens": 48,
+              "system": false
+            },
+            {
+              "seq": 19,
+              "heuristicTokens": 100,
+              "system": false
+            },
+            {
+              "seq": 22,
+              "heuristicTokens": 45,
+              "system": false
+            },
+            {
+              "seq": 24,
+              "heuristicTokens": 167,
+              "system": false
+            },
+            {
+              "seq": 27,
+              "heuristicTokens": 43,
+              "system": false
+            },
+            {
+              "seq": 29,
+              "heuristicTokens": 388,
+              "system": false
+            },
+            {
+              "seq": 32,
+              "heuristicTokens": 177,
+              "system": false
+            }
+          ],
+          "breakdown": {
+            "systemTokens": 1016,
+            "toolsTokens": 3409,
+            "messageTokens": 1108
+          }
         }
       },
-      "permissions": {
+      "sessionStats": {
         "ver": 1,
-        "seq": 387,
+        "seq": 35,
+        "val": {
+          "turns": 1,
+          "steps": 4,
+          "llmMs": 9200,
+          "toolMs": 199,
+          "ttftMs": 6647,
+          "ttftSteps": 4,
+          "decodeMs": 1016,
+          "decodeTokens": 259,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "turnOutline": {
+        "ver": 2,
+        "seq": 35,
+        "val": {
+          "turns": [
+            {
+              "turn": 1,
+              "seq": 5,
+              "prompt": "对文件夹下的数据进行一致性测试",
+              "response": "I have the full picture. There are 5 station directories with mini-SEED files (C prefix) and datetime.dat with 9 excita…"
+            }
+          ],
+          "draft": ""
+        }
+      },
+      "agentPreset": {
+        "ver": 1,
+        "seq": 35,
+        "val": "consistency"
+      },
+      "subagentCatalog": {
+        "ver": 2,
+        "seq": 35,
+        "val": {
+          "inheritedEventCount": 0
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 35,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 35,
+        "val": {}
+      },
+      "permissions": {
+        "ver": 2,
+        "seq": 35,
         "val": {
           "preset": "workspace-write",
           "sandbox": "workspace-write",
-          "approval": "ask"
+          "approval": "ask",
+          "seeded": true
+        }
+      },
+      "modelSelection": {
+        "ver": 2,
+        "seq": 35,
+        "val": {
+          "lastUsed": {
+            "provider": "deepseek-official",
+            "model": "deepseek-v4-flash",
+            "reasoningEffort": "off"
+          },
+          "pending": null
         }
       },
       "sessionListMetadata": {
         "ver": 1,
-        "seq": 387,
+        "seq": 35,
         "val": {
           "blank": false,
           "lastPromptAt": 1787791872545
@@ -106,22 +242,36 @@
       },
       "imageLimits": {
         "ver": 1,
-        "seq": 387,
+        "seq": 35,
         "val": null
+      },
+      "inbox": {
+        "ver": 1,
+        "seq": 35,
+        "val": {
+          "next-turn": [],
+          "next-step": []
+        }
       },
       "todos": {
         "ver": 2,
-        "seq": 387,
+        "seq": 35,
         "val": null
       },
       "plan": {
-        "ver": 2,
-        "seq": 387,
+        "ver": 3,
+        "seq": 35,
         "val": {
           "active": false,
           "wanted": null,
-          "running": null
+          "running": null,
+          "activeAtLastHeader": false
         }
+      },
+      "subagentModelSelectionPolicy": {
+        "ver": 1,
+        "seq": 35,
+        "val": null
       }
     }
   }

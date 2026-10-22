@@ -1,6 +1,16 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write apps/cli/config/examples/paper-agent/README.md
-README.md: ec4fe4da35b75b90574e63327ecc6fbab9ce5091
-README.zh.md: 3a2beada483bd1c48bb1b0222d401fee9f1bc607
+/paper-agent:
+  en: cfc77c897a5a92e5
+  zh: ae383269575db8a2
+/paper-agent/run-it:
+  en: 6070813f337bedb2
+  zh: 413b8f520a8f7f96
+/paper-agent/keyless-smoke:
+  en: 5caa0e236b6ae780
+  zh: a26bf855a61eaec0
+/paper-agent/content:
+  en: 3ccc0972611149f8
+  zh: 6557a2983429d19e

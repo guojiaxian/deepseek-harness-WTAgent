@@ -1,6 +1,61 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-09-02-dsh-bidding-agent.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/proposed/feature/2026-09-02-dsh-bidding-agent.md
-2026-09-02-dsh-bidding-agent.md: b69870078ef9d03b6cdc4a40ce063206f6c68f43
-2026-09-02-dsh-bidding-agent.zh.md: f48829b7b04114c9977b4bc73228fbb3a1acd573
+/agent-note-bid-document-authoring-agent-dsh-bidding:
+  en: 4ad19971590b209e
+  zh: bbb67230062b7a54
+/agent-note-bid-document-authoring-agent-dsh-bidding/problem:
+  en: e99c3df53d2118d0
+  zh: 382d2a9d5a71b735
+/agent-note-bid-document-authoring-agent-dsh-bidding/proposal:
+  en: f2aa836e74f92dba
+  zh: aaeb130eff6f0b30
+/agent-note-bid-document-authoring-agent-dsh-bidding/overall-architecture:
+  en: 70239bee81e5dabf
+  zh: ad60bd01bc7feb50
+/agent-note-bid-document-authoring-agent-dsh-bidding/overall-architecture/three-layers-and-package-topology:
+  en: 07a9c117053983a2
+  zh: 24eade1b18474181
+/agent-note-bid-document-authoring-agent-dsh-bidding/overall-architecture/directory-plan:
+  en: 29e0155385ae2558
+  zh: 95d6cbcf300dc788
+/agent-note-bid-document-authoring-agent-dsh-bidding/data-model:
+  en: f05abceeeef3f0ea
+  zh: 0ab03a44ae4a36d1
+/agent-note-bid-document-authoring-agent-dsh-bidding/tool-surface:
+  en: 385c8270d49768d4
+  zh: 96766bc95a7a2bac
+/agent-note-bid-document-authoring-agent-dsh-bidding/template-management:
+  en: 2881e2cd517e3b16
+  zh: 8206fea1cf8ce2e4
+/agent-note-bid-document-authoring-agent-dsh-bidding/material-library:
+  en: 0b3a99063189ac5f
+  zh: 7b2e49a4ba6ffa20
+/agent-note-bid-document-authoring-agent-dsh-bidding/word-generation-engine:
+  en: 5ec7719ef660cbc6
+  zh: 9d76f0c2f4410e89
+/agent-note-bid-document-authoring-agent-dsh-bidding/comparison-and-scoring-point-checking:
+  en: 3737c901b42a84cd
+  zh: 7a80ac3ed7b01d19
+/agent-note-bid-document-authoring-agent-dsh-bidding/web-integration:
+  en: 2b0004c4b8671c54
+  zh: 96d5cf063d62bb38
+/agent-note-bid-document-authoring-agent-dsh-bidding/security-and-resource-limits:
+  en: a9ca9cba782c8706
+  zh: 8609148eb63264e0
+/agent-note-bid-document-authoring-agent-dsh-bidding/testing-plan:
+  en: afb85b7c17a25363
+  zh: c6dae0f5cfa1d51d
+/agent-note-bid-document-authoring-agent-dsh-bidding/delivery-phases:
+  en: 634547614ad55239
+  zh: 13fac5ca7986cd9e
+/agent-note-bid-document-authoring-agent-dsh-bidding/alternatives-considered:
+  en: 27cdf3b885988d76
+  zh: 3147f37bc606691d
+/agent-note-bid-document-authoring-agent-dsh-bidding/acceptance-criteria:
+  en: 1d6b5ecf3bc2dbaa
+  zh: 6295470c032416b5
+/agent-note-bid-document-authoring-agent-dsh-bidding/risks:
+  en: 356ddb5f960b4c7d
+  zh: 12f19b9a3cb9a0a6

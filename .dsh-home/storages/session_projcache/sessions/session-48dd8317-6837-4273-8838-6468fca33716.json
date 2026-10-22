@@ -1,54 +1,66 @@
 {
-  "version": 4,
+  "version": 7,
   "record": {
     "identity": {
+      "formatVersion": 3,
       "createdAt": 1787728377838,
-      "cwd": "/root/harness-demo"
+      "cwd": "/root/harness-demo",
+      "isSeeded": false,
+      "inheritedEventCount": 0
     },
     "rows": {
+      "sandboxMode": {
+        "ver": 1,
+        "seq": 85,
+        "val": "workspace-write"
+      },
       "title": {
         "ver": 1,
-        "seq": 2583,
+        "seq": 85,
         "val": "分析文件夹中的sgy文件"
       },
-      "goal": {
-        "ver": 4,
-        "seq": 2583,
-        "val": null
+      "titleInput": {
+        "ver": 3,
+        "seq": 85,
+        "val": {
+          "first": {
+            "seq": 9,
+            "text": "分析文件夹下所有的sgy文件"
+          },
+          "count": 1,
+          "lastSeq": 9
+        }
       },
-      "sessionStats": {
+      "llmRetry": {
         "ver": 1,
-        "seq": 2583,
-        "val": {
-          "turns": 1,
-          "steps": 12,
-          "llmMs": 26957,
-          "toolMs": 67530,
-          "ttftMs": 8742,
-          "ttftSteps": 12,
-          "decodeMs": 18215,
-          "decodeTokens": 2904,
-          "lastTurn": 1,
-          "openStep": null,
-          "pendingCalls": {}
-        }
-      },
-      "subagentTiming": {
-        "ver": 2,
-        "seq": 2583,
-        "val": {
-          "descriptorSeen": false,
-          "settledMs": 0
-        }
-      },
-      "subagent": {
-        "ver": 2,
-        "seq": 2583,
+        "seq": 85,
         "val": {}
       },
+      "goal": {
+        "ver": 6,
+        "seq": 85,
+        "val": {
+          "current": null,
+          "seenGoalIds": [],
+          "failure": null
+        }
+      },
+      "turnBoundary": {
+        "ver": 2,
+        "seq": 85,
+        "val": {
+          "openTurnStartSeq": null,
+          "lastStepStartSeq": 81,
+          "lastStepBoundary": {
+            "kind": "end",
+            "seq": 83
+          },
+          "lastTurn": 1
+        }
+      },
       "tokenUsage": {
-        "ver": 1,
-        "seq": 2583,
+        "ver": 2,
+        "seq": 85,
         "val": {
           "totals": {
             "uncachedInputTokens": 8165,
@@ -70,7 +82,7 @@
       },
       "contextPressure": {
         "ver": 4,
-        "seq": 2583,
+        "seq": 85,
         "val": {
           "surfaceTokens": 8092,
           "contextWindow": 1000000,
@@ -79,26 +91,250 @@
         }
       },
       "contextBreakdown": {
-        "ver": 2,
-        "seq": 2583,
+        "ver": 4,
+        "seq": 85,
         "val": {
-          "systemTokens": 1011,
-          "toolsTokens": 3586,
-          "messageTokens": 8092
+          "nodes": [
+            {
+              "seq": 12,
+              "heuristicTokens": 1011,
+              "system": true
+            },
+            {
+              "seq": 9,
+              "heuristicTokens": 12,
+              "system": false
+            },
+            {
+              "seq": 10,
+              "heuristicTokens": 123,
+              "system": false
+            },
+            {
+              "seq": 17,
+              "heuristicTokens": 68,
+              "system": false
+            },
+            {
+              "seq": 19,
+              "heuristicTokens": 292,
+              "system": false
+            },
+            {
+              "seq": 21,
+              "heuristicTokens": 25,
+              "system": false
+            },
+            {
+              "seq": 24,
+              "heuristicTokens": 148,
+              "system": false
+            },
+            {
+              "seq": 26,
+              "heuristicTokens": 1131,
+              "system": false
+            },
+            {
+              "seq": 28,
+              "heuristicTokens": 26,
+              "system": false
+            },
+            {
+              "seq": 31,
+              "heuristicTokens": 228,
+              "system": false
+            },
+            {
+              "seq": 34,
+              "heuristicTokens": 27,
+              "system": false
+            },
+            {
+              "seq": 36,
+              "heuristicTokens": 1651,
+              "system": false
+            },
+            {
+              "seq": 39,
+              "heuristicTokens": 235,
+              "system": false
+            },
+            {
+              "seq": 41,
+              "heuristicTokens": 41,
+              "system": false
+            },
+            {
+              "seq": 44,
+              "heuristicTokens": 168,
+              "system": false
+            },
+            {
+              "seq": 46,
+              "heuristicTokens": 24,
+              "system": false
+            },
+            {
+              "seq": 49,
+              "heuristicTokens": 55,
+              "system": false
+            },
+            {
+              "seq": 51,
+              "heuristicTokens": 550,
+              "system": false
+            },
+            {
+              "seq": 54,
+              "heuristicTokens": 330,
+              "system": false
+            },
+            {
+              "seq": 56,
+              "heuristicTokens": 1078,
+              "system": false
+            },
+            {
+              "seq": 59,
+              "heuristicTokens": 183,
+              "system": false
+            },
+            {
+              "seq": 61,
+              "heuristicTokens": 298,
+              "system": false
+            },
+            {
+              "seq": 64,
+              "heuristicTokens": 136,
+              "system": false
+            },
+            {
+              "seq": 66,
+              "heuristicTokens": 518,
+              "system": false
+            },
+            {
+              "seq": 69,
+              "heuristicTokens": 85,
+              "system": false
+            },
+            {
+              "seq": 72,
+              "heuristicTokens": 60,
+              "system": false
+            },
+            {
+              "seq": 73,
+              "heuristicTokens": 60,
+              "system": false
+            },
+            {
+              "seq": 76,
+              "heuristicTokens": 150,
+              "system": false
+            },
+            {
+              "seq": 79,
+              "heuristicTokens": 27,
+              "system": false
+            },
+            {
+              "seq": 82,
+              "heuristicTokens": 363,
+              "system": false
+            }
+          ],
+          "breakdown": {
+            "systemTokens": 1011,
+            "toolsTokens": 3586,
+            "messageTokens": 8092
+          }
         }
       },
-      "permissions": {
+      "sessionStats": {
         "ver": 1,
-        "seq": 2583,
+        "seq": 85,
+        "val": {
+          "turns": 1,
+          "steps": 12,
+          "llmMs": 26957,
+          "toolMs": 67530,
+          "ttftMs": 8742,
+          "ttftSteps": 12,
+          "decodeMs": 18215,
+          "decodeTokens": 2904,
+          "lastTurn": 1,
+          "openStep": null,
+          "pendingCalls": {}
+        }
+      },
+      "turnOutline": {
+        "ver": 2,
+        "seq": 85,
+        "val": {
+          "turns": [
+            {
+              "turn": 1,
+              "seq": 5,
+              "prompt": "分析文件夹下所有的sgy文件",
+              "response": "# SEG-Y 文件分析完成 在工作目录 `/root/harness-demo` 下共发现 **2 个 `.sgy` 文件**，已通过完整勘探处理流水线（摄取 → 清洗 → 转换 → 统计 → 异常检测 → 地震剖面渲染）处理完毕。 #…"
+            }
+          ],
+          "draft": ""
+        }
+      },
+      "agentPreset": {
+        "ver": 1,
+        "seq": 85,
+        "val": "exploration"
+      },
+      "subagentCatalog": {
+        "ver": 2,
+        "seq": 85,
+        "val": {
+          "inheritedEventCount": 0
+        }
+      },
+      "subagentTiming": {
+        "ver": 2,
+        "seq": 85,
+        "val": {
+          "descriptorSeen": false,
+          "settledMs": 0
+        }
+      },
+      "subagent": {
+        "ver": 2,
+        "seq": 85,
+        "val": {}
+      },
+      "permissions": {
+        "ver": 2,
+        "seq": 85,
         "val": {
           "preset": "workspace-write",
           "sandbox": "workspace-write",
-          "approval": "ask"
+          "approval": "ask",
+          "seeded": true
+        }
+      },
+      "modelSelection": {
+        "ver": 2,
+        "seq": 85,
+        "val": {
+          "lastUsed": {
+            "provider": "deepseek-official",
+            "model": "deepseek-v4-flash",
+            "reasoningEffort": "off"
+          },
+          "pending": null
         }
       },
       "sessionListMetadata": {
         "ver": 1,
-        "seq": 2583,
+        "seq": 85,
         "val": {
           "blank": false,
           "lastPromptAt": 1787728456416
@@ -106,12 +342,20 @@
       },
       "imageLimits": {
         "ver": 1,
-        "seq": 2583,
+        "seq": 85,
         "val": null
+      },
+      "inbox": {
+        "ver": 1,
+        "seq": 85,
+        "val": {
+          "next-turn": [],
+          "next-step": []
+        }
       },
       "todos": {
         "ver": 2,
-        "seq": 2583,
+        "seq": 85,
         "val": [
           {
             "content": "Ingest and parse both SEG-Y files",
@@ -132,13 +376,19 @@
         ]
       },
       "plan": {
-        "ver": 2,
-        "seq": 2583,
+        "ver": 3,
+        "seq": 85,
         "val": {
           "active": false,
           "wanted": null,
-          "running": null
+          "running": null,
+          "activeAtLastHeader": false
         }
+      },
+      "subagentModelSelectionPolicy": {
+        "ver": 1,
+        "seq": 85,
+        "val": null
       }
     }
   }

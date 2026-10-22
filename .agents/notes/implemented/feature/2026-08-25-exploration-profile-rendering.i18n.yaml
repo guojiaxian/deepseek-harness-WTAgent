@@ -1,6 +1,19 @@
-# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
-# side as of the last confirmed-consistent state. Both languages carry equal authority;
-# after editing either side, bring the other along and re-record with:
+# Bilingual-pair consistency record for 2026-08-25-exploration-profile-rendering.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-25-exploration-profile-rendering.md
-2026-08-25-exploration-profile-rendering.md: f2443e5577f1a2e3a693270930f8cac1a87f50f6
-2026-08-25-exploration-profile-rendering.zh.md: 6c32b284fbbb0c2e5828657f2936889a93c60741
+/agent-note-exploration-profile-rendering:
+  en: 9d8ded6600e64652
+  zh: 37cc63eea29e7ddc
+/agent-note-exploration-profile-rendering/problem:
+  en: c3ea6c24860e5c05
+  zh: f4c697e2e6fbe620
+/agent-note-exploration-profile-rendering/decision:
+  en: bb5220032c67d154
+  zh: 31df8a6174bfc054
+/agent-note-exploration-profile-rendering/alternatives-considered:
+  en: 0f70762c61ba8f5d
+  zh: e86e744a5b7af297
+/agent-note-exploration-profile-rendering/consequences:
+  en: a8290138b1f1437b
+  zh: c85ae0f0a8257f86

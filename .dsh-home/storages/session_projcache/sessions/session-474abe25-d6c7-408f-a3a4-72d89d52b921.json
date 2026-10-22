@@ -1,24 +1,92 @@
 {
-  "version": 4,
+  "version": 7,
   "record": {
     "identity": {
+      "formatVersion": 3,
       "createdAt": 1787813690557,
-      "cwd": "/root/harness-demo/consistency_test2"
+      "cwd": "/root/harness-demo/consistency_test2",
+      "isSeeded": false,
+      "inheritedEventCount": 0
     },
     "rows": {
+      "sandboxMode": {
+        "ver": 1,
+        "seq": 5,
+        "val": "workspace-write"
+      },
       "title": {
         "ver": 1,
-        "seq": 3,
+        "seq": 5,
         "val": null
       },
+      "titleInput": {
+        "ver": 3,
+        "seq": 5,
+        "val": {
+          "first": null,
+          "count": 0,
+          "lastSeq": null
+        }
+      },
+      "llmRetry": {
+        "ver": 1,
+        "seq": 5,
+        "val": {}
+      },
       "goal": {
+        "ver": 6,
+        "seq": 5,
+        "val": {
+          "current": null,
+          "seenGoalIds": [],
+          "failure": null
+        }
+      },
+      "turnBoundary": {
+        "ver": 2,
+        "seq": 5,
+        "val": {
+          "openTurnStartSeq": null,
+          "lastStepStartSeq": null,
+          "lastStepBoundary": null,
+          "lastTurn": 0
+        }
+      },
+      "tokenUsage": {
+        "ver": 2,
+        "seq": 5,
+        "val": {
+          "totals": {
+            "uncachedInputTokens": 0,
+            "outputTokens": 0,
+            "cacheReadTokens": 0,
+            "cacheWriteTokens": 0
+          },
+          "last": null
+        }
+      },
+      "contextPressure": {
         "ver": 4,
-        "seq": 3,
-        "val": null
+        "seq": 5,
+        "val": {
+          "surfaceTokens": 0
+        }
+      },
+      "contextBreakdown": {
+        "ver": 4,
+        "seq": 5,
+        "val": {
+          "nodes": [],
+          "breakdown": {
+            "systemTokens": 0,
+            "toolsTokens": 0,
+            "messageTokens": 0
+          }
+        }
       },
       "sessionStats": {
         "ver": 1,
-        "seq": 3,
+        "seq": 5,
         "val": {
           "turns": 0,
           "steps": 0,
@@ -33,9 +101,29 @@
           "pendingCalls": {}
         }
       },
+      "turnOutline": {
+        "ver": 2,
+        "seq": 5,
+        "val": {
+          "turns": [],
+          "draft": ""
+        }
+      },
+      "agentPreset": {
+        "ver": 1,
+        "seq": 5,
+        "val": "dev"
+      },
+      "subagentCatalog": {
+        "ver": 2,
+        "seq": 5,
+        "val": {
+          "inheritedEventCount": 0
+        }
+      },
       "subagentTiming": {
         "ver": 2,
-        "seq": 3,
+        "seq": 5,
         "val": {
           "descriptorSeen": false,
           "settledMs": 0
@@ -43,50 +131,30 @@
       },
       "subagent": {
         "ver": 2,
-        "seq": 3,
+        "seq": 5,
         "val": {}
       },
-      "tokenUsage": {
-        "ver": 1,
-        "seq": 3,
-        "val": {
-          "totals": {
-            "uncachedInputTokens": 0,
-            "outputTokens": 0,
-            "cacheReadTokens": 0,
-            "cacheWriteTokens": 0
-          },
-          "last": null
-        }
-      },
-      "contextPressure": {
-        "ver": 4,
-        "seq": 3,
-        "val": {
-          "surfaceTokens": 0
-        }
-      },
-      "contextBreakdown": {
-        "ver": 2,
-        "seq": 3,
-        "val": {
-          "systemTokens": 0,
-          "toolsTokens": 0,
-          "messageTokens": 0
-        }
-      },
       "permissions": {
-        "ver": 1,
-        "seq": 3,
+        "ver": 2,
+        "seq": 5,
         "val": {
           "preset": "workspace-write",
           "sandbox": "workspace-write",
-          "approval": "ask"
+          "approval": "ask",
+          "seeded": true
+        }
+      },
+      "modelSelection": {
+        "ver": 2,
+        "seq": 5,
+        "val": {
+          "lastUsed": null,
+          "pending": null
         }
       },
       "sessionListMetadata": {
         "ver": 1,
-        "seq": 3,
+        "seq": 5,
         "val": {
           "blank": true,
           "lastPromptAt": null
@@ -94,22 +162,36 @@
       },
       "imageLimits": {
         "ver": 1,
-        "seq": 3,
+        "seq": 5,
         "val": null
+      },
+      "inbox": {
+        "ver": 1,
+        "seq": 5,
+        "val": {
+          "next-turn": [],
+          "next-step": []
+        }
       },
       "todos": {
         "ver": 2,
-        "seq": 3,
+        "seq": 5,
         "val": null
       },
       "plan": {
-        "ver": 2,
-        "seq": 3,
+        "ver": 3,
+        "seq": 5,
         "val": {
           "active": false,
           "wanted": null,
-          "running": null
+          "running": null,
+          "activeAtLastHeader": null
         }
+      },
+      "subagentModelSelectionPolicy": {
+        "ver": 1,
+        "seq": 5,
+        "val": null
       }
     }
   }
