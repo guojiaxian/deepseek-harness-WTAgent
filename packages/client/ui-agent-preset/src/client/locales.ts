@@ -137,6 +137,6 @@ const PICKER_HIDDEN_BUILT_IN_IDS: ReadonlySet<string> = new Set(['ptc', 'minimal
  * @param options - full roster rows to filter.
  * @returns rows the picker menus render.
  */
-export function pickerPresetOptions<T extends { readonly id: string; readonly trust: 'system' | 'user' }>(options: readonly T[]): readonly T[] {
-  return options.filter(option => !(option.trust === 'system' && PICKER_HIDDEN_BUILT_IN_IDS.has(option.id)))
+export function pickerPresetOptions<T extends { readonly id: string }>(options: readonly T[]): readonly T[] {
+  return options.filter(option => !PICKER_HIDDEN_BUILT_IN_IDS.has(option.id))
 }
