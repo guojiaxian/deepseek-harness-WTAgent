@@ -92,12 +92,14 @@
         "path": "/root/harness-demo/consistency_test4",
         "title": "consistency_test4",
         "sessionIds": [
+          "session-f510b5df-7589-4b3d-abcf-33e037d53a71",
+          "session-e0b406de-f1f7-448c-85b3-3608cf8c39f9",
           "session-8998cc77-38ca-443c-85fc-82497b72ad73",
           "session-b7429dbb-4b3f-46a7-9746-0178b88c4f74",
           "session-929899bf-aedd-423c-ac45-ee358de97316"
         ],
         "createdAt": "2026-08-27T07:40:15.078Z",
-        "updatedAt": "2026-08-28T00:55:50.416Z"
+        "updatedAt": "2026-10-22T06:08:24.514Z"
       },
       "cea636ed-3ee6-41b7-866a-286ccfe9e5c4": {
         "path": "/root/harness-demo/123",

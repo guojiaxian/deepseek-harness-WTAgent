@@ -110,3 +110,7 @@ $ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 
 [dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
 dsh web: listening on 0.0.0.0 over plain HTTP; restrict this port to a trusted proxy or network
 dsh web: http://0.0.0.0:3080/?token=dZNuo4Wr4igkhywvnTtQ48UyprbZDAzDUIAeXMK9X9A
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: listening on 0.0.0.0 over plain HTTP; restrict this port to a trusted proxy or network
+dsh web: http://0.0.0.0:3080/?token=2P9KcuDh0ArBtYPvcb2EbQj_4Dpm6Y9DI2YCfPyrOoU
