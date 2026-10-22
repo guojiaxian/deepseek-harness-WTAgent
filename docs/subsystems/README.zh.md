@@ -39,6 +39,7 @@
 | [ssh.md](ssh.zh.md) | POSIX SSH 连接与远程文件系统、子进程和沙箱提供方 |
 | [terminal.md](terminal.zh.md) | 持久化终端 ID、后端/会话约定、发送就绪状态、有界读取与 owner 可见快照 |
 | [sandbox.md](sandbox.zh.md) | 每会话策略解析与进程约束 seam：文件效果模式、执行/提供方策略、`ConfinedArgv`、强制执行与故障关闭错误 |
+| [invariants.md](invariants.zh.md) | 运行时不变式注册表：选择配置 `Config`、`InvariantInstaller`/`InvariantFailure`、空配套插件约定 |
 | [code.md](code.zh.md) | 代码分析 seam（`ctx.code`）：语言检测、度量、圈复杂度、质量得分与静态质量/安全发现 |
 | [exploration.md](exploration.zh.md) | 勘探数据处理 seam（`ctx.exploration`）：解析 CSV/JSON/SEG-Y、清洗、单位/深度-时间换算、统计、异常检测与剖面渲染 |
 | [consistency.md](consistency.zh.md) | 密集台阵一致性测试 seam（`ctx.consistency`）：台站重命名、mini-SEED → SAC 转换规划、到达裁波时间窗与绘图批次布局 |

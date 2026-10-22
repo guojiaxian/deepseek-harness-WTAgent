@@ -116,8 +116,9 @@ describe('web command-line provider', () => {
   })
 
   // The webserver suite owns the wildcard spellings; the CLI only has to
-  // refuse them by address value before any consumer activates.
-  it.each(['0.0.0.0', '::ffff:0.0.0.0'])('rejects wildcard --host %s before activating consumers', async (host) => {
+  // refuse them by address value before any consumer activates. 0.0.0.0 is
+  // the deployment override above: warned about, then accepted.
+  it.each(['::ffff:0.0.0.0'])('rejects wildcard --host %s before activating consumers', async (host) => {
     const { values, observed } = await bootProvider(['--host', host])
     expect(observed.out).toContain(`error: --host ${host} is an unspecified (wildcard) address`)
     expect(values).toBeUndefined()

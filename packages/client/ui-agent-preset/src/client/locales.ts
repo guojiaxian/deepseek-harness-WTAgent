@@ -125,18 +125,3 @@ export const zh: Record<AgentPresetSettingsKey, string> = {
 // Settings plugin list inlines the same fold over this plugin's dictionaries.
 export { isBuiltInPreset, presetDisplayText } from '@deepseek-ai/dsh-agent-preset-registry/display'
 export type { PresetDisplaySource, PresetDisplayText } from '@deepseek-ai/dsh-agent-preset-registry/display'
-
-/** Shipped presets kept functional but hidden from the picker menus. */
-const PICKER_HIDDEN_BUILT_IN_IDS: ReadonlySet<string> = new Set(['ptc', 'minimal', 'cordis'])
-
-/**
- * Pickable options for the preset picker menus: the deployment roster minus
- * the built-in presets this deployment hides. Hidden presets stay selectable
- * through the settings section and keep running sessions untouched; only the
- * choice menus omit them.
- * @param options - full roster rows to filter.
- * @returns rows the picker menus render.
- */
-export function pickerPresetOptions<T extends { readonly id: string }>(options: readonly T[]): readonly T[] {
-  return options.filter(option => !PICKER_HIDDEN_BUILT_IN_IDS.has(option.id))
-}

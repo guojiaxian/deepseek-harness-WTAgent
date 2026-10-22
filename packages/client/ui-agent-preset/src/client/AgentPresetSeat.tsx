@@ -21,7 +21,7 @@ import {
 // Type-only: pulls the ui-conversation SlotMap merge (the hero seat).
 import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
 import type { AgentPresetSeatState } from './seat-store.ts'
-import { presetDisplayText, pickerPresetOptions } from './locales.ts'
+import { presetDisplayText } from './locales.ts'
 import { requiresCodingTools } from './settings-store.ts'
 import css from './AgentPresetSeat.module.css'
 
@@ -164,7 +164,7 @@ export function AgentPresetSeat({
       {ready && <Menu
         open={open && options.length > 0}
         onClose={() => { setOpen(false) }}
-        items={pickerPresetOptions(state.options).map((option) => {
+        items={options.map((option) => {
           const text = presetDisplayText(option, t)
           return {
             id: option.id,

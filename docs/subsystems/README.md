@@ -39,6 +39,7 @@ One page per subsystem of the DeepSeek Harness: what it is, the data structures 
 | [ssh.md](ssh.md) | the POSIX SSH connection and remote filesystem, subprocess and sandbox providers |
 | [terminal.md](terminal.md) | persistent terminal ids, backend/session contracts, send readiness, bounded reads, and owner-visible snapshots |
 | [sandbox.md](sandbox.md) | per-session policy resolution and the process-confinement seam: file-effect modes, execution/provider policies, `ConfinedArgv`, enforcement and fail-closed errors |
+| [invariants.md](invariants.md) | the runtime-invariant registry: selection `Config`, `InvariantInstaller`/`InvariantFailure`, the empty-companion contract |
 | [code.md](code.md) | the code analysis seam (`ctx.code`): language detection, metrics, cyclomatic complexity, quality score, and static quality/security findings |
 | [exploration.md](exploration.md) | the exploration data processing seam (`ctx.exploration`): ingest CSV/JSON/SEG-Y, clean, convert units/depth-time, statistics, anomaly detection, and profile rendering |
 | [consistency.md](consistency.md) | the dense-array consistency-test seam (`ctx.consistency`): station rename, mini-SEED → SAC conversion planning, arrival cut windows, and plot-batch layout |
