@@ -12,6 +12,8 @@
       name: '@deepseek-ai/dsh-agent-preset'
       config:
         id: dev
+        name: '程序开发 Agent'
+        description: '专业程序开发 Agent：跨 Python/JavaScript/Java 实现代码生成、补全、重构与优化，通过 code_analyze/code_check 做质量与安全分析，并支持任务规划与进度跟踪。'
         order: 5
         plugins:
           - id: persona

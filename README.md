@@ -4,7 +4,7 @@
 
 **deepseek-harness-WTAgent**（以下简称 **WTAgent** 或 `dsh`）是基于 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 二次开发并持续演进的 agent harness（智能体框架），保留了上游**一切皆插件**的架构，并由 [Cordis](https://github.com/cordiverse/cordis) 驱动，其设计参见论文 [_A Programming Paradigm for Spatiotemporal Composability_](https://github.com/cordiverse/paper)。
 
-本项目在完整继承上游能力（会话、系统提示、工具、agent 循环、LLM 能力、shell/subprocess/文件系统/LSP/Web 等全套能力缝、以及 SDK / Web UI / ACP / JSON-RPC 等对外接口）的基础上，额外新增了面向专业领域的模块、插件与 agent 预设，具体见下方[相对上游新增的模块/插件](#相对上游新增的模块插件)。当前升级基线为上游 [`dsh-v0.1.5-rc.2`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.1.5-rc.2)，升级记录见[升级历史与上游差异](#升级历史与上游差异)。
+本项目在完整继承上游能力（会话、系统提示、工具、agent 循环、LLM 能力、shell/subprocess/文件系统/LSP/Web 等全套能力缝、以及 SDK / Web UI / ACP / JSON-RPC 等对外接口）的基础上，额外新增了面向专业领域的模块、插件与 agent 预设，具体见下方[相对上游新增的模块/插件](#相对上游新增的模块插件)。当前升级基线为上游 [`dsh-v0.2.1-rc.2`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.1-rc.2)，升级记录见[升级历史与上游差异](#upgrade-history)。
 
 ## 开发者预览
 
@@ -237,9 +237,23 @@ Web UI 通过 agent preset 内建五个专业 Agent（位于 `packages/preset/ag
 
 ### 当前基线
 
-- 上游版本：`dsh-v0.1.5-rc.2`（对应上游 tag [`dsh-v0.1.5-rc.2`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.1.5-rc.2)）
-- 本地合并提交：`98007f0b4b`（`merge: 合并上游 dsh-v0.1.5-rc.2`）
-- 升级前本地基线：`dsh-v0.1.2-alpha.1`；升级前的本地自定义保存点：`8bf702cbce`
+- 上游版本：`dsh-v0.2.1-rc.2`（对应上游 tag [`dsh-v0.2.1-rc.2`](https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.1-rc.2)）
+- 本地合并提交：`05a6ea6761`（`merge: Merge upstream dsh-v0.2.1-rc.2, preserving local customizations`）
+- 升级前本地基线：`dsh-v0.1.5-rc.2`；升级前的本地自定义保存点：`8d5c6425fc`
+
+### dsh-v0.1.5-rc.2 → dsh-v0.2.1-rc.2 上游新功能
+
+本次升级合并上游约 6000 个提交，对 Web UI / 服务端有实质影响的新功能与变更包括：
+
+- **Agent 预设新架构（破坏性）**：预设从 `packages/preset/agent-presets/` 目录声明迁移为 bundle patch（`packages/bundle/web-app/presets/*.patch.yml` 以 `- insert:` 声明 `@deepseek-ai/dsh-agent-preset`，`config` 携带 `id`/`name`/`description`/`order`/`plugins`）；本地 5 预设已完成迁移并保留 persona 中文语言规则。
+- **运行时不变式移除（破坏性）**：上游删除 `@deepseek-ai/dsh-invariants` 与所有 `<package>/invariant` 伴生入口；本地因领域引擎依赖而整体保留该包与 `docs/subsystems/invariants` 文档，并在 `SERVICE_WALK_EXEMPTIONS` 登记。
+- **`--host` 严格校验（破坏性）**：上游在 CLI 与 webserver 配置层拒绝所有通配地址；本地保留 `0.0.0.0` LAN 部署覆盖（CLI 警告后放行，配置层放行 `0.0.0.0`，其余通配形式仍拒绝）。
+- **Web 认证强制**：`--host 0.0.0.0` 等非回环部署强制 token 认证（URL 带 token 换 30 天 cookie）。
+- **PTC（Programmatic Tool Calling）正式化**：`ptc-runtime`/`ptc-runtime-node` 取代旧 `code-runtime`；`ptc` 工作流成为内置预设之一。
+- **新工具与界面**：`tool-schedule`（定时任务）、`tool-working-directory`、`office-to-pdf`、`skill-office`、浏览器/computer-use 扩展、文件预览与右侧栏文档预览重构、新会话页 hero/侧边栏品牌区重构。
+- **预设选择器开发模式开关**：PTC/极简预设按「Developer tools」偏好动态显隐（本地旧的 id 隐藏过滤器已被此原生机制取代并移除）。
+- **会话格式 V4**：session format v3→v4 迁移；`migrate-sessions-to-v4` 脚本随附。
+- **`dsh-hmr` 取代 `cordis-plugin-hmr`**；lockfile 供应链策略校验（`pnpm approve-builds`）进入常规流程。
 
 ### dsh-v0.1.2-alpha.1 → dsh-v0.1.5-rc.2 上游新功能
 
@@ -263,13 +277,13 @@ Web UI 通过 agent preset 内建五个专业 Agent（位于 `packages/preset/ag
 
 | 改动 | 说明 |
 | --- | --- |
-| 五个专业 Agent 预设 | `dev`（程序开发）/ `exploration`（勘探数据处理）/ `consistency`（一致性测试）/ `paper`（科研论文写作）/ `bidding`（标书制作）位于 `packages/preset/agent-presets/presets/`，连同引擎 `packages/code` / `packages/exploration` / `packages/consistency` / `packages/paper` / `packages/bidding` 与工具插件，见[相对上游新增的模块/插件](#相对上游新增的模块插件)。 |
+| 五个专业 Agent 预设 | `dev`（程序开发）/ `exploration`（勘探数据处理）/ `consistency`（一致性测试）/ `paper`（科研论文写作）/ `bidding`（标书制作）以 bundle patch 形式位于 `packages/bundle/web-app/presets/*.patch.yml`（0.2.1 新架构），连同引擎 `packages/code` / `packages/exploration` / `packages/consistency` / `packages/paper` / `packages/bidding` 与工具插件，见[相对上游新增的模块/插件](#相对上游新增的模块插件)。 |
 | 品牌中文化 + 自定义图标 | Web UI 品牌文案改为中文（「物探中心智能业务Agent平台」「开发版」）；品牌图标以本地 `LogoMark` 替换上游 `FishLogo`（鲸鱼），hero 与侧边栏使用自定义多色 logo，favicon 同步替换。 |
 | `start.sh` / `stop.sh` 启停脚本 | 仓库根 `start.sh` / `stop.sh`，强制 `DSH_HOME` 指向仓库内 `.dsh-home`（避免静默回退 `~/.dsh` 导致历史会话"看似丢失"），以 `--host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4` 启动。 |
 | `DSH_HOME` 约定 | 数据目录固定为 `deepseek_harness_WTAgent/.dsh-home`，历史会话、设置、`.credentials.yaml` 均存放于此。 |
 | API Key 配置 | 通过 `.credentials.yaml`（权限 `0600`）配置，而非 Web UI；避免凭据落盘到会话目录。 |
 | 权限方法 loopback 限制 | `settings.*` / `credentials.*` / `llm.discoverModels` 等特权方法仅允许 loopback（`127.0.0.1`）访问；因此远程浏览器中「Agent 预设」设置行保持只读属预期行为。 |
-| 预设隐藏定制 | `PICKER_HIDDEN_BUILT_IN_IDS`（ptc/minimal/cordis）隐藏于预设选择器菜单，经设置页仍可选；随上游 `display.ts` 重构改为在 `ui-agent-preset` 本地实现。 |
+| `--host 0.0.0.0` LAN 部署覆盖 | 上游 0.2.1 起在 CLI 与 webserver 配置层拒绝通配地址；本地保留 `0.0.0.0` 覆盖：CLI 警告后放行（`startup.ts`），webserver 配置层放行 `0.0.0.0`、拒绝其余通配形式（`webserver/src/index.ts`）。 |
 | 升级修复 | persona 从 `text` 迁移到 `prefix`/`suffix`（本地 5 预设在 0.1.5 下保持可加载）；`gen-tool-catalog` 补 `tool-bidding` 条目；清理 src 目录下陈旧编译产物（修复 gen-client-catalog 契约扫描）；`shipped-root` 测试并入 bidding。 |
 
 ### 升级与维护提示

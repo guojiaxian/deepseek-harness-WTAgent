@@ -73,3 +73,40 @@ dsh web: http://127.0.0.1:3080/?token=k3yemU0LtHPrTK88QwF7sqP70WgZ59a20NSuSzd54G
 $ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
 [dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
 dsh web: http://127.0.0.1:3080/?token=Gchx5GAahb5By-eAZbVfxLpYXNbc1v_zTpcOKO_3ehI (LAN: http://10.8.11.4:3080/?token=Gchx5GAahb5By-eAZbVfxLpYXNbc1v_zTpcOKO_3ehI)
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh: startup failed: 2 required plugins did not activate
+
+Failed plugins (1):
+  webserver (required)
+    Package: @deepseek-ai/dsh-host-webserver
+    Error: webserver: host "0.0.0.0" is an unspecified (wildcard) address, which is not supported: binding every interface would expose remote code execution to the network; bind one concrete IPv4 or IPv6 address of a local interface instead
+        at <anonymous> (/root/deepseek_harness/deepseek_harness_WTAgent/packages/host/webserver/src/index.ts:284:15)
+        at <anonymous> (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/schemastery/src/index.ts:871:13)
+        at Function.resolve (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/schemastery/src/index.ts:549:12)
+        at property (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/schemastery/src/index.ts:760:37)
+        at <anonymous> (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/schemastery/src/index.ts:816:19)
+        at Function.resolve (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/schemastery/src/index.ts:549:12)
+        at Object.validate (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/schemastery/src/index.ts:297:34)
+        at resolveConfig (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/cordis/src/fiber.ts:53:46)
+        at Fiber._resolveConfig (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/cordis/src/fiber.ts:643:27)
+        at Fiber._reload (/root/deepseek_harness/deepseek_harness_WTAgent/vendor/cordis/src/fiber.ts:655:28)
+
+Plugins waiting for services (5):
+  Plugin                  Missing services
+  web-runtime (required)  webServer
+  open-in-app             webServer
+  directory-picker        webServer
+  harness-dev-context     webApp
+  client-hmr              webServer
+
+Full diagnostics: /root/deepseek_harness/deepseek_harness_WTAgent/.dsh-home/logs/startup-2026-10-22T05-42-19.574Z-561c7bed-5ffd-4265-9981-fe32db814257.log
+[ELIFECYCLE] Command failed with exit code 1.
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: listening on 0.0.0.0 over plain HTTP; restrict this port to a trusted proxy or network
+dsh web: http://0.0.0.0:3080/?token=fvPotVR3bt2lzt4FBIxGe6TUaNS8ZVukvNADZ47sdfk
+$ node --import tsx/esm apps/cli/src/bin.ts --profile web --host 0.0.0.0 --port 3080 --trusted-host 10.8.11.4
+[dsh] --host 0.0.0.0 exposes the Web UI to the network; use 127.0.0.1 unless you intend a LAN deployment
+dsh web: listening on 0.0.0.0 over plain HTTP; restrict this port to a trusted proxy or network
+dsh web: http://0.0.0.0:3080/?token=dZNuo4Wr4igkhywvnTtQ48UyprbZDAzDUIAeXMK9X9A

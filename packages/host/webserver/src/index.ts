@@ -281,6 +281,10 @@ export class WebServer extends Service {
       const parsed = parseIpLiteral(value)
       if (parsed === undefined) throw notLiteralError(value)
       if (isWildcardAddress(parsed)) {
+        // LAN deployment override (see the root README): 0.0.0.0 is admitted
+        // with a warning so the Web UI is reachable at a machine IP:port;
+        // every other wildcard address stays rejected.
+        if (value === '0.0.0.0') return value
         throw new Error(`webserver: host ${JSON.stringify(value)} is an unspecified (wildcard) address, which is not supported: binding every interface would expose remote code execution to the network; bind one concrete IPv4 or IPv6 address of a local interface instead`)
       }
       return value

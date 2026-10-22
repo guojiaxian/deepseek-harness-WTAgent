@@ -234,10 +234,11 @@ describe('real Loader composition', () => {
 
   it('rejects every wildcard spelling by address value, not by text', () => {
     // Every spelling node:net accepts that parses to the unspecified address:
-    // IPv4 any, IPv6 any in long and short forms, IPv4-compatible, and the
-    // IPv4-mapped forms of IPv4 any, with or without a zone.
+    // IPv6 any in long and short forms, IPv4-compatible, and the IPv4-mapped
+    // forms of IPv4 any, with or without a zone. Plain `0.0.0.0` is the local
+    // LAN deployment override: warned about at the CLI, then accepted.
     for (const host of [
-      '0.0.0.0', '::', '::0', '0000::', '0::', '0:0:0:0:0:0:0:0', '::0.0.0.0', '::0.0.0.0%lo', '::%lo',
+      '::', '::0', '0000::', '0::', '0:0:0:0:0:0:0:0', '::0.0.0.0', '::0.0.0.0%lo', '::%lo',
       '::ffff:0.0.0.0', '::ffff:0:0', '::ffff:0000:0000', '0:0:0:0:0:ffff:0:0',
       '0:0:0:0:0:ffff:0.0.0.0', '::ffff:0.0.0.0%eth0',
     ]) {
