@@ -51,3 +51,4 @@ dsh-web.log
 dsh-web.pid
 .dsh-home/logs/
 .dsh-home/sessions/**/*.lock
+.dsh-home/.credentials.yaml
