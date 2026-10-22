@@ -76,7 +76,6 @@ export const SERVICE_PAGE: Record<string, string> = {
   shellEnv: 'shell.md',
   clientModules: 'client-modules.md',
   code: 'code.md',
-  codeRuntime: 'code-runtime.md',
   ptcRuntime: 'ptc-runtime.md',
   browserUse: 'browser-use.md',
   computerUse: 'computer-use.md',
@@ -91,7 +90,6 @@ export const SERVICE_PAGE: Record<string, string> = {
   directoryPicker: 'workspace.md',
   deepseekLlmApiExtensions: 'llm-streaming.md',
   dynamicCordisRunner: 'extensions.md',
-  e2b: 'subprocess.md',
   exploration: 'exploration.md',
   consistency: 'consistency.md',
   paper: 'paper.md',
@@ -176,6 +174,7 @@ export const SERVICE_PAGE: Record<string, string> = {
  * to a model as `cordis_runtime_inspect what:"client"`).
  */
 export const SERVICE_WALK_EXEMPTIONS: Record<string, string> = {
+  invariants: 'local-only diagnostics registry kept for the domain engines — docs/subsystems/invariants.md owns the contract',
   invocation: 'not a service: per-call accessor (RemoteInvocation | undefined) the Gateway derives for each Remote call — packages/api/gateway/README.md owns the contract',
   webTerminals: 'client-side terminal view models — packages/api/terminal-controller/README.md owns the API',
   appReady: 'not a service: launcher-provided successful-startup signal — packages/boot/cmdline/README.md owns the launcher contract',

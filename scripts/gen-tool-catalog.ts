@@ -761,9 +761,8 @@ const TOOL_PACKAGES: ToolPackage[] = [
     writes: ['tool/call', 'tool/result'],
     async mount(ctx) {
       // The tools call the engine's pure processors directly; the schema needs
-      // only the tools registry and the host filesystem seam for the required
-      // template/material-root config fields.
-      await ctx.plugin(LocalFileSystem)
+      // only the tools registry and the host filesystem seam (mounted by the
+      // shared harness) for the required template/material-root config fields.
       await ctx.plugin(ToolBidding, {
         templateUserRoot: resolve(root, '.tmp/tool-catalog/bidding-templates'),
         materialRoot: resolve(root, '.tmp/tool-catalog/bidding-materials'),

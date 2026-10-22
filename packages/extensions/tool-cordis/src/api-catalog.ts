@@ -637,6 +637,19 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
     ],
   },
   {
+    key: 'code',
+    summary: 'Service exposing the engine\'s analysis behind `ctx.code`.',
+    description: 'Service exposing the engine\'s analysis behind `ctx.code`.',
+    methods: [
+      {
+        signature: 'analyze( fileName: string | undefined, source: string, options?: { readonly limits?: OperationalLimits; readonly checks?: StaticCheckConfig }, ): CodeAnalysis',
+        description: 'Analyze a source file end to end, using the service\'s configured limits and default check toggles unless the caller overrides them.',
+        parameters: [{ name: 'fileName', description: 'optional file name used for language detection.' }, { name: 'source', description: 'source text to analyze.' }, { name: 'options', description: 'optional per-call overrides for limits and check toggles.' }],
+        returns: 'the full analysis record.',
+      },
+    ],
+  },
+  {
     key: 'commands',
     summary: 'Human-command registry.',
     description: 'Human-command registry. Plain-context definitions are global; definitions registered through a command-injected child of an agent context shadow globals for that agent.',
@@ -804,6 +817,36 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
         description: 'Add the fresh process token to an ordinary Web application URL.',
         parameters: [{ name: 'baseUrl', description: 'clean application URL whose authority and mount are preserved.' }],
         returns: 'tokenized URL for initial login; a mount proxy strips its prefix before {@link authorizeIndex}.',
+      },
+    ],
+  },
+  {
+    key: 'consistency',
+    summary: 'Registry and runner for consistency-test engineering pipelines.',
+    description: 'Registry and runner for consistency-test engineering pipelines.',
+    methods: [
+      {
+        signature: 'registerPipeline(pipeline: unknown): void',
+        description: 'Register a named pipeline; duplicate names fail loud.',
+        parameters: [{ name: 'pipeline', description: 'raw pipeline definition to validate and register.' }],
+      },
+      {
+        signature: 'listPipelines(): readonly Pipeline[]',
+        description: 'List the registered pipelines in registration order.',
+        parameters: [],
+        returns: 'the registered pipelines.',
+      },
+      {
+        signature: 'run(name: string, input: ProcessingInput): RunRecord',
+        description: 'Run a registered pipeline by name over raw input.',
+        parameters: [{ name: 'name', description: 'registered pipeline name.' }, { name: 'input', description: 'raw input handed to the ingest step.' }],
+        returns: 'the traceability run record.',
+      },
+      {
+        signature: 'runPipeline(input: ProcessingInput, pipeline: unknown): RunRecord',
+        description: 'Run a one-off pipeline definition over raw input.',
+        parameters: [{ name: 'input', description: 'raw input handed to the ingest step.' }, { name: 'pipeline', description: 'raw pipeline definition, validated before running.' }],
+        returns: 'the traceability run record.',
       },
     ],
   },
@@ -1049,6 +1092,36 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
         description: 'Create one child directory for a Remote caller\'s in-app browser.',
         parameters: [{ name: 'path', description: 'absolute existing parent directory.' }, { name: 'name', description: 'single non-blank path segment.' }],
         returns: 'the created directory\'s absolute path.',
+      },
+    ],
+  },
+  {
+    key: 'exploration',
+    summary: 'Registry and runner for exploration data processing pipelines.',
+    description: 'Registry and runner for exploration data processing pipelines.',
+    methods: [
+      {
+        signature: 'registerPipeline(pipeline: unknown): void',
+        description: 'Register a named pipeline; duplicate names fail loud.',
+        parameters: [{ name: 'pipeline', description: 'raw pipeline definition to validate and register.' }],
+      },
+      {
+        signature: 'listPipelines(): readonly Pipeline[]',
+        description: 'List the registered pipelines in registration order.',
+        parameters: [],
+        returns: 'the registered pipelines.',
+      },
+      {
+        signature: 'run(name: string, input: ProcessingInput): RunRecord',
+        description: 'Run a registered pipeline by name over raw input.',
+        parameters: [{ name: 'name', description: 'registered pipeline name.' }, { name: 'input', description: 'raw input handed to the ingest step.' }],
+        returns: 'the traceability run record.',
+      },
+      {
+        signature: 'runPipeline(input: ProcessingInput, pipeline: unknown): RunRecord',
+        description: 'Run a one-off pipeline definition over raw input.',
+        parameters: [{ name: 'input', description: 'raw input handed to the ingest step.' }, { name: 'pipeline', description: 'raw pipeline definition, validated before running.' }],
+        returns: 'the traceability run record.',
       },
     ],
   },
@@ -1631,6 +1704,36 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
         description: 'Create an independent byte-bounded Session-log channel. Authorization and redaction precede reporting; the consumer owns shutdown and its outer deadline.',
         parameters: [{ name: 'options', description: 'transport, scope, resource, queue, and diagnostic settings selected by the consumer.' }],
         returns: 'the caller-owned channel, preserving complete accepted events within the request byte ceiling.',
+      },
+    ],
+  },
+  {
+    key: 'paper',
+    summary: 'Registry and runner for academic paper-writing pipelines.',
+    description: 'Registry and runner for academic paper-writing pipelines.',
+    methods: [
+      {
+        signature: 'registerPipeline(pipeline: unknown): void',
+        description: 'Register a named pipeline; duplicate names fail loud.',
+        parameters: [{ name: 'pipeline', description: 'raw pipeline definition to validate and register.' }],
+      },
+      {
+        signature: 'listPipelines(): readonly Pipeline[]',
+        description: 'List the registered pipelines in registration order.',
+        parameters: [],
+        returns: 'the registered pipelines.',
+      },
+      {
+        signature: 'run(name: string, input: ProcessingInput): RunRecord',
+        description: 'Run a registered pipeline by name over raw manuscript input.',
+        parameters: [{ name: 'name', description: 'registered pipeline name.' }, { name: 'input', description: 'raw input handed to the ingest step.' }],
+        returns: 'the traceability run record.',
+      },
+      {
+        signature: 'runPipeline(input: ProcessingInput, pipeline: unknown): RunRecord',
+        description: 'Run a one-off pipeline definition over raw manuscript input.',
+        parameters: [{ name: 'input', description: 'raw input handed to the ingest step.' }, { name: 'pipeline', description: 'raw pipeline definition, validated before running.' }],
+        returns: 'the traceability run record.',
       },
     ],
   },
@@ -4998,6 +5101,14 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface ClientArtifactBaseline {\n    readonly path: string;\n    readonly mtimeMs: number;\n    readonly ctimeMs: number;\n    readonly size: number;\n}',
   },
   {
+    name: 'CodeAnalysis',
+    declaration: 'export interface CodeAnalysis {\n    readonly language: Language;\n    readonly metrics: CodeMetrics;\n    readonly complexity: ComplexityMetrics;\n    readonly qualityScore: number;\n    readonly findings: readonly Finding[];\n    readonly notes: readonly string[];\n}',
+  },
+  {
+    name: 'CodeMetrics',
+    declaration: 'export interface CodeMetrics extends LineMetrics {\n    readonly language: Language;\n    readonly functions: number;\n    readonly classes: number;\n}',
+  },
+  {
     name: 'CollectedOutput',
     declaration: 'export interface CollectedOutput {\n    text: string;\n    truncated: boolean;\n    spillPath?: string;\n}',
   },
@@ -5072,6 +5183,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'CompactionTrigger',
     declaration: 'export type CompactionTrigger = \'pressure\' | \'context-overflow\';',
+  },
+  {
+    name: 'ComplexityMetrics',
+    declaration: 'export interface ComplexityMetrics {\n    readonly overall: number;\n    readonly average: number | null;\n    readonly max: number;\n    readonly functions: readonly FunctionComplexity[];\n}',
   },
   {
     name: 'CompositionRowEnablement',
@@ -5510,6 +5625,14 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface FileUploadValue {\n    readonly receiptId: FileUploadReceiptId;\n    readonly file: FileAttachmentRef;\n}',
   },
   {
+    name: 'Finding',
+    declaration: 'export interface Finding {\n    readonly rule: string;\n    readonly category: FindingCategory;\n    readonly severity: Severity;\n    readonly line: number;\n    readonly message: string;\n    readonly snippet?: string;\n}',
+  },
+  {
+    name: 'FindingCategory',
+    declaration: 'export type FindingCategory = \'security\' | \'maintainability\' | \'debugResidue\';',
+  },
+  {
     name: 'FinishReason',
     declaration: 'export type FinishReason = FinishReasonMap[keyof FinishReasonMap];',
   },
@@ -5564,6 +5687,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'FsWriteOutcome',
     declaration: 'export interface FsWriteOutcome {\n    operation: \'create\' | \'update\';\n    version: FsVersion;\n    before: string | null;\n    after: string;\n}',
+  },
+  {
+    name: 'FunctionComplexity',
+    declaration: 'export interface FunctionComplexity {\n    readonly name: string;\n    readonly line: number;\n    readonly complexity: number;\n}',
   },
   {
     name: 'GenerateOptions',
@@ -5896,6 +6023,14 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'KvUnitDescriptor',
     declaration: 'export interface KvUnitDescriptor {\n    readonly name: string;\n    readonly version: number;\n    readonly tables: readonly string[];\n    readonly hasGlobal: boolean;\n    readonly layout?: \'single\' | \'per-record\';\n    readonly compatibleVersions?: readonly number[];\n}',
+  },
+  {
+    name: 'Language',
+    declaration: 'export type Language = \'python\' | \'javascript\' | \'typescript\' | \'java\' | \'go\' | \'rust\' | \'c\' | \'cpp\' | \'unknown\';',
+  },
+  {
+    name: 'LineMetrics',
+    declaration: 'export interface LineMetrics {\n    readonly lines: number;\n    readonly codeLines: number;\n    readonly commentLines: number;\n    readonly blankLines: number;\n}',
   },
   {
     name: 'LlmAdapter',
@@ -6324,6 +6459,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'OneShotScheduleRecord',
     declaration: 'export type OneShotScheduleRecord = AfterScheduleRecord | AtScheduleRecord;',
+  },
+  {
+    name: 'OperationalLimits',
+    declaration: 'export interface OperationalLimits {\n    readonly maxCodeBytes?: number;\n    readonly maxFunctions?: number;\n    readonly maxFindings?: number;\n}',
   },
   {
     name: 'OptionalSessionSeq',
@@ -7586,6 +7725,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface SettingsSecretView {\n    path: string[];\n    set: boolean;\n}',
   },
   {
+    name: 'Severity',
+    declaration: 'export type Severity = \'error\' | \'warning\' | \'info\';',
+  },
+  {
     name: 'ShellExecRequest',
     declaration: 'export interface ShellExecRequest {\n    command: string;\n    workdir?: string | undefined;\n    timeoutMs?: number | undefined;\n    onExpiry?: ShellExpiryPolicy | undefined;\n    stdoutMaxBytes?: number | undefined;\n    signal?: AbortSignal | undefined;\n    stdin?: string | undefined;\n    env?: Record<string, string> | undefined;\n    dshEnv?: DshEnvironment | undefined;\n    sandboxPolicy?: SandboxExecutionPolicy | undefined;\n}',
   },
@@ -7800,6 +7943,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'SshStreamEndpoint',
     declaration: 'export type SshStreamEndpoint = z.infer<typeof streamEndpointSchema>;',
+  },
+  {
+    name: 'StaticCheckConfig',
+    declaration: 'export interface StaticCheckConfig {\n    readonly dangerous?: boolean;\n    readonly secrets?: boolean;\n    readonly todos?: boolean;\n    readonly debugResidue?: boolean;\n    readonly emptyCatch?: boolean;\n    readonly broadCatch?: boolean;\n}',
   },
   {
     name: 'StorageBackend',
@@ -8692,14 +8839,6 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'WorkflowAgentOutcome',
     declaration: 'export type WorkflowAgentOutcome = \'completed\' | \'failed\' | \'cancelled\';',
-  },
-  {
-    name: 'WorkflowMeta',
-    declaration: 'export interface WorkflowMeta {\n    name: string;\n    description: string;\n    whenToUse?: string;\n    phases?: WorkflowPhase[];\n}',
-  },
-  {
-    name: 'WorkflowPhase',
-    declaration: 'export interface WorkflowPhase {\n    title: string;\n    detail?: string;\n    provider?: string;\n    model?: string;\n}',
   },
   {
     name: 'WorkflowResult',

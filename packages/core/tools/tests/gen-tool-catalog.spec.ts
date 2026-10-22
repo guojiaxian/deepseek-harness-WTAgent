@@ -26,12 +26,18 @@ describe('gen-tool-catalog collectToolCatalog', () => {
     const catalog = await collectToolCatalog()
     const names = catalog.flatMap(entry => entry.schemas.map(s => s.name)).sort()
     expect(names).toEqual([
-      'ask_user_question', 'bash', 'bash', 'cordis_inspect_list',
-      'cordis_inspect_query',
-      'create_goal', 'create_worktree', 'edit', 'exit_plan_mode', 'get_goal', 'glob', 'grep',
+      'ask_user_question', 'bash', 'bash', 'bidding_assemble_draft', 'bidding_compare',
+      'bidding_list_templates', 'bidding_parse_tender', 'bidding_render_docx', 'bidding_save_material',
+      'bidding_search_materials', 'code_analyze', 'code_check', 'consistency_convert', 'consistency_cut',
+      'consistency_exclude', 'consistency_ingest', 'consistency_plot', 'consistency_rename', 'consistency_run',
+      'cordis_inspect_list', 'cordis_inspect_query',
+      'create_goal', 'create_worktree', 'edit', 'exit_plan_mode', 'exploration_clean', 'exploration_convert',
+      'exploration_detect', 'exploration_extract', 'exploration_ingest', 'exploration_profile', 'exploration_run',
+      'get_goal', 'glob', 'grep',
       'interrupt_agent', 'interrupt_agent', 'job_kill', 'job_list', 'job_output',
       'list_agents', 'list_agents', 'list_mcp_resource_templates', 'list_mcp_resources',
-      'list_subagent_models', 'load_workspace_dependencies', 'lsp', 'plugin_manager', 'plugin_market', 'present', 'pwsh', 'pwsh', 'ralph',
+      'list_subagent_models', 'load_workspace_dependencies', 'lsp', 'paper_cite', 'paper_export', 'paper_format',
+      'paper_ingest', 'paper_revise', 'paper_run', 'plugin_manager', 'plugin_market', 'present', 'pwsh', 'pwsh', 'ralph',
       'read', 'read_image', 'read_mcp_resource', 'run_code', 'schedule_create', 'schedule_delete',
       'schedule_list', 'schedule_update', 'send_message', 'send_message', 'session_event_read', 'session_event_search',
       'session_event_trace', 'session_search', 'session_trace', 'skill', 'spawn_teammate',
