@@ -47,6 +47,7 @@ worktrees/
 .agents/worktrees/
 .typert-*/
 native/system/test/bin/
-.dsh-home/
 dsh-web.log
 dsh-web.pid
+.dsh-home/logs/
+.dsh-home/sessions/**/*.lock
